@@ -115,15 +115,9 @@ p{margin:0 0 1em}
 .hero-rule{display:block;height:5px;background:var(--field-fg);margin-top:clamp(1.25rem,3vh,2.25rem);transform-origin:left center}
 /* ---------- pattern ---------- */
 .pattern{padding:clamp(5rem,12vh,9rem) 0 clamp(4rem,10vh,7rem)}
-.cycle{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,6vw,7rem);margin-top:clamp(3rem,8vh,5rem)}
-.cycle-rail{position:sticky;top:calc(var(--navh) + 12vh);align-self:start;height:max-content}
-.rail-num{font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 62;font-size:clamp(9rem,22vw,20rem);line-height:.78;color:var(--mark);letter-spacing:-.04em;display:block;transition:opacity .25s}
-.rail-of{font-family:var(--display);font-size:1rem;font-weight:550;color:var(--muted);margin-top:1rem;display:flex;align-items:center;gap:.9rem}
-.rail-ticks{display:flex;gap:.35rem}
-.rail-ticks i{display:block;width:1.6rem;height:.35rem;background:var(--rule);border-radius:1px;transition:background-color .3s}
-.rail-ticks i.on{background:var(--mark)}
+.cycle{margin-top:clamp(3rem,8vh,5rem);max-width:52rem}
 .cycle-steps{list-style:none;margin:0;padding:0}
-.step{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:2rem 0;border-top:1px solid var(--rule)}
+.step{display:flex;flex-direction:column;padding:clamp(2.25rem,5vh,3.5rem) 0;border-top:1px solid var(--rule)}
 .step:first-child{border-top:0}
 .step-when{font-family:var(--display);font-weight:600;font-size:.95rem;color:var(--mark)}
 .step h3{font-size:clamp(2.2rem,4.6vw,3.9rem);font-variation-settings:"wdth" 118;margin:.4rem 0 1.1rem}
@@ -307,9 +301,7 @@ p{margin:0 0 1em}
   .motto .ln > span{display:block}
   .hero-foot{grid-template-columns:1fr}
   .record-head{grid-template-columns:1fr}
-  .cycle{grid-template-columns:1fr}
-  .cycle-rail{display:none}
-  .step{min-height:auto;padding:2.25rem 0}
+  .step{padding:2.25rem 0}
   .coda{grid-template-columns:1fr;gap:1rem}
   .year{grid-template-columns:1fr}
   .year-num{position:static;font-size:2.8rem;margin-bottom:.25rem}

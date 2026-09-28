@@ -253,21 +253,6 @@ fbarBtn.addEventListener("click", () => {
   setTimeout(() => $("#q").focus({ preventScroll: true }), reduceMotion ? 0 : 450);
 });
 
-/* ---------- pattern rail ---------- */
-const railNum = $("#railnum"), ticks = $$("#railticks i");
-const stepObs = new IntersectionObserver(ens => {
-  ens.forEach(en => {
-    if (!en.isIntersecting) return;
-    const n = +en.target.dataset.step;
-    if (railNum.textContent != n) {
-      railNum.style.opacity = 0;
-      setTimeout(() => { railNum.textContent = n; railNum.style.opacity = 1; }, reduceMotion ? 0 : 160);
-    }
-    ticks.forEach((t, i) => t.classList.toggle("on", i < n));
-  });
-}, { rootMargin: "-45% 0px -50% 0px" });
-$$(".step").forEach(s => stepObs.observe(s));
-
 /* ---------- money grid ---------- */
 const cells = $("#cells");
 const REVENUE = 201, PENALTIES = 25;
