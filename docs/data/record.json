@@ -1,0 +1,1420 @@
+{
+ "name": "Meta on the Record",
+ "updated": "2026-09-27",
+ "license": "CC BY 4.0",
+ "method": "Researched, written and organized with AI (Anthropic’s Claude) and checked against the linked public sources. AI can make mistakes; verify against the sources.",
+ "entries": [
+  {
+   "id": "beacon",
+   "date": "2007-11",
+   "title": "Beacon broadcasts what people buy",
+   "evidence": "settled",
+   "evidence_label": "Settled",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Beacon told users’ friends what they bought or rented on partner websites, and it was switched on unless people opted out. Zuckerberg apologized a month after launch. Facebook shut Beacon down in 2009 to settle a class action.",
+   "figure": "$9.5M",
+   "figure_caption": "settlement, used to fund an online privacy foundation",
+   "status": "",
+   "meta_response": "“We’ve made a lot of mistakes building this feature, but we’ve made even more with how we’ve handled them.”",
+   "response_attribution": "Mark Zuckerberg, 2007",
+   "sources": [
+    {
+     "label": "NBC News",
+     "url": "https://www.nbcnews.com/news/amp/wbna32956166"
+    },
+    {
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Facebook_Beacon"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2007-beacon-broadcasts-what-people-buy/"
+  },
+  {
+   "id": "privacy2009",
+   "date": "2009-12",
+   "title": "Private settings made public without warning",
+   "evidence": "settled",
+   "evidence_label": "Settled",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "According to the FTC, Facebook changed its site so that information users may have marked private, such as friend lists, became public, without warning them or asking first. It also let apps reach nearly all of a user’s personal data. Facebook settled in 2011.",
+   "figure": "20 years",
+   "figure_caption": "of independent privacy audits; no fine",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "FTC press release",
+     "url": "https://www.ftc.gov/news-events/news/press-releases/2011/11/facebook-settles-ftc-charges-it-deceived-consumers-failing-keep-privacy-promises"
+    },
+    {
+     "label": "NPR",
+     "url": "https://www.npr.org/sections/thetwo-way/2011/11/29/142898301/facebook-settles-with-ftc-on-charges-it-deceived-users-on-privacy"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2009-private-settings-made-public-without-warning/"
+  },
+  {
+   "id": "contagion",
+   "date": "2012-01",
+   "title": "A secret experiment on people’s moods",
+   "evidence": "admitted",
+   "evidence_label": "Admitted",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "For one week in January 2012, Facebook changed how much positive or negative content people saw in their feeds, then measured whether their own posts turned happier or sadder. They were not told. Facebook’s researchers published the results in 2014.",
+   "figure": "689,003",
+   "figure_caption": "people in the experiment",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "The published paper (PNAS)",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4066473"
+    },
+    {
+     "label": "Cornell announcement",
+     "url": "https://www.sciencedaily.com/releases/2014/06/140613142533.htm"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2012-a-secret-experiment-on-peoples-moods/"
+  },
+  {
+   "id": "outed",
+   "date": "2012-10",
+   "title": "Two gay students outed to their families",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "lgbtq",
+    "privacy"
+   ],
+   "summary": "Bobbi Duncan and Taylor McCormick at UT-Austin had set their privacy controls so their fathers would not learn they were gay. When the Queer Chorus president added them to the choir’s Facebook group, Facebook announced it to all their friends. Any user could be added to a group without approving it.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "",
+   "meta_response": "“Their unfortunate experience reminds us that we must continue our work to empower and educate users about our robust privacy controls.”",
+   "response_attribution": "Facebook, 2012",
+   "sources": [
+    {
+     "label": "PinkNews",
+     "url": "https://www.thepinknews.com/2012/10/16/facebook-accidentally-outed-users-to-their-parents-through-group-permissions-loophole/"
+    },
+    {
+     "label": "EDGE Media",
+     "url": "https://www.edgemedianetwork.com/story.php?138056"
+    },
+    {
+     "label": "Duncan on HuffPost Live",
+     "url": "https://www.huffpost.com/entry/outed-on-facebook_n_4563522"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2012-two-gay-students-outed-to-their-families/"
+  },
+  {
+   "id": "realname",
+   "date": "2014-09",
+   "title": "Drag performers and trans users locked out",
+   "evidence": "admitted",
+   "evidence_label": "Admitted",
+   "topics": [
+    "lgbtq"
+   ],
+   "summary": "Facebook suspended drag performers and transgender users who did not use their legal names, after one person reported several hundred of their accounts as fake. Chief product officer Chris Cox apologized on October 1, 2014, and Facebook changed how the policy was enforced.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "",
+   "meta_response": "Cox apologized “for the hardship that we’ve put you through.”",
+   "response_attribution": "Chris Cox, 2014",
+   "sources": [
+    {
+     "label": "NPR",
+     "url": "https://www.npr.org/sections/alltechconsidered/2014/10/01/353053455/facebook-apologizes-for-name-policy-that-affected-lgbt-community"
+    },
+    {
+     "label": "The Register",
+     "url": "https://www.theregister.co.uk/2014/10/01/facebook_apologizes_for_binning_accounts_of_drag_queens/"
+    },
+    {
+     "label": "Fortune",
+     "url": "https://fortune.com/2014/10/01/facebook-real-name-policy-drag-queens"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2014-drag-performers-and-trans-users-locked-out/"
+  },
+  {
+   "id": "myanmar",
+   "date": "2017-08",
+   "title": "Hate against the Rohingya spreads on Facebook",
+   "evidence": "admitted",
+   "evidence_label": "Admitted",
+   "topics": [
+    "abroad"
+   ],
+   "summary": "As Myanmar’s military drove more than 700,000 Rohingya into Bangladesh, UN investigators said social media, meaning Facebook in Myanmar, played a “determining role” in the hatred. A report Facebook commissioned found it had not done enough. Amnesty International concluded in 2022 that its algorithms substantially contributed.",
+   "figure": "700,000+",
+   "figure_caption": "Rohingya forced to flee",
+   "status": "A US lawsuit seeking $150 billion was dismissed. The Ninth Circuit affirmed in April 2026.",
+   "meta_response": "“Prior to this year, we weren’t doing enough to help prevent our platform from being used to foment division and incite offline violence.”",
+   "response_attribution": "Facebook, 2018",
+   "sources": [
+    {
+     "label": "UN investigators (Al Jazeera)",
+     "url": "https://www.aljazeera.com/news/2018/3/13/un-facebook-had-a-role-in-rohingya-genocide"
+    },
+    {
+     "label": "Facebook’s assessment",
+     "url": "https://about.fb.com/2018/11/myanmar-hria/"
+    },
+    {
+     "label": "Amnesty International",
+     "url": "https://www.amnesty.org/en/latest/news/2022/09/myanmar-facebooks-systems-promoted-violence-against-rohingya-meta-owes-reparations-new-report/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2017-hate-against-the-rohingya-spreads-on-facebook/"
+  },
+  {
+   "id": "ira",
+   "date": "2017-10",
+   "title": "Russian operation reaches up to 126 million Americans",
+   "evidence": "admitted",
+   "evidence_label": "Admitted",
+   "topics": [
+    "democracy"
+   ],
+   "summary": "Facebook told Congress that Russia’s Internet Research Agency published about 80,000 posts between June 2015 and August 2017, mostly on divisive subjects such as race and guns. About 29 million people were served the posts directly; sharing spread them further.",
+   "figure": "126M",
+   "figure_caption": "Americans who may have been served the content, by Facebook’s own estimate",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "CNBC",
+     "url": "https://www.cnbc.com/2017/10/30/facebook-says-russia-backed-election-content-reached-126-million-americans.html"
+    },
+    {
+     "label": "CNN via KSHB",
+     "url": "https://www.kshb.com/news/national/facebook-estimates-126-million-people-were-served-content-from-russia-linked-pages"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2017-russian-operation-reaches-up-to-126-million-americans/"
+  },
+  {
+   "id": "srilanka",
+   "date": "2018-03",
+   "title": "Anti-Muslim riots in Sri Lanka",
+   "evidence": "admitted",
+   "evidence_label": "Admitted",
+   "topics": [
+    "abroad"
+   ],
+   "summary": "Rumors and hate speech spread on Facebook ahead of riots in which mosques and Muslim-owned businesses burned and at least three people died. Officials said Facebook had only two people reviewing Sinhala content. The assessment Facebook commissioned found posts may have led to offline violence.",
+   "figure": "2",
+   "figure_caption": "Sinhala-language reviewers, according to officials",
+   "status": "",
+   "meta_response": "“We recognize, and apologize for, the very real human rights impacts that resulted.”",
+   "response_attribution": "Facebook, 2020",
+   "sources": [
+    {
+     "label": "Al Jazeera",
+     "url": "https://www.aljazeera.com/news/2020/5/13/sri-lanka-facebook-apologises-for-role-in-2018-anti-muslim-riots"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2018-anti-muslim-riots-in-sri-lanka/"
+  },
+  {
+   "id": "ca",
+   "date": "2018-03",
+   "title": "Cambridge Analytica",
+   "evidence": "settled",
+   "evidence_label": "Settled",
+   "topics": [
+    "privacy",
+    "democracy"
+   ],
+   "summary": "A researcher’s quiz app harvested data from up to 87 million users, most of them friends of the people who took the quiz, and passed it to a political consulting firm. Facebook learned of it in 2015, asked for the data to be deleted, and considered the matter closed until news reports in 2018.",
+   "figure": "$5.8B",
+   "figure_caption": "FTC $5B, SEC $100M and a $725M class action",
+   "status": "The class settlement became final in May 2025. In September 2026, a New Mexico jury found Meta’s promises after the scandal willfully misleading.",
+   "meta_response": "Meta settled the class action without admitting wrongdoing.",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Clifford Chance on the FTC penalty",
+     "url": "https://www.cliffordchance.com/briefings/2019/08/ftc_s_5_billion_penaltyagainstfacebook.html"
+    },
+    {
+     "label": "Bloomberg Law on the $725M settlement",
+     "url": "https://news.bloomberglaw.com/esg/meta-agrees-to-pay-725-million-over-cambridge-analytica-scandal"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2018-cambridge-analytica/"
+  },
+  {
+   "id": "lynchings",
+   "date": "2018-07",
+   "title": "Rumors on WhatsApp precede mob killings in India",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "abroad"
+   ],
+   "summary": "Rumors about child kidnappers spread on social media, including WhatsApp, ahead of a wave of mob attacks in India. In every case IndiaSpend reviewed, no evidence of kidnapping was found. In July 2018 WhatsApp began labeling forwarded messages and limited forwarding in India to five chats at once.",
+   "figure": "33",
+   "figure_caption": "people killed in 69 attacks, January 2017 to July 2018, by IndiaSpend’s count",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "IndiaSpend (via BOOM)",
+     "url": "https://www.boomlive.in/child-lifting-rumours-33-killed-in-69-mob-attacks-since-jan-2017-before-that-only-1-attack-in-2012"
+    },
+    {
+     "label": "Al Jazeera",
+     "url": "https://www.aljazeera.com/amp/news/2018/7/20/whatsapp-curbs-india-services-after-spate-of-lynchings"
+    },
+    {
+     "label": "Fortune",
+     "url": "https://fortune.com/2018/07/20/whatsapp-forwarding-india-lynchings"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2018-rumors-on-whatsapp-precede-mob-killings-in-india/"
+  },
+  {
+   "id": "viewas",
+   "date": "2018-09",
+   "title": "“View As” breach exposes 29 million accounts",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Attackers chained three bugs in the “View As” feature to steal login tokens. Exposed data included names, contact details, locations, workplaces, religion and posts. In December 2024 Ireland’s regulator fined Meta for failing to build in data protection and for gaps in how it reported the breach.",
+   "figure": "€251M",
+   "figure_caption": "fine, December 2024; about 29 million accounts affected",
+   "status": "Meta said it will appeal.",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "The Register",
+     "url": "https://www.theregister.com/2024/12/17/ireland_fines_meta_for_2018/"
+    },
+    {
+     "label": "Security Affairs",
+     "url": "https://securityaffairs.com/172100/laws-and-regulations/dpc-fined-meta-e251-million.html"
+    },
+    {
+     "label": "Bloomberg via BNN",
+     "url": "https://bnnbloomberg.ca/business/company-news/2024/12/17/metas-irish-arm-fined-251-million-by-watchdog-over-data-breach"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2018-view-as-breach-exposes-29-million-accounts/"
+  },
+  {
+   "id": "atlas",
+   "date": "2019-01",
+   "title": "Teenagers paid for access to their phones",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "kids",
+    "privacy"
+   ],
+   "summary": "Since 2016, Facebook had paid people aged 13 to 35 up to $20 a month in gift cards to install a “Research” app with root access to their phone traffic. Some minors only had to tick a box claiming parental consent. Facebook ended the program on iPhone after TechCrunch reported it.",
+   "figure": "$20",
+   "figure_caption": "a month, in gift cards",
+   "status": "",
+   "meta_response": "“There was nothing ‘secret’ about this; it was literally called the Facebook Research App.”",
+   "response_attribution": "Facebook, 2019",
+   "sources": [
+    {
+     "label": "TechCrunch",
+     "url": "https://techcrunch.com/2019/02/28/facebook-research-teens/"
+    },
+    {
+     "label": "NPR",
+     "url": "https://www.npr.org/2019/01/30/690172103/facebook-google-draw-scrutiny-over-apps-that-collected-data-from-teens"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2019-teenagers-paid-for-access-to-their-phones/"
+  },
+  {
+   "id": "housing",
+   "date": "2019-03",
+   "title": "Housing ads steered by race and sex",
+   "evidence": "settled",
+   "evidence_label": "Settled",
+   "topics": [
+    "rights"
+   ],
+   "summary": "The US housing department charged that Facebook’s ad system let advertisers target and exclude people by protected traits and delivered housing ads in discriminatory ways. In a 2022 settlement with the Justice Department, Meta retired a targeting tool and paid the largest penalty the Fair Housing Act allows.",
+   "figure": "$115,054",
+   "figure_caption": "the maximum Fair Housing Act penalty",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "HousingWire",
+     "url": "https://www.housingwire.com/articles/meta-to-settle-with-doj-over-fair-housing-act-claims/"
+    },
+    {
+     "label": "JURIST",
+     "url": "https://www.jurist.org/news/2022/06/us-doj-reaches-settlement-with-meta-platforms-over-discriminatory-advertising-claims"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2019-housing-ads-steered-by-race-and-sex/"
+  },
+  {
+   "id": "modsus",
+   "date": "2020-05",
+   "title": "Moderators with PTSD win $52 million",
+   "evidence": "settled",
+   "evidence_label": "Settled",
+   "topics": [
+    "labor"
+   ],
+   "summary": "Contract moderators who spent their shifts reviewing rape, murder and suicide footage sued after developing PTSD. The settlement covered moderators in four states and required counseling and tools such as muted audio by default.",
+   "figure": "$52M",
+   "figure_caption": "for 11,250 moderators",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "KUOW / NPR",
+     "url": "https://www.kuow.org/stories/in-settlement-facebook-to-pay-52-million-to-content-moderators-with-ptsd"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2020-moderators-with-ptsd-win-52-million/"
+  },
+  {
+   "id": "illinois",
+   "date": "2021-02",
+   "title": "Illinois users win $650 million over face scans",
+   "evidence": "settled",
+   "evidence_label": "Settled",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Facebook’s “tag suggestions” feature ran facial recognition on users’ photos by default from 2011. Illinois users sued under the state’s biometric privacy law.",
+   "figure": "$650M",
+   "figure_caption": "class settlement",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Fortune",
+     "url": "https://fortune.com/2024/07/30/meta-texas-privacy-lawsuit-settlement-mark-zuckerberg-facebook-facial-recognition"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2021-illinois-users-win-650-million-over-face-scans/"
+  },
+  {
+   "id": "scrape",
+   "date": "2021-04",
+   "title": "533 million users’ phone numbers posted online",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Scrapers abused Facebook’s contact-import tools to collect names, phone numbers, birthdates and locations from users in 106 countries, then posted the set on a hacking forum. Ireland’s regulator found Meta had not built in adequate protection.",
+   "figure": "€265M",
+   "figure_caption": "fine from Ireland’s Data Protection Commission, 2022",
+   "status": "Meta challenged the fine in Ireland’s High Court.",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "The Irish Times",
+     "url": "https://www.irishtimes.com/business/2023/03/27/meta-challenges-dpcs-265-million-fine-over-third-party-data-scrape/"
+    },
+    {
+     "label": "Associated Press",
+     "url": "https://www.clickorlando.com/business/2022/11/28/irish-watchdog-fines-meta-265m-euros-in-latest-privacy-case/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2021-533-million-users-phone-numbers-posted-online/"
+  },
+  {
+   "id": "wa225",
+   "date": "2021-09",
+   "title": "WhatsApp fined over how it explained data sharing",
+   "evidence": "ruled",
+   "evidence_label": "Ruled",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Ireland’s regulator found WhatsApp broke EU rules in how it explained sharing people’s data with other Meta companies.",
+   "figure": "€225M",
+   "figure_caption": "fine",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Deccan Herald / AP",
+     "url": "https://www.deccanherald.com/business/irish-watchdog-fines-meta-265-million-euros-in-latest-privacy-case-1166531.html"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2021-whatsapp-fined-over-how-it-explained-data-sharing/"
+  },
+  {
+   "id": "teens",
+   "date": "2021-09",
+   "title": "Meta’s own research on teen girls leaks",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "kids"
+   ],
+   "summary": "Internal slides said Instagram made body-image issues worse for one in three teen girls who already had them. Among teens who reported suicidal thoughts, 13% of British and 6% of American users traced them to Instagram.",
+   "figure": "32%",
+   "figure_caption": "of teen girls who felt bad about their bodies said Instagram made it worse",
+   "status": "",
+   "meta_response": "Meta said the reporting mischaracterized research that, in some cases, relied on input from 40 teens.",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "ABC News summary",
+     "url": "https://abc7news.com/facebook-knows-instagram-is-toxic-for-teen-girls-mental-health-teenage-body-image-issues/11022272/"
+    },
+    {
+     "label": "The Facebook Papers archive (Gizmodo)",
+     "url": "https://gizmodo.com/facebook-papers-how-to-read-1848702919"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2021-metas-own-research-on-teen-girls-leaks/"
+  },
+  {
+   "id": "amare",
+   "date": "2021-11",
+   "title": "A professor is killed after posts target him",
+   "evidence": "alleged",
+   "evidence_label": "Alleged",
+   "topics": [
+    "abroad"
+   ],
+   "summary": "Professor Meareg Amare Abrha was killed in Bahir Dar during Ethiopia’s civil war. His son alleges that Facebook posts doxxed him and called for violence, and that Meta did not respond to reports until after his death.",
+   "figure": "$1.6B",
+   "figure_caption": "victims’ fund sought when the case was filed; later filings seek more",
+   "status": "Kenya’s High Court ruled in April 2025 that it can hear the case. The claims have not been tried.",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "CNBC Africa / Reuters",
+     "url": "https://cnbc.africa/2025/meta-can-be-sued-in-kenya-over-posts-related-to-ethiopia-violence-court-rules"
+    },
+    {
+     "label": "Amnesty International",
+     "url": "https://www.amnesty.org/en/latest/news/2024/09/kenya-high-court-to-decide-jurisdiction-of-landmark-meta-case/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2021-a-professor-is-killed-after-posts-target-him/"
+  },
+  {
+   "id": "nebraska",
+   "date": "2022-06",
+   "title": "Private messages used in an abortion prosecution",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Nebraska police served Meta a warrant for Messenger chats between a mother and her 17-year-old daughter, and the messages became evidence. The mother later pleaded guilty. Meta complied with a valid warrant. The chats were readable because Messenger did not encrypt them by default at the time.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "",
+   "meta_response": "Meta said the warrants “did not mention abortion at all.”",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "NPR",
+     "url": "https://www.npr.org/2022/08/12/1117092169/nebraska-cops-used-facebook-messages-to-investigate-an-alleged-illegal-abortion"
+    },
+    {
+     "label": "The Register",
+     "url": "https://www.theregister.com/2023/07/11/mother_abortion_meta/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2022-private-messages-used-in-an-abortion-prosecution/"
+  },
+  {
+   "id": "pixel",
+   "date": "2022-06",
+   "title": "Tracking code on hospital websites",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "The Markup found the Meta Pixel on the websites of 33 of Newsweek’s top 100 US hospitals, sending Facebook a packet of data when people booked appointments. Inside the patient portals of seven health systems, it sent details such as medications and conditions. Several hospitals removed it after the report.",
+   "figure": "33 of 100",
+   "figure_caption": "top US hospitals with the Pixel on their sites",
+   "status": "Class-action lawsuits over the Pixel on health sites are pending.",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "STAT and The Markup",
+     "url": "https://www.statnews.com/2022/06/16/facebook-meta-pixel-hospitals-data/"
+    },
+    {
+     "label": "The Markup",
+     "url": "https://themarkup.org/inside-the-markup/2023/02/22/the-markup-honored-by-ahcj-awards-for-excellence-in-health-care-journalism"
+    },
+    {
+     "label": "Becker’s Hospital Review",
+     "url": "https://www.beckershospitalreview.com/healthcare-information-technology/some-hospital-websites-are-sending-sensitive-patient-data-to-facebook-report-says/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2022-tracking-code-on-hospital-websites/"
+  },
+  {
+   "id": "ig405",
+   "date": "2022-09",
+   "title": "Instagram exposed teenagers’ contact details",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "kids",
+    "privacy"
+   ],
+   "summary": "Ireland’s regulator fined Instagram over business-account settings that made teenagers’ phone numbers and email addresses public.",
+   "figure": "€405M",
+   "figure_caption": "fine",
+   "status": "Meta sought judicial review in Ireland.",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "The Irish Times",
+     "url": "https://www.irishtimes.com/business/2023/03/27/meta-challenges-dpcs-265-million-fine-over-third-party-data-scrape/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2022-instagram-exposed-teenagers-contact-details/"
+  },
+  {
+   "id": "basis",
+   "date": "2023-01",
+   "title": "Fined for forcing users into personalized ads",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Ireland’s regulator found Meta relied on the wrong legal basis to process personal data for behavioral advertising on Facebook and Instagram.",
+   "figure": "€390M",
+   "figure_caption": "fines for Facebook and Instagram",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Deccan Herald / AFP",
+     "url": "https://www.deccanherald.com/business/meta-fined-390-million-by-eu-over-data-breaches-1177939.html"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2023-fined-for-forcing-users-into-personalized-ads/"
+  },
+  {
+   "id": "mena",
+   "date": "2023-02",
+   "title": "Police use fake profiles to entrap LGBT people",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "lgbtq",
+    "abroad"
+   ],
+   "summary": "Human Rights Watch documented security forces in Egypt, Iraq and Jordan creating fake profiles on Grindr and Facebook to trap LGBT people, leading to arrests, abuse and extortion. HRW has pressed Meta on how its platforms respond to this targeting.",
+   "figure": "20",
+   "figure_caption": "entrapment cases documented",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Human Rights Watch",
+     "url": "https://www.hrw.org/news/2023/02/21/middle-east-north-africa-digital-targeting-lgbt-people"
+    },
+    {
+     "label": "HRW questions for Meta",
+     "url": "https://www.hrw.org/news/2024/01/23/questions-and-answers-facebook-instagram-and-digital-targeting-lgbt-people-mena"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2023-police-use-fake-profiles-to-entrap-lgbt-people/"
+  },
+  {
+   "id": "transfers",
+   "date": "2023-05",
+   "title": "Record GDPR fine over data transfers to the US",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Ireland’s regulator ruled that Meta kept moving Europeans’ Facebook data to the US without adequate protection from US surveillance, and ordered the transfers stopped.",
+   "figure": "€1.2B",
+   "figure_caption": "the largest GDPR fine when it was issued",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Stephenson Harwood",
+     "url": "https://www.stephensonharwood.com/insights/breaking-news-meta-receives-largest-gdpr-fine-to-date/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2023-record-gdpr-fine-over-data-transfers-to-the-us/"
+  },
+  {
+   "id": "kenyamods",
+   "date": "2023-06",
+   "title": "Nairobi moderators take Meta to court",
+   "evidence": "alleged",
+   "evidence_label": "Alleged",
+   "topics": [
+    "labor",
+    "abroad"
+   ],
+   "summary": "Moderators hired through the contractor Sama reviewed graphic content for Meta. After mass layoffs, 184 of them sued, alleging trauma, unlawful dismissal and retaliation for organizing. A Kenyan court held that Meta was their principal employer, and an appeals court confirmed in 2024 that Meta can be sued in Kenya.",
+   "figure": "184",
+   "figure_caption": "moderators in the case",
+   "status": "Rulings were postponed in February 2026. The case is unresolved.",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Business & Human Rights Resource Centre",
+     "url": "https://www.business-humanrights.org/en/latest-news/kenya-court-postpones-ruling-in-two-cases-against-meta-brought-by-former-content-moderators-delaying-trial-2/"
+    },
+    {
+     "label": "Computer Weekly",
+     "url": "https://www.computerweekly.com/feature/Kenyan-workers-win-High-Court-appeal-to-take-Meta-to-trial"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2023-nairobi-moderators-take-meta-to-court/"
+  },
+  {
+   "id": "canada",
+   "date": "2023-08",
+   "title": "News blocked in Canada during wildfire evacuations",
+   "evidence": "admitted",
+   "evidence_label": "Admitted",
+   "topics": [
+    "democracy"
+   ],
+   "summary": "Meta began blocking news on Facebook and Instagram in Canada on August 1, 2023, in response to the Online News Act. When wildfires forced the evacuation of Yellowknife weeks later, the city told residents it could not share news links on Facebook, and Meta refused requests from officials and broadcasters to lift the block.",
+   "figure": "20,000",
+   "figure_caption": "Yellowknife residents ordered to evacuate",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Associated Press (ADN)",
+     "url": "https://www.adn.com/nation-world/2023/08/18/as-wildfires-spread-canadian-leaders-ask-meta-to-reverse-its-news-ban/"
+    },
+    {
+     "label": "Al Jazeera",
+     "url": "https://www.aljazeera.com/news/2023/8/29/stupid-and-dangerous-metas-news-ban-fuels-anger-amid-canada-wildfires"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2023-news-blocked-in-canada-during-wildfire-evacuations/"
+  },
+  {
+   "id": "bejar",
+   "date": "2023-11",
+   "title": "A former safety chief testifies about unwanted advances on teens",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "kids"
+   ],
+   "summary": "Arturo Béjar, who led Facebook’s user-safety work and later consulted for Instagram, told the Senate that Meta’s own user surveys found 13% of Instagram users aged 13 to 15 had received unwanted sexual advances in the previous seven days. He said his 2021 warnings to Zuckerberg went unanswered.",
+   "figure": "13%",
+   "figure_caption": "of users aged 13 to 15, in a single week, in Meta’s own survey",
+   "status": "",
+   "meta_response": "Meta said “countless people inside and outside of Meta” work to keep young people safe online.",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Béjar’s written testimony",
+     "url": "https://www.judiciary.senate.gov/download/2023-11-07-testimony-bejar?download=1"
+    },
+    {
+     "label": "Associated Press (Fortune)",
+     "url": "https://www.fortune.com/2023/11/07/facebook-instagram-harmful-effects-children-mark-zuckerberg-email-contractor-congress/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2023-a-former-safety-chief-testifies-about-unwanted-advances-on-teens/"
+  },
+  {
+   "id": "texas",
+   "date": "2024-07",
+   "title": "Texas wins $1.4 billion over face scans",
+   "evidence": "settled",
+   "evidence_label": "Settled",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Texas sued under its biometric privacy law over facial recognition that was switched on by default. Texas says it is the largest privacy settlement ever won by a single state.",
+   "figure": "$1.4B",
+   "figure_caption": "settlement",
+   "status": "",
+   "meta_response": "Meta did not admit wrongdoing.",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Fortune / AP",
+     "url": "https://fortune.com/2024/07/30/meta-texas-privacy-lawsuit-settlement-mark-zuckerberg-facebook-facial-recognition"
+    },
+    {
+     "label": "San José Inside",
+     "url": "https://www.sanjoseinside.com/business/meta-reaches-1-4b-settlement-with-texas-over-privacy-violations/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2024-texas-wins-1-4-billion-over-face-scans/"
+  },
+  {
+   "id": "nigeria",
+   "date": "2024-07",
+   "title": "Nigeria fines Meta and WhatsApp $220 million",
+   "evidence": "ruled",
+   "evidence_label": "Ruled",
+   "topics": [
+    "privacy",
+    "market"
+   ],
+   "summary": "After a 38-month investigation, Nigeria’s consumer protection regulator found WhatsApp’s 2021 data policy broke Nigerian consumer and data protection law. A tribunal upheld the fine in April 2025.",
+   "figure": "$220M",
+   "figure_caption": "fine, plus costs",
+   "status": "",
+   "meta_response": "“We disagree with both this decision and the fine and will appeal.”",
+   "response_attribution": "Meta, 2024",
+   "sources": [
+    {
+     "label": "Nigeria FCCPC",
+     "url": "https://fccpc.gov.ng/violations-tribunal-upholds-fccpcs-220-million-fine-against-meta-whatsapp/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2024-nigeria-fines-meta-and-whatsapp-220-million/"
+  },
+  {
+   "id": "crowdtangle",
+   "date": "2024-08",
+   "title": "Meta shuts down the CrowdTangle research tool",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "democracy"
+   ],
+   "summary": "Meta shut down CrowdTangle, the free tool journalists and researchers used to track how content spread, on August 14, 2024. Dozens of groups had asked it to keep the tool running through the US election, and the European Commission demanded answers under the Digital Services Act. Its replacement is limited to academic and nonprofit researchers.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "",
+   "meta_response": "Meta said its replacement, the Meta Content Library, was built to meet new regulatory requirements while protecting privacy.",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Associated Press (Las Vegas Sun)",
+     "url": "https://lasvegassun.com/news/2024/aug/14/meta-kills-off-misinformation-tracking-tool-crowdt/"
+    },
+    {
+     "label": "Columbia Journalism Review",
+     "url": "https://cjr.org/tow_center/meta-is-getting-rid-of-crowdtangle.php"
+    },
+    {
+     "label": "Fortune",
+     "url": "https://www.fortune.com/europe/2024/08/16/meta-pulled-its-disinformation-tracker-from-facebook-months-before-america-heads-to-the-polls-and-the-eu-isnt-happy/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2024-meta-shuts-down-the-crowdtangle-research-tool/"
+  },
+  {
+   "id": "marketplace",
+   "date": "2024-11",
+   "title": "EU fines Meta for tying Marketplace to Facebook",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "market"
+   ],
+   "summary": "The European Commission found Meta dominant in social networking and ruled it abused that position by tying Facebook Marketplace to Facebook and by imposing unfair terms on rival classified-ad services that advertise on its platforms.",
+   "figure": "€797.72M",
+   "figure_caption": "fine",
+   "status": "Meta said it will appeal.",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "TechCrunch",
+     "url": "https://techcrunch.com/2024/11/14/meta-slapped-with-a-e798m-fine-in-europe-its-biggest-yet"
+    },
+    {
+     "label": "Society for Computers and Law",
+     "url": "https://www.scl.org/european-commission-fines-meta-e797-72-million-over-abusive-practices-benefitting-facebook-marketplace/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2024-eu-fines-meta-for-tying-marketplace-to-facebook/"
+  },
+  {
+   "id": "korea",
+   "date": "2024-11",
+   "title": "Religion and sexuality turned into ad categories",
+   "evidence": "ruled",
+   "evidence_label": "Ruled",
+   "topics": [
+    "lgbtq",
+    "privacy"
+   ],
+   "summary": "South Korea’s privacy regulator found Meta analyzed pages users liked and ads they clicked to build ad categories on religion, political views, same-sex relationships and North Korean defector status for about 980,000 Korean Facebook users, and made them available to about 4,000 advertisers without proper consent.",
+   "figure": "₩21.6B",
+   "figure_caption": "about $15.7 million",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "The Record",
+     "url": "https://therecord.media/facebook-south-korea-privacy-regulator-fine"
+    },
+    {
+     "label": "The Hacker News",
+     "url": "https://thehackernews.com/2024/11/south-korea-fines-meta-1567m-for.html"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2024-religion-and-sexuality-turned-into-ad-categories/"
+  },
+  {
+   "id": "india",
+   "date": "2024-11",
+   "title": "India penalizes WhatsApp’s take-it-or-leave-it policy",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "market",
+    "privacy"
+   ],
+   "summary": "India’s competition regulator found WhatsApp’s 2021 policy forced users to accept data sharing with Meta. An appeals tribunal upheld the penalty in November 2025.",
+   "figure": "₹213 crore",
+   "figure_caption": "about $25 million",
+   "status": "Meta has appealed to India’s Supreme Court.",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Business Standard",
+     "url": "https://www.business-standard.com/industry/news/nclat-sets-aside-cci-data-sharing-ban-upholds-meta-penalty-2025-125110401578_1.html"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2024-india-penalizes-whatsapps-take-it-or-leave-it-policy/"
+  },
+  {
+   "id": "hateful",
+   "date": "2025-01",
+   "title": "Calling LGBTQ+ people mentally ill is now allowed",
+   "evidence": "admitted",
+   "evidence_label": "Admitted",
+   "topics": [
+    "lgbtq",
+    "democracy"
+   ],
+   "summary": "Meta rewrote its hateful conduct rules and ended third-party fact-checking in the US. The new rules allow posts calling LGBTQ+ people mentally ill or abnormal, and dropped the ban on referring to transgender people as “it.”",
+   "figure": "",
+   "figure_caption": "",
+   "status": "",
+   "meta_response": "The policy now allows “allegations of mental illness or abnormality when based on gender or sexual orientation.”",
+   "response_attribution": "Meta’s Community Standards",
+   "sources": [
+    {
+     "label": "WLRN / PolitiFact",
+     "url": "https://www.wlrn.org/government-politics/2025-01-14/meta-permits-calling-lgbtq-mentally-ill"
+    },
+    {
+     "label": "Electronic Frontier Foundation",
+     "url": "https://eff.org/deeplinks/2025/01/metas-new-content-policy-will-harm-vulnerable-users-if-it-really-valued-free"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2025-calling-lgbtq-people-mentally-ill-is-now-allowed/"
+  },
+  {
+   "id": "careless",
+   "date": "2025-03",
+   "title": "A former executive’s memoir alleges help for China’s censors",
+   "evidence": "alleged",
+   "evidence_label": "Alleged",
+   "topics": [
+    "democracy"
+   ],
+   "summary": "In Careless People, former public policy director Sarah Wynn-Williams alleges Meta built censorship tools while courting the Chinese market. An emergency arbitrator, citing her severance agreement’s non-disparagement clause, barred her from promoting the book. The order did not address whether her claims were true.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "",
+   "meta_response": "Meta called the book “false and defamatory.”",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "KQED",
+     "url": "https://www.kqed.org/arts/13973446/facebook-book-memoir-careless-people-sales"
+    },
+    {
+     "label": "NBC News",
+     "url": "https://www.nbcnewyork.com/news/business/money-report/meta-goes-to-arbitrator-to-prevent-whistleblower-from-promoting-tell-all-book/6184798/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2025-a-former-executives-memoir-alleges-help-for-chinas-censors/"
+  },
+  {
+   "id": "dma",
+   "date": "2025-04",
+   "title": "“Pay or consent” breaks Europe’s digital markets law",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "privacy",
+    "market"
+   ],
+   "summary": "The European Commission found that making users either pay for ad-free Facebook and Instagram or consent to tracking did not offer a real option to share less data.",
+   "figure": "€200M",
+   "figure_caption": "fine",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "European Commission",
+     "url": "https://digital-strategy.ec.europa.eu/en/news/commission-finds-apple-and-meta-breach-digital-markets-act"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2025-pay-or-consent-breaks-europes-digital-markets-law/"
+  },
+  {
+   "id": "localmess",
+   "date": "2025-06",
+   "title": "Hidden tracking tied private browsing to accounts",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Researchers found the Meta Pixel, embedded on millions of websites, passed browsing identifiers to the Facebook and Instagram apps on Android. For people logged into those apps, that linked their web browsing, including in incognito mode, to their accounts. Meta had used the method since September 2024 and stopped when the research was published.",
+   "figure": "5.8M+",
+   "figure_caption": "websites carrying the Meta Pixel",
+   "status": "",
+   "meta_response": "Meta said it decided “to pause the feature while we work with Google to resolve the issue.”",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "IMDEA Networks",
+     "url": "https://networks.imdea.org/research-co-led-by-imdea-networks-discovers-a-privacy-abuse-involving-meta-and-yandex-bridging-persistent-identifiers-to-browsing-histories/"
+    },
+    {
+     "label": "The Register",
+     "url": "https://www.theregister.com/2025/06/03/meta_pauses_android_tracking_tech/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2025-hidden-tracking-tied-private-browsing-to-accounts/"
+  },
+  {
+   "id": "flo",
+   "date": "2025-08",
+   "title": "Jury finds Meta eavesdropped on period-tracker users",
+   "evidence": "ruled",
+   "evidence_label": "Ruled",
+   "topics": [
+    "privacy"
+   ],
+   "summary": "Users of the Flo app entered details about their periods, pregnancies and sexual activity after being promised privacy. A federal jury found Meta intentionally recorded that data through code embedded in the app, violating California’s wiretapping law. The other defendants settled before trial.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "Liability found August 1, 2025. Damages have not been set.",
+   "meta_response": "“The plaintiffs’ claims against Meta are simply false.”",
+   "response_attribution": "Meta, 2025",
+   "sources": [
+    {
+     "label": "National Law Review via Darrow",
+     "url": "https://www.darrow.ai/news/jury-finds-meta-liable-for-collecting-private-reproductive-health-data"
+    },
+    {
+     "label": "Data Privacy + Security Insider",
+     "url": "https://www.dataprivacyandsecurityinsider.com/2025/08/federal-jury-finds-against-meta-for-collecting-data-from-flo-health/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2025-jury-finds-meta-eavesdropped-on-period-tracker-users/"
+  },
+  {
+   "id": "airules",
+   "date": "2025-08",
+   "title": "AI chatbots allowed romantic talk with children",
+   "evidence": "admitted",
+   "evidence_label": "Admitted",
+   "topics": [
+    "kids"
+   ],
+   "summary": "Reuters obtained Meta’s internal rules for its AI chatbots, approved by legal, policy and engineering staff including its chief ethicist. They permitted the bots to engage children in romantic or sensual conversations. Meta confirmed the document and removed those sections after Reuters asked about them.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "",
+   "meta_response": "Meta said the examples were “erroneous and inconsistent with our policies.”",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "TechCrunch",
+     "url": "https://techcrunch.com/2025/08/14/leaked-meta-ai-rules-show-chatbots-were-allowed-to-have-romantic-chats-with-kids/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2025-ai-chatbots-allowed-romantic-talk-with-children/"
+  },
+  {
+   "id": "vr",
+   "date": "2025-09",
+   "title": "Former researchers say VR child-safety work was buried",
+   "evidence": "alleged",
+   "evidence_label": "Alleged",
+   "topics": [
+    "kids"
+   ],
+   "summary": "Former Meta researchers Jason Sattizahn and Cayce Savage told the Senate that children on Meta’s VR platforms faced sexual solicitation and harassment, and that the company had them erase or change research documenting it. Six current and former researchers made similar allegations.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "",
+   "meta_response": "Meta called the allegations a “predetermined and false narrative.”",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Roll Call",
+     "url": "https://rollcall.com/2025/09/09/whistleblowers-tell-senate-panel-meta-hid-vr-harms/"
+    },
+    {
+     "label": "AFP (Inquirer)",
+     "url": "https://technology.inquirer.net/143056/former-meta-researchers-testify-company-buried-child-safety-studies/amp"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2025-former-researchers-say-vr-child-safety-work-was-buried/"
+  },
+  {
+   "id": "scams",
+   "date": "2025-11",
+   "title": "Internal documents project $16 billion from scam and banned-goods ads",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "scams"
+   ],
+   "summary": "Reuters reported that Meta projected about 10% of its 2024 revenue would come from ads for scams and banned goods, and that it banned advertisers only when it was 95% certain of fraud. The reporting won a Pulitzer Prize.",
+   "figure": "~$16B",
+   "figure_caption": "projected, 2024",
+   "status": "",
+   "meta_response": "Meta called the 10% figure an overly inclusive estimate and says it removed 159 million scam ads in 2025.",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Lawfare",
+     "url": "https://www.lawfaremedia.org/article/reuters-blows-lid-on-meta's-fraud-profit-scandal"
+    },
+    {
+     "label": "The Pulitzer Prizes",
+     "url": "https://www.pulitzer.org/winners/jeff-horwitz-and-engen-tham-reuters"
+    },
+    {
+     "label": "The Record",
+     "url": "https://therecord.media/meta-scam-advertising-crackdown"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2025-internal-documents-project-16-billion-from-scam-and-banned-goods/"
+  },
+  {
+   "id": "antitrust",
+   "date": "2025-11",
+   "title": "The FTC loses its case to break up Meta",
+   "evidence": "dismissed",
+   "evidence_label": "Dismissed",
+   "topics": [
+    "market"
+   ],
+   "summary": "The FTC argued Meta bought Instagram and WhatsApp to neutralize rivals, citing a 2008 Zuckerberg email saying it is better to buy than compete. The judge ruled the FTC had not shown Meta holds monopoly power today, largely because of competition from TikTok and YouTube.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/FTC_v._Meta"
+    },
+    {
+     "label": "Sullivan & Cromwell",
+     "url": "https://www.sullcrom.com/insights/memo/2025/December/Meta-Prevails-FTC-Monopolization-Case"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2025-the-ftc-loses-its-case-to-break-up-meta/"
+  },
+  {
+   "id": "kgm",
+   "date": "2026-03",
+   "title": "Jury finds Instagram’s design harmed a young user",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "kids"
+   ],
+   "summary": "A Los Angeles jury found Meta and YouTube negligent in designing platforms that a young woman used compulsively from childhood, contributing to her depression and anxiety. The jury assigned Meta 70% of the responsibility.",
+   "figure": "$6M",
+   "figure_caption": "total damages; Meta’s share about $4.2 million",
+   "status": "",
+   "meta_response": "Meta said teen mental health is complex and cannot be linked to a single app.",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "NPR",
+     "url": "https://www.npr.org/2026/03/25/nx-s1-5746125/meta-youtube-social-media-trial-verdict"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2026-jury-finds-instagrams-design-harmed-a-young-user/"
+  },
+  {
+   "id": "nm1",
+   "date": "2026-03",
+   "title": "New Mexico jury: Meta misled families about predators",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "kids"
+   ],
+   "summary": "State investigators posing as children on Facebook and Instagram were shown sexual content and solicited by adults. The jury found Meta violated New Mexico’s consumer protection law and imposed the maximum penalty for each violation.",
+   "figure": "$375M",
+   "figure_caption": "civil penalties",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "New Mexico Department of Justice",
+     "url": "https://nmdoj.gov/press-release/new-mexico-department-of-justice-wins-landmark-verdict-against-meta/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2026-new-mexico-jury-meta-misled-families-about-predators/"
+  },
+  {
+   "id": "rohingya9",
+   "date": "2026-04",
+   "title": "Appeals court upholds dismissal of Rohingya lawsuit",
+   "evidence": "dismissed",
+   "evidence_label": "Dismissed",
+   "topics": [
+    "abroad"
+   ],
+   "summary": "The Ninth Circuit affirmed the dismissal of the Rohingya refugees’ class action, holding that Section 230 shields Meta from liability for the posts.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "Ninth Circuit opinion",
+     "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/04/28/24-1672.pdf"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2026-appeals-court-upholds-dismissal-of-rohingya-lawsuit/"
+  },
+  {
+   "id": "glaad",
+   "date": "2026-05",
+   "title": "Meta’s LGBTQ+ safety scores fall again",
+   "evidence": "reported",
+   "evidence_label": "Reported",
+   "topics": [
+    "lgbtq"
+   ],
+   "summary": "GLAAD’s Social Media Safety Index scored Instagram 41, Facebook 40 and Threads 39 out of 100, down from 45, 45 and 40 the year before.",
+   "figure": "40/100",
+   "figure_caption": "Facebook’s score",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "GLAAD",
+     "url": "https://glaad.org/smsi/2026/meta-platforms/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2026-metas-lgbtq-safety-scores-fall-again/"
+  },
+  {
+   "id": "dsa",
+   "date": "2026-07",
+   "title": "EU says addictive design breaks the Digital Services Act",
+   "evidence": "alleged",
+   "evidence_label": "Alleged",
+   "topics": [
+    "kids"
+   ],
+   "summary": "In preliminary findings, the European Commission said Meta did not adequately assess the risks of Instagram’s and Facebook’s addictive design to users’ well-being, including minors’.",
+   "figure": "",
+   "figure_caption": "",
+   "status": "Preliminary. A final decision could carry fines of up to 6% of global turnover.",
+   "meta_response": "“We disagree.”",
+   "response_attribution": "Meta",
+   "sources": [
+    {
+     "label": "CNBC",
+     "url": "https://www.cnbc.com/2026/07/10/meta-instagram-facebook-addictive-design-breach-eu-laws.html"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2026-eu-says-addictive-design-breaks-the-digital-services-act/"
+  },
+  {
+   "id": "nm2",
+   "date": "2026-08",
+   "title": "Judge declares Meta a public nuisance",
+   "evidence": "appeal",
+   "evidence_label": "Ruled, under appeal",
+   "topics": [
+    "kids"
+   ],
+   "summary": "A New Mexico judge ordered a $567 million fund for treatment, screening and prevention, and changes for minors: like counts hidden by default, notifications paused overnight, and no romantic AI chats.",
+   "figure": "$942M",
+   "figure_caption": "total with the jury penalty",
+   "status": "",
+   "meta_response": "",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "New Mexico Department of Justice",
+     "url": "https://nmdoj.gov/press-release/court-orders-meta-to-pay-942-million-and-overhaul-protections-for-children-on-facebook-and-instagram-in-landmark-new-mexico-ruling/"
+    },
+    {
+     "label": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/07/new-mexico-court-orders-meta-to-pay-additional-567m-in-child-safety-case/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2026-judge-declares-meta-a-public-nuisance/"
+  },
+  {
+   "id": "multistate",
+   "date": "2026-08",
+   "title": "State attorneys general settle for at least $12.1 billion",
+   "evidence": "settled",
+   "evidence_label": "Settled",
+   "topics": [
+    "kids"
+   ],
+   "summary": "State attorneys general who sued in 2023 settled in the middle of trial. Meta agreed to hard daily time limits for teens, an independent auditor and a ban on deceptive safety claims.",
+   "figure": "$12.1B+",
+   "figure_caption": "over ten years, rising to $17.1B if other conditions are met",
+   "status": "",
+   "meta_response": "Meta denied the allegations and admitted no wrongdoing.",
+   "response_attribution": "",
+   "sources": [
+    {
+     "label": "DC Attorney General",
+     "url": "https://oag.dc.gov/release/attorney-general-schwalb-announces-meta-will-pay"
+    },
+    {
+     "label": "PBS NewsHour",
+     "url": "https://www.pbs.org/newshour/nation/meta-reaches-17-billion-settlement-with-states-in-landmark-trial-over-teen-social-media-addiction"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2026-state-attorneys-general-settle-for-at-least-12-1-billion/"
+  },
+  {
+   "id": "nm3",
+   "date": "2026-09",
+   "title": "A second jury finds 43.9 million deceptions",
+   "evidence": "ruled",
+   "evidence_label": "Ruled",
+   "topics": [
+    "privacy",
+    "democracy"
+   ],
+   "summary": "In a case New Mexico filed in 2021 over Cambridge Analytica, a Santa Fe jury found that 26 of 29 public statements by Meta and its executives about user data, misinformation, hate speech and equal enforcement were willfully deceptive. The jury sided with the state on 31 of 34 questions.",
+   "figure": "43.9M",
+   "figure_caption": "violations found; the state counts 43,899,725, the verdict form 43,899,720",
+   "status": "Judge Francis Mathew will set the penalty, up to $5,000 per violation.",
+   "meta_response": "“We disagree with the verdict and will continue to defend ourselves against efforts to distort our record.”",
+   "response_attribution": "Meta, 2026",
+   "sources": [
+    {
+     "label": "Reuters via Engadget",
+     "url": "https://www.engadget.com/2269422/new-mexico-jury-rules-meta-misled-state-residents-about-data-privacy/"
+    },
+    {
+     "label": "Source New Mexico",
+     "url": "https://sourcenm.com/2026/09/25/new-mexico-jury-finds-facebook-at-fault-over-data-collection-misinformation-and-hate-speech/"
+    },
+    {
+     "label": "nm.news",
+     "url": "https://nm.news/2026/09/25/its-complicated-jury-finds-meta-misled-new-mexicans-43-9-million-times/"
+    }
+   ],
+   "needs_source": false,
+   "url": "https://metaontherecord.org/record/2026-a-second-jury-finds-43-9-million-deceptions/"
+  }
+ ]
+}

@@ -1,0 +1,313 @@
+(() => {
+"use strict";
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const yearOf = d => +d.slice(0, 4);
+const fmtDate = d => `${MONTHS[+d.slice(5, 7) - 1]} ${d.slice(0, 4)}`;
+
+/* ---------- evidence glyphs: solidity encodes certainty ---------- */
+function glyph(tier, cls = "glyph") {
+  const a = `class="${cls}" viewBox="0 0 16 16" aria-hidden="true" focusable="false"`;
+  switch (tier) {
+    case "ruled":     return `<svg ${a}><rect x="1.5" y="1.5" width="13" height="13" fill="currentColor"/></svg>`;
+    case "appeal":    return `<svg ${a}><path d="M1.5 1.5h8.5l4.5 4.5v8.5h-13z" fill="currentColor"/></svg>`;
+    case "settled":   return `<svg ${a}><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"/><rect x="5.5" y="5.5" width="5" height="5" fill="currentColor"/></svg>`;
+    case "admitted":  return `<svg ${a}><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"/><rect x="2.5" y="2.5" width="5.5" height="11" fill="currentColor"/></svg>`;
+    case "reported":  return `<svg ${a}><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"/></svg>`;
+    case "alleged":   return `<svg ${a}><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.4 2"/></svg>`;
+    case "dismissed": return `<svg ${a}><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 13 13 3" stroke="currentColor" stroke-width="1.6"/></svg>`;
+    case "credit":    return `<svg ${a}><circle cx="8" cy="8" r="6" fill="currentColor"/></svg>`;
+  }
+  return "";
+}
+const tierLabel = t => t === "credit" ? "Credit" : TIERS[t].label;
+
+/* ---------- static fills ---------- */
+$$(".tierline[data-tier]").forEach(el => { el.innerHTML = glyph(el.dataset.tier) + esc(tierLabel(el.dataset.tier)); });
+
+const years = ENTRIES.map(e => yearOf(e.date));
+const firstYear = Math.min(...years), lastYear = Math.max(...years);
+$("#herometa").textContent = `${ENTRIES.length} entries from ${firstYear} to ${lastYear}. Updated September 27, 2026.`;
+
+$("#tierdefs").innerHTML = Object.entries(TIERS).map(([k, t]) =>
+  `<div><dt>${glyph(k)}${esc(t.label)}</dt><dd>${esc(t.def)}</dd></div>`).join("") +
+  `<div><dt>${glyph("credit")}Credit</dt><dd>Something Meta did well, listed with the context it needs.</dd></div>`;
+
+$("#notes").innerHTML = NOTES.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
+
+function sourcesHTML(list, check) {
+  if (list && list.length) return `<ul class="src">${list.map(([l, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a></li>`).join("")}</ul>`;
+  return check ? `<p class="pending">Primary source link being added. Figures are drawn from public reporting and will be linked before this entry is final.</p>` : "";
+}
+
+$("#creditlist").innerHTML = CREDITS.map(c => `
+  <li class="credit-row" id="${esc(c.id)}">
+    <span class="when">${fmtDate(c.date)}</span>
+    <div>${c.fig ? `<span class="big">${esc(c.fig)}</span>` : ""}<h3>${esc(c.title)}</h3><p>${esc(c.summary)}</p></div>
+    <div><p class="ctx"><b>Context</b>${esc(c.ctx)}</p>${sourcesHTML(c.sources)}</div>
+  </li>`).join("");
+
+/* ---------- state ---------- */
+const state = { themes: new Set(), tiers: new Set(), q: "", credits: false, newest: false };
+const isFiltered = () => state.themes.size || state.tiers.size || state.q;
+
+function matches(e) {
+  if (e.kind === "credit") {
+    if (!state.credits || state.themes.size || state.tiers.size) return false;
+  } else {
+    if (state.themes.size && !e.themes.some(t => state.themes.has(t))) return false;
+    if (state.tiers.size && !state.tiers.has(e.tier)) return false;
+  }
+  if (state.q) {
+    const hay = [e.title, e.summary, e.response, e.who, e.cap, e.status, e.ctx, ...(e.themes || []).map(t => THEMES[t])].join(" ").toLowerCase();
+    if (!state.q.split(/\s+/).every(w => hay.includes(w))) return false;
+  }
+  return true;
+}
+
+/* ---------- chips ---------- */
+const topicChips = $("#topicchips"), tierChips = $("#tierchips");
+topicChips.innerHTML = `<button class="chip" data-all="topic" aria-pressed="true">All topics</button>` +
+  Object.entries(THEMES).map(([k, v]) => `<button class="chip" data-theme="${k}" aria-pressed="false">${esc(v)}</button>`).join("");
+tierChips.innerHTML = `<button class="chip" data-all="tier" aria-pressed="true">All evidence</button>` +
+  Object.keys(TIERS).map(k => `<button class="chip" data-tier="${k}" aria-pressed="false">${glyph(k)}${esc(TIERS[k].label)}</button>`).join("");
+
+function syncChips() {
+  $$("[data-theme]", topicChips).forEach(b => b.setAttribute("aria-pressed", state.themes.has(b.dataset.theme)));
+  $("[data-all=topic]", topicChips).setAttribute("aria-pressed", state.themes.size === 0);
+  $$("[data-tier]", tierChips).forEach(b => b.setAttribute("aria-pressed", state.tiers.has(b.dataset.tier)));
+  $("[data-all=tier]", tierChips).setAttribute("aria-pressed", state.tiers.size === 0);
+  const n = state.themes.size + state.tiers.size;
+  $("#ftoggle").textContent = n ? `Topics and evidence (${n})` : "Topics and evidence";
+  $("#clear").hidden = !isFiltered();
+}
+topicChips.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.all) state.themes.clear();
+  else state.themes.has(b.dataset.theme) ? state.themes.delete(b.dataset.theme) : state.themes.add(b.dataset.theme);
+  update();
+});
+tierChips.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.all) state.tiers.clear();
+  else state.tiers.has(b.dataset.tier) ? state.tiers.delete(b.dataset.tier) : state.tiers.add(b.dataset.tier);
+  update();
+});
+let qTimer;
+$("#q").addEventListener("input", e => { clearTimeout(qTimer); qTimer = setTimeout(() => { state.q = e.target.value.trim().toLowerCase(); update(); }, 140); });
+$("#showcredits").addEventListener("change", e => { state.credits = e.target.checked; update(); });
+$("#clear").addEventListener("click", () => { clearFilters(); update(); $("#q").focus(); });
+$("#ftoggle").addEventListener("click", () => {
+  const f = $("#filters"); const open = !f.classList.contains("expanded");
+  f.classList.toggle("expanded", open); $("#ftoggle").setAttribute("aria-expanded", open); measureFilters();
+});
+function clearFilters() { state.themes.clear(); state.tiers.clear(); state.q = ""; $("#q").value = ""; }
+
+/* ---------- ledger ---------- */
+const ledger = $("#ledger");
+function entryHTML(e) {
+  const credit = e.kind === "credit";
+  const t = credit ? "credit" : e.tier;
+  const themes = (e.themes || []).map(k => `<span class="tag">${esc(THEMES[k])}</span>`).join("");
+  const resp = e.response ? `<blockquote class="response"><b>${credit ? "Context" : (e.who ? "In their words" : "Meta’s response")}</b>${esc(e.response)}${e.who ? ` <span>(${esc(e.who)})</span>` : ""}</blockquote>` : "";
+  const ctx = credit ? `<blockquote class="response"><b>Context</b>${esc(e.ctx)}</blockquote>` : "";
+  return `<li class="entry${credit ? " credit" : ""}" id="e-${esc(e.id)}">
+    <button class="entry-head" aria-expanded="false" aria-controls="d-${esc(e.id)}">
+      <span class="entry-date">${fmtDate(e.date)}</span>
+      <span class="entry-title">${esc(e.title)}</span>
+      <span class="entry-fig">${esc(e.fig || "")}</span>
+      <span class="entry-tier">${glyph(t)}${esc(tierLabel(t))}</span>
+      <span class="plus" aria-hidden="true"></span>
+    </button>
+    <div class="entry-body" id="d-${esc(e.id)}" role="region" aria-label="${esc(e.title)}">
+      <div class="entry-inner"><div class="entry-content">
+        <div class="main">
+          ${e.status ? `<p class="status">${esc(e.status)}</p>` : ""}
+          <p>${esc(e.summary)}</p>
+          ${resp}${ctx}
+          ${sourcesHTML(e.sources, e.check)}
+          <div class="entry-meta">${themes}${e.url ? `<a class="linkbtn" href="${esc(e.url)}">Open the full entry</a>` : ""}<button class="linkbtn" data-copy="${esc(e.url || "#e-" + e.id)}">Copy link</button></div>
+        </div>
+        <div class="side">${e.fig ? `<div class="fact"><span class="fact-num">${esc(e.fig)}</span><span class="fact-cap">${esc(e.cap || "")}</span></div>` : ""}</div>
+      </div></div>
+    </div>
+  </li>`;
+}
+
+function renderLedger() {
+  const all = ENTRIES.concat(CREDITS.map(c => ({ ...c, kind: "credit", themes: [] })));
+  const shown = all.filter(matches).sort((a, b) => state.newest ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date));
+  const harmShown = shown.filter(e => e.kind !== "credit").length;
+  $("#count").textContent = `Showing ${harmShown} of ${ENTRIES.length} entries` + (state.credits ? ` and ${shown.length - harmShown} credits` : "");
+  if (!shown.length) {
+    ledger.innerHTML = `<p class="empty">No entries match these filters. <button class="linkbtn" id="empty-clear">Clear filters</button> to see the full record.</p>`;
+    $("#empty-clear").onclick = () => { clearFilters(); update(); };
+    return;
+  }
+  const groups = new Map();
+  shown.forEach(e => { const y = yearOf(e.date); if (!groups.has(y)) groups.set(y, []); groups.get(y).push(e); });
+  ledger.innerHTML = Array.from(groups, ([y, list]) =>
+    `<section class="year" id="y${y}" aria-label="${y}"><h3 class="year-num">${y}</h3><ol class="entries">${list.map(entryHTML).join("")}</ol></section>`).join("");
+}
+
+ledger.addEventListener("click", e => {
+  const copy = e.target.closest("[data-copy]");
+  if (copy) {
+    const target = copy.dataset.copy;
+    const url = new URL(target, location.href).href;
+    const done = ok => { copy.textContent = ok ? "Link copied" : "Copy failed: " + url; setTimeout(() => copy.textContent = "Copy link", 2600); };
+    if (target.startsWith("#")) { try { history.replaceState(null, "", target); } catch (_) {} }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(() => done(true), () => done(false));
+    else done(false);
+    return;
+  }
+  const head = e.target.closest(".entry-head");
+  if (head) toggleEntry(head.closest(".entry"));
+});
+function toggleEntry(li, force) {
+  const open = force ?? !li.classList.contains("open");
+  li.classList.toggle("open", open);
+  $(".entry-head", li).setAttribute("aria-expanded", open);
+}
+
+/* ---------- density strip ---------- */
+const dbars = $("#dbars"), daxis = $("#daxis");
+const span = []; for (let y = firstYear; y <= lastYear; y++) span.push(y);
+document.documentElement.style.setProperty("--years", span.length);
+const totals = Object.fromEntries(span.map(y => [y, ENTRIES.filter(e => yearOf(e.date) === y).length]));
+const maxTotal = Math.max(...Object.values(totals));
+const labelYears = new Set([firstYear, 2010, 2014, 2018, 2022, lastYear]);
+dbars.innerHTML = span.map(y => `<button class="dbar" data-year="${y}" ${totals[y] ? "" : "disabled"} aria-label="${y}: ${totals[y]} ${totals[y] === 1 ? "entry" : "entries"}"><span class="tot" style="height:${totals[y] ? Math.max(6, totals[y] / maxTotal * 100) : 2}%"><span class="hit"></span></span></button>`).join("");
+daxis.innerHTML = span.map(y => `<span class="${labelYears.has(y) ? "show" : ""}">${labelYears.has(y) ? y : ""}</span>`).join("");
+const recent = ENTRIES.filter(e => yearOf(e.date) >= 2021).length;
+function renderDensity() {
+  span.forEach(y => {
+    const hits = ENTRIES.filter(e => yearOf(e.date) === y && matches(e)).length;
+    const bar = $(`.dbar[data-year="${y}"] .hit`, dbars);
+    bar.style.height = totals[y] ? `${hits / totals[y] * 100}%` : "0";
+  });
+  $("#dnote").textContent = isFiltered()
+    ? "Entries per year. Blue shows entries matching your filters."
+    : `Entries per year. ${recent} of the ${ENTRIES.length} entries date from 2021 or later.`;
+}
+dbars.addEventListener("click", e => {
+  const b = e.target.closest(".dbar"); if (!b || b.disabled) return;
+  const y = b.dataset.year;
+  if (!$(`#y${y}`)) { clearFilters(); update(); }
+  const target = $(`#y${y}`); if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+});
+
+/* ---------- sticky offsets ---------- */
+function measureFilters() {
+  const parts = [...state.themes].map(t => THEMES[t]).concat([...state.tiers].map(t => TIERS[t].label));
+  if (state.q) parts.push(`“${state.q}”`);
+  const shown = ENTRIES.filter(matches).length;
+  $("#fbarsum").innerHTML = `<b>${shown} of ${ENTRIES.length} entries</b>${parts.length ? ": " + esc(parts.join(", ")) : ", all topics and evidence"}`;
+}
+
+function update() { syncChips(); renderLedger(); renderDensity(); measureFilters(); }
+update();
+
+/* deep links */
+function openFromHash() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id.startsWith("e-")) return;
+  let li = document.getElementById(id);
+  if (!li) { clearFilters(); if (id.startsWith("e-c-")) { state.credits = true; $("#showcredits").checked = true; } update(); li = document.getElementById(id); }
+  if (li) { toggleEntry(li, true); setTimeout(() => li.scrollIntoView({ block: "start" }), 60); }
+}
+openFromHash();
+window.addEventListener("hashchange", openFromHash);
+window.addEventListener("resize", () => { clearTimeout(window.__rz); window.__rz = setTimeout(measureFilters, 150); });
+
+/* ---------- navigation ---------- */
+const topnav = $("#topnav");
+new IntersectionObserver(([en]) => topnav.classList.toggle("show", !en.isIntersecting), { rootMargin: "-40px 0px 0px 0px" }).observe($("#top"));
+const navLinks = $$(".navlinks a");
+const secObs = new IntersectionObserver(ens => {
+  ens.forEach(en => {
+    if (!en.isIntersecting) return;
+    navLinks.forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + en.target.id ? "true" : "false"));
+  });
+}, { rootMargin: "-45% 0px -50% 0px" });
+["pattern","record","people","money","credits","method"].forEach(id => secObs.observe(document.getElementById(id)));
+
+/* ---------- compact filter bar ---------- */
+const fbar = $("#fbar"), fbarBtn = $("#fbarbtn");
+let filtersAbove = false, inRecord = false;
+function syncFbar() {
+  const show = filtersAbove && inRecord;
+  fbar.classList.toggle("show", show);
+  fbar.setAttribute("aria-hidden", !show);
+  fbarBtn.tabIndex = show ? 0 : -1;
+}
+new IntersectionObserver(([en]) => { filtersAbove = !en.isIntersecting && en.boundingClientRect.top < 0; syncFbar(); },
+  { rootMargin: "-56px 0px 0px 0px" }).observe($("#filters"));
+new IntersectionObserver(([en]) => { inRecord = en.isIntersecting; syncFbar(); },
+  { rootMargin: "-120px 0px -40% 0px" }).observe($("#ledger"));
+fbarBtn.addEventListener("click", () => {
+  $("#filters").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  setTimeout(() => $("#q").focus({ preventScroll: true }), reduceMotion ? 0 : 450);
+});
+
+/* ---------- pattern rail ---------- */
+const railNum = $("#railnum"), ticks = $$("#railticks i");
+const stepObs = new IntersectionObserver(ens => {
+  ens.forEach(en => {
+    if (!en.isIntersecting) return;
+    const n = +en.target.dataset.step;
+    if (railNum.textContent != n) {
+      railNum.style.opacity = 0;
+      setTimeout(() => { railNum.textContent = n; railNum.style.opacity = 1; }, reduceMotion ? 0 : 160);
+    }
+    ticks.forEach((t, i) => t.classList.toggle("on", i < n));
+  });
+}, { rootMargin: "-45% 0px -50% 0px" });
+$$(".step").forEach(s => stepObs.observe(s));
+
+/* ---------- money grid ---------- */
+const cells = $("#cells");
+const REVENUE = 201, PENALTIES = 25;
+cells.innerHTML = Array.from({ length: REVENUE }, (_, i) =>
+  `<span class="cell${i < PENALTIES ? " fill" : ""}"${i < PENALTIES && !reduceMotion ? ` style="transition-delay:${i * 45}ms"` : ""}></span>`).join("");
+if (reduceMotion) cells.classList.add("on");
+else new IntersectionObserver(([en], o) => { if (en.isIntersecting) { cells.classList.add("on"); o.disconnect(); } }, { threshold: .45 }).observe(cells);
+
+/* ---------- hero: the one kinetic moment ---------- */
+const root = document.documentElement;
+let heroStarted = false;
+const release = () => root.classList.remove("motion");
+setTimeout(() => { if (!heroStarted) release(); }, 3000);
+
+async function hero() {
+  if (!root.classList.contains("motion") || !window.gsap) { release(); return; }
+  try { await document.fonts.ready; } catch (_) {}
+  heroStarted = true;
+  const g = window.gsap;
+  if (window.ScrollTrigger) g.registerPlugin(ScrollTrigger);
+  const top = $(".shard-top"), bot = $(".shard-bot"), quake = $("#quake"), foot = $("#herofoot");
+  g.set([".m1 > span", ".m2 > span"], { yPercent: 112 });
+  g.set(foot, { autoAlpha: 0 });
+  g.set(bot, { x: 0, y: 0, rotation: 0 });
+  release();
+  g.timeline({ delay: .2, onComplete: driftOnScroll })
+    .to(".m1 > span", { yPercent: 0, duration: 1.1, ease: "power4.out" })
+    .to(".m2 > span", { yPercent: 0, duration: 1.1, ease: "power4.out" }, "-=0.8")
+    .to(quake, { x: 4, duration: .045, repeat: 5, yoyo: true, ease: "none" }, "+=0.35")
+    .set(quake, { x: 0 })
+    .to(bot, { x: "1.4vw", y: "0.8vw", rotation: 1.1, duration: .6, ease: "expo.out" })
+    .to(top, { x: "-0.3vw", rotation: -.2, duration: .6, ease: "expo.out" }, "<")
+    .to(foot, { autoAlpha: 1, duration: .9, ease: "power2.out" }, "-=0.25");
+
+  function driftOnScroll() {
+    if (!window.ScrollTrigger) return;
+    const st = { trigger: "#top", start: "top top", end: "bottom top", scrub: 1 };
+    g.to(bot, { y: "+=16vh", rotation: "+=4", ease: "none", scrollTrigger: st });
+    g.to(top, { y: "-=4vh", ease: "none", scrollTrigger: { ...st } });
+  }
+}
+hero();
+})();
