@@ -106,7 +106,7 @@ p{margin:0 0 1em}
 .motto .ln > span{display:inline-block}
 .m1{font-size:clamp(3rem,11.6vw,10.5rem);font-variation-settings:"wdth" 125;white-space:nowrap}
 .m2{font-size:clamp(3rem,12.8vw,11.5rem);font-variation-settings:"wdth" 62;font-weight:900;letter-spacing:-.02em;white-space:nowrap}
-.hero-foot{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:2rem clamp(2rem,6vw,6rem);align-items:end;margin-top:clamp(2rem,5vh,3.5rem)}
+.hero-foot{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(2.5rem,5vh,3.5rem) clamp(3rem,7vw,7rem);align-items:end;margin-top:clamp(3.5rem,9vh,6.5rem)}
 .lede{font-size:clamp(1.15rem,1.7vw,1.45rem);line-height:1.5;max-width:34rem;margin:0}
 .lede strong{font-weight:600}
 .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:flex-start}
