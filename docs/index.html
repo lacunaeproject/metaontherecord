@@ -148,12 +148,15 @@
     </div>
 
     <div class="filters" id="filters">
-      <div class="fpanel" id="fpanel">
-        <div class="frow"><span class="flabel" id="topic-l">Topic</span><div class="chips" id="topicchips" role="group" aria-labelledby="topic-l"></div></div>
-        <div class="frow"><span class="flabel" id="tier-l">Evidence</span><div class="chips" id="tierchips" role="group" aria-labelledby="tier-l"></div></div>
-      </div>
       <div class="ftools">
-        <button class="chip filters-toggle" id="ftoggle" aria-expanded="false" aria-controls="fpanel">Topics and evidence</button>
+        <div class="dd" id="topic-dd">
+          <button class="dd-btn" id="topic-btn" aria-expanded="false" aria-controls="topic-menu"><span class="dd-label">Topic</span><span class="dd-val" id="topic-val">All</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></button>
+          <div class="dd-menu" id="topic-menu" hidden><div class="dd-opts" id="topicchips" role="group" aria-label="Topic"></div></div>
+        </div>
+        <div class="dd" id="tier-dd">
+          <button class="dd-btn" id="tier-btn" aria-expanded="false" aria-controls="tier-menu"><span class="dd-label">Evidence</span><span class="dd-val" id="tier-val">All</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></button>
+          <div class="dd-menu" id="tier-menu" hidden><div class="dd-opts" id="tierchips" role="group" aria-label="Evidence"></div></div>
+        </div>
         <label class="search"><span class="sr-only">Search the record</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
           <input type="search" id="q" placeholder="Search names, places, laws" autocomplete="off">

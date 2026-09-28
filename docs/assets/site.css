@@ -148,28 +148,42 @@ p{margin:0 0 1em}
 .density-note{font-family:var(--display);font-size:.88rem;color:var(--muted);margin-top:.75rem}
 
 .filters{margin-top:2.5rem;padding:1rem 0 1rem;border-bottom:1px solid var(--rule)}
-.chip.filters-toggle{display:none}
 .fbar{position:fixed;left:0;right:0;top:calc(var(--navh) + env(safe-area-inset-top,0px));z-index:45;background:var(--bg);border-bottom:1px solid var(--rule);transform:translateY(-100%);visibility:hidden;transition:transform .3s ease,visibility .3s}
 .fbar.show{transform:none;visibility:visible}
 .fbar .wrap{display:flex;align-items:center;gap:1rem;height:3rem;font-family:var(--display);font-size:.92rem}
 .fbar-sum{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
 .fbar-sum b{color:var(--fg);font-weight:650}
-.frow{display:flex;align-items:baseline;gap:.9rem}
-.frow .chips{flex:1 1 0;min-width:0}
-.frow + .frow{margin-top:.7rem}
-.flabel{font-family:var(--display);font-size:.88rem;font-weight:650;min-width:5.2rem}
-.chips{display:flex;flex-wrap:wrap;gap:.4rem}
 .chip{font-family:var(--display);font-size:.88rem;font-weight:550;padding:.38rem .8rem;border-radius:999px;border:1.5px solid var(--rule);background:transparent;color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;line-height:1.15;transition:border-color .15s,background-color .15s,color .15s}
 .chip:hover{border-color:var(--mark)}
 .chip[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
 .chip[aria-pressed="true"] .glyph{color:var(--bg)}
-.ftools{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center;margin-top:.9rem}
-.search{position:relative;flex:1 1 16rem;max-width:26rem}
-.search input{width:100%;font-family:var(--display);font-size:1rem;padding:.6rem .9rem .6rem 2.3rem;border-radius:999px;border:1.5px solid var(--rule);background:transparent;color:var(--fg)}
+.dd{position:relative}
+.dd-btn{height:2.75rem;display:inline-flex;align-items:center;gap:.45rem;padding:0 1rem;border-radius:999px;border:1.5px solid var(--rule);background:transparent;color:var(--fg);font-family:var(--display);font-size:.92rem;font-weight:550;line-height:1;cursor:pointer;white-space:nowrap;transition:border-color .15s,background-color .15s,color .15s}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{border-color:var(--mark)}
+.dd-label{color:var(--muted)}
+.dd-val{font-weight:650;max-width:11rem;overflow:hidden;text-overflow:ellipsis}
+.dd-btn svg{width:.75rem;height:.75rem;flex:none;transition:transform .2s}
+.dd-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.dd.on .dd-btn{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.dd.on .dd-label{color:inherit;opacity:.72}
+.dd-menu{position:absolute;top:calc(100% + .5rem);left:0;z-index:40;width:max-content;min-width:15rem;max-width:min(22rem,calc(100vw - 2 * var(--gutter)));max-height:min(26rem,62vh);overflow:auto;overscroll-behavior:contain;padding:.35rem;background:var(--bg);border:1.5px solid var(--fg);border-radius:.85rem;box-shadow:0 20px 44px -16px rgba(10,14,44,.38)}
+.dd-opts{display:flex;flex-direction:column}
+.dd-opt{display:flex;align-items:center;gap:.65rem;width:100%;padding:.6rem .7rem;border:0;border-radius:.5rem;background:transparent;color:var(--fg);font-family:var(--display);font-size:.92rem;font-weight:550;line-height:1.2;text-align:left;cursor:pointer}
+.dd-opt:hover{background:color-mix(in srgb,var(--mark) 9%,transparent)}
+.dd-opt:focus-visible{outline:2px solid var(--mark);outline-offset:-2px}
+.dd-opt[data-all]{position:relative;margin-bottom:.35rem}
+.dd-opt[data-all]::after{content:"";position:absolute;left:.7rem;right:.7rem;bottom:-.2rem;height:1px;background:var(--rule)}
+.dd-check{width:1.05rem;height:1.05rem;flex:none;display:grid;place-items:center;border:1.5px solid var(--rule);border-radius:.3rem;transition:background-color .15s,border-color .15s}
+.dd-opt:hover .dd-check{border-color:var(--mark)}
+.dd-opt[aria-pressed="true"] .dd-check{background:var(--mark);border-color:var(--mark)}
+.dd-opt[aria-pressed="true"] .dd-check::after{content:"";width:.28rem;height:.55rem;margin-top:-.12rem;border:solid var(--bg);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.ftools{position:relative;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.search{position:relative;flex:1 1 12rem;min-width:0;max-width:26rem}
+.search input{width:100%;height:2.75rem;font-family:var(--display);font-size:1rem;padding:0 .9rem 0 2.3rem;border-radius:999px;border:1.5px solid var(--rule);background:transparent;color:var(--fg)}
 .search input::placeholder{color:var(--muted)}
 .search input:focus-visible{outline:3px solid var(--mark);outline-offset:1px;border-color:var(--mark)}
 .search svg{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);width:1rem;height:1rem;color:var(--muted)}
-.switch{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--display);font-size:.92rem;font-weight:550;cursor:pointer;user-select:none}
+.switch{margin-left:.5rem;display:inline-flex;align-items:center;gap:.6rem;font-family:var(--display);font-size:.92rem;font-weight:550;cursor:pointer;user-select:none}
 .switch input{appearance:none;-webkit-appearance:none;width:2.4rem;height:1.35rem;border-radius:999px;background:var(--rule);position:relative;cursor:pointer;margin:0;transition:background-color .2s}
 .switch input::after{content:"";position:absolute;top:.2rem;left:.2rem;width:.95rem;height:.95rem;border-radius:50%;background:var(--bg);transition:transform .2s}
 .switch input:checked{background:var(--mark)}
@@ -329,11 +343,14 @@ p{margin:0 0 1em}
   .method-cols{grid-template-columns:1fr}
   .stance{grid-template-columns:1fr}
   .foot-cols{grid-template-columns:1fr}
-  .chip.filters-toggle{display:inline-flex}
-  .frow{flex-direction:column;gap:.5rem}
-  .filters .fpanel{display:none}
-  .filters.expanded .fpanel{display:block}
-  .filters .ftools{margin-top:0}
+  .dd{flex:1 1 0;min-width:0}
+  .dd-btn{width:100%;padding:0 .9rem}
+  .dd-btn svg{margin-left:auto}
+  .dd-val{min-width:0}
+  .dd-menu{width:calc(100vw - 2 * var(--gutter));max-width:none}
+  #tier-dd .dd-menu{left:auto;right:0}
+  .search{flex-basis:100%;max-width:none;order:-1}
+  .switch{margin-left:0;flex-basis:100%}
   .count{margin-left:0}
   .density-axis span:not(.show){visibility:hidden}
 }

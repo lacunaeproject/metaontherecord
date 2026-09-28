@@ -68,22 +68,52 @@ function matches(e) {
   return true;
 }
 
-/* ---------- chips ---------- */
+/* ---------- filter dropdowns ---------- */
 const topicChips = $("#topicchips"), tierChips = $("#tierchips");
-topicChips.innerHTML = `<button class="chip" data-all="topic" aria-pressed="true">All topics</button>` +
-  Object.entries(THEMES).map(([k, v]) => `<button class="chip" data-theme="${k}" aria-pressed="false">${esc(v)}</button>`).join("");
-tierChips.innerHTML = `<button class="chip" data-all="tier" aria-pressed="true">All evidence</button>` +
-  Object.keys(TIERS).map(k => `<button class="chip" data-tier="${k}" aria-pressed="false">${glyph(k)}${esc(TIERS[k].label)}</button>`).join("");
+const opt = (attrs, label, pressed) => `<button class="dd-opt" ${attrs} aria-pressed="${pressed}"><span class="dd-check" aria-hidden="true"></span>${label}</button>`;
+topicChips.innerHTML = opt(`data-all="topic"`, "All topics", true) +
+  Object.entries(THEMES).map(([k, v]) => opt(`data-theme="${k}"`, esc(v), false)).join("");
+tierChips.innerHTML = opt(`data-all="tier"`, "All evidence", true) +
+  Object.keys(TIERS).map(k => opt(`data-tier="${k}"`, `${glyph(k)}${esc(TIERS[k].label)}`, false)).join("");
 
+const ddValue = (set, name) => set.size === 0 ? "All" : set.size === 1 ? name([...set][0]) : `${set.size} selected`;
 function syncChips() {
   $$("[data-theme]", topicChips).forEach(b => b.setAttribute("aria-pressed", state.themes.has(b.dataset.theme)));
   $("[data-all=topic]", topicChips).setAttribute("aria-pressed", state.themes.size === 0);
   $$("[data-tier]", tierChips).forEach(b => b.setAttribute("aria-pressed", state.tiers.has(b.dataset.tier)));
   $("[data-all=tier]", tierChips).setAttribute("aria-pressed", state.tiers.size === 0);
-  const n = state.themes.size + state.tiers.size;
-  $("#ftoggle").textContent = n ? `Topics and evidence (${n})` : "Topics and evidence";
+  $("#topic-val").textContent = ddValue(state.themes, t => THEMES[t]);
+  $("#tier-val").textContent = ddValue(state.tiers, t => TIERS[t].label);
+  $("#topic-dd").classList.toggle("on", state.themes.size > 0);
+  $("#tier-dd").classList.toggle("on", state.tiers.size > 0);
   $("#clear").hidden = !isFiltered();
 }
+
+function setDropdown(dd, open) {
+  $(".dd-btn", dd).setAttribute("aria-expanded", open);
+  $(".dd-menu", dd).hidden = !open;
+}
+const closeDropdowns = except => $$(".dd").forEach(dd => dd !== except && setDropdown(dd, false));
+$$(".dd").forEach(dd => {
+  const btn = $(".dd-btn", dd), opts = () => $$(".dd-opt", dd);
+  btn.addEventListener("click", () => { const open = btn.getAttribute("aria-expanded") !== "true"; closeDropdowns(dd); setDropdown(dd, open); });
+  btn.addEventListener("keydown", e => {
+    if (e.key !== "ArrowDown") return;
+    e.preventDefault(); closeDropdowns(dd); setDropdown(dd, true); opts()[0].focus();
+  });
+  $(".dd-menu", dd).addEventListener("keydown", e => {
+    const list = opts(), i = list.indexOf(document.activeElement);
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); list[(i + (e.key === "ArrowDown" ? 1 : -1) + list.length) % list.length].focus(); }
+    else if (e.key === "Home" || e.key === "End") { e.preventDefault(); list[e.key === "Home" ? 0 : list.length - 1].focus(); }
+    else if (e.key === "Tab") setDropdown(dd, false);
+  });
+});
+document.addEventListener("click", e => { if (!e.target.closest(".dd")) closeDropdowns(); });
+document.addEventListener("keydown", e => {
+  if (e.key !== "Escape") return;
+  const dd = $$(".dd").find(d => $(".dd-btn", d).getAttribute("aria-expanded") === "true");
+  if (dd) { setDropdown(dd, false); $(".dd-btn", dd).focus(); }
+});
 topicChips.addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
   if (b.dataset.all) state.themes.clear();
@@ -100,10 +130,6 @@ let qTimer;
 $("#q").addEventListener("input", e => { clearTimeout(qTimer); qTimer = setTimeout(() => { state.q = e.target.value.trim().toLowerCase(); update(); }, 140); });
 $("#showcredits").addEventListener("change", e => { state.credits = e.target.checked; update(); });
 $("#clear").addEventListener("click", () => { clearFilters(); update(); $("#q").focus(); });
-$("#ftoggle").addEventListener("click", () => {
-  const f = $("#filters"); const open = !f.classList.contains("expanded");
-  f.classList.toggle("expanded", open); $("#ftoggle").setAttribute("aria-expanded", open); measureFilters();
-});
 function clearFilters() { state.themes.clear(); state.tiers.clear(); state.q = ""; $("#q").value = ""; }
 
 /* ---------- ledger ---------- */
