@@ -205,7 +205,7 @@ p{margin:0 0 1em}
 .linkbtn{font-family:var(--display);font-size:.92rem;font-weight:600;background:none;border:0;padding:0;color:var(--mark);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
 
 .ledger{margin-top:1rem}
-.year{display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr);gap:0 clamp(1rem,3vw,3rem);border-top:3px solid var(--fg);padding-top:.6rem;margin-top:3rem}
+.year{display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr);gap:0 clamp(1rem,3vw,3rem);border-top:2px solid var(--fg);padding-top:.35rem;margin-top:1.75rem}
 .year:first-child{margin-top:1.5rem}
 .year-num{position:sticky;top:calc(var(--navh) + 3rem + env(safe-area-inset-top,0px) + 1rem);align-self:start;font-size:2rem;font-weight:700;font-variation-settings:"wdth" 100;letter-spacing:-.01em;line-height:1;font-variant-numeric:tabular-nums;padding-top:.35rem}
 .entries{list-style:none;margin:0;padding:0}
@@ -538,3 +538,22 @@ p{margin:0 0 1em}
   .step.has-photo .step-photo{grid-column:4;grid-row:1 / span 4;margin:0 0 0 clamp(1.5rem,3vw,3rem);max-width:24rem;align-self:start}
 }
 @media (max-width:980px){ .step .rail-gap{grid-column:2;grid-row:6} }
+
+/* ---------- entry pages: this entry within the record ---------- */
+.a-side .fact{position:static}
+.a-side{position:sticky;top:2rem;align-self:start}
+.mini-fig{margin:2rem 0 0;max-width:17rem}
+.mini-fig figcaption{font-family:var(--display);font-size:.85rem;line-height:1.45;color:var(--muted);margin-bottom:.75rem}
+.mini{display:block;overflow:visible;font-family:var(--display);font-variant-numeric:lining-nums tabular-nums}
+.mini .axis{stroke:var(--fg);stroke-width:1}
+.mini .yr{font-size:11px;fill:var(--muted)}
+.mini .sq{color:var(--context)}
+.mini .sq.this{color:var(--accent)}
+.mini .sq:hover,.mini .sq:focus-visible{color:var(--fg);outline:none}
+.mini-fig .g-source{margin-top:.6rem}
+.mini .ring{fill:none;stroke:var(--accent);stroke-width:1.5}
+@media (max-width:980px){
+  .a-side{display:contents}
+  .a-side .fact{order:-1}
+  .mini-fig{order:2;max-width:none;margin-top:0}
+}

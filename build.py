@@ -306,6 +306,36 @@ def g2_html():
       </div>
     </div>'''
 
+def g1_mini(this, W=272):
+    """The whole record as a small strip, with this entry as the only accent (entry pages)."""
+    cols = {y: sorted([e for e in ENTRIES if year(e["date"]) == y], key=lambda e: (STRENGTH.index(e["tier"]), e["date"])) for y in G1_YEARS}
+    n = len(G1_YEARS); colw = W / n
+    cell = min(11, colw * 0.78); gap = 1.6
+    stack = max(len(v) for v in cols.values())
+    y0 = stack * (cell + gap) + 2
+    H = y0 + 18
+    cx = lambda i: colw * i + colw / 2
+    o = [f'<svg class="mini" width="{W}" height="{H:.0f}" viewBox="0 0 {W} {H:.0f}" aria-hidden="true">',
+         f'<line class="axis" x1="0" x2="{W}" y1="{y0 + .5:.1f}" y2="{y0 + .5:.1f}"/>']
+    for yr in (2007, 2021, G1_YEARS[-1]):
+        i = G1_YEARS.index(yr); x = 0 if i == 0 else W if i == n - 1 else cx(i)
+        anchor = "start" if i == 0 else "end" if i == n - 1 else "middle"
+        o.append(f'<text class="yr" x="{x:.1f}" y="{y0 + 14:.1f}" text-anchor="{anchor}">{yr}</text>')
+    for i, yr in enumerate(G1_YEARS):
+        for k, e in enumerate(cols[yr]):
+            cls = "sq this" if e is this else "sq"
+            if e is this:
+                o.append(f'<rect class="ring" x="{cx(i) - cell / 2 - 3:.1f}" y="{y0 - (k + 1) * (cell + gap) + gap - 3:.1f}" width="{cell + 6:.1f}" height="{cell + 6:.1f}"/>')
+            o.append(f'<a class="{cls}" href="{e["url"]}" aria-label="{esc(e["title"])}"><title>{esc(e["title"])}, {month_year(e["date"])}</title>'
+                     f'<svg x="{cx(i) - cell / 2:.1f}" y="{y0 - (k + 1) * (cell + gap) + gap:.1f}" width="{cell:.1f}" height="{cell:.1f}" viewBox="0 0 16 16">{_glyph_inner(e["tier"])}</svg></a>')
+    o.append('</svg>')
+    same = len(cols[year(this["date"])])
+    lab = TIERS[this["tier"]]["label"].lower()
+    peers = sum(1 for e in ENTRIES if e["tier"] == this["tier"])
+    cap = (f'One of {same} {"entry" if same == 1 else "entries"} from {year(this["date"])}, and one of {peers} labeled {lab}. '
+           f'Each square is an entry in the record; this one is in blue.')
+    return f'<figure class="mini-fig"><figcaption>{esc(cap)}</figcaption>{"".join(o)}<p class="g-source"><a href="/#g1">See the whole record</a></p></figure>'
+
 def ledger_html():
     groups = {}
     for e in ORDER: groups.setdefault(year(e["date"]), []).append(e)
@@ -463,7 +493,8 @@ def main():
         desc = describe(e["summary"])
         t = TIERS[e["tier"]]
         topics = "".join(f'<a class="tag" href="/topics/{k}/">{esc(THEMES[k])}</a>' for k in e["themes"])
-        fact = f'<aside class="a-side"><div class="fact"><span class="fact-num">{esc(e["fig"])}</span><span class="fact-cap">{esc(e.get("cap",""))}</span></div></aside>' if e.get("fig") else '<aside class="a-side"></aside>'
+        figblock = f'<div class="fact"><span class="fact-num">{esc(e["fig"])}</span><span class="fact-cap">{esc(e.get("cap",""))}</span></div>' if e.get("fig") else ''
+        fact = f'<aside class="a-side">{figblock}{g1_mini(e)}</aside>'
         pager = '<nav class="pager" aria-label="More entries">'
         pager += (f'<a class="pg prev" href="{prev_e["url"]}"><span class="label">Earlier</span>{esc(prev_e["title"])}</a>' if prev_e else '<span></span>')
         pager += (f'<a class="pg next" href="{next_e["url"]}"><span class="label">Later</span>{esc(next_e["title"])}</a>' if next_e else '<span></span>')
