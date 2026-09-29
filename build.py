@@ -197,7 +197,7 @@ def footer():
     <div class="foot-cols">
       <p>An independent record. Not affiliated with Meta Platforms, Facebook, Instagram or WhatsApp. Researched, written and organized with AI (Anthropic’s Claude). <a href="/#made">How this was made</a></p>
       <p>Last updated {MONTHS[UPDATED.month-1]} {UPDATED.day}, {UPDATED.year}. The data is free to reuse with credit: <a href="/data/record.csv">CSV</a>, <a href="/data/record.json">JSON</a>.</p>
-      <p>Found an error? Send a correction with a source. Corrections are dated and published. <span id="contact">Contact address coming soon.</span></p>
+      <p>Found an error? Send a correction with a source. Corrections are dated and published. <span id="contact">Email <a href="mailto:lacunae.us@gmail.com">lacunae.us@gmail.com</a>.</span></p>
     </div>
   </div>
 </footer>'''

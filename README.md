@@ -53,7 +53,7 @@ The site needs the custom domain to work. Its links start from the root (`/asset
 
 1. **Source checks are complete** as of September 28, 2026. Flag any new entry without sources with `"check": true`; it shows a “source being added” note until you link one.
 2. **Recheck pending cases before each update:** appeals, the Flo damages, the second New Mexico penalty and EU decisions.
-3. **Add a corrections address.** Search `Contact address coming soon` in `src/home.html` and `build.py` and replace it.
+3. **Corrections address:** lacunae.us@gmail.com, set in `src/home.html` and `build.py` (search `id="contact"`).
 4. **Choose the data license.** The build declares the downloads as CC BY 4.0. Change it in `build.py` if you prefer something else.
 5. **Get a media lawyer’s read** before sharing widely, including the use of “Meta” in the name and domain.
 
