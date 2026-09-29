@@ -1,0 +1,46 @@
+{
+  "slug": "nyt-camp-mystic",
+  "url": "https://www.nytimes.com/interactive/2025/11/15/us/camp-mystic-flooding-deaths-video-map.html",
+  "sizes": {
+    "390": {
+      "status": 403,
+      "frames": 1,
+      "title": "nytimes.com",
+      "bodyBg": "rgba(0, 0, 0, 0)",
+      "h1": null,
+      "body": null,
+      "chartLabels": null,
+      "svgColors": [],
+      "graphics": [],
+      "counts": {
+        "svg": 0,
+        "canvas": 0,
+        "video": 0,
+        "img": 0
+      },
+      "blockedHint": null,
+      "textLength": 0,
+      "pageHeight": 844
+    },
+    "1440": {
+      "status": 403,
+      "frames": 1,
+      "title": "nytimes.com",
+      "bodyBg": "rgba(0, 0, 0, 0)",
+      "h1": null,
+      "body": null,
+      "chartLabels": null,
+      "svgColors": [],
+      "graphics": [],
+      "counts": {
+        "svg": 0,
+        "canvas": 0,
+        "video": 0,
+        "img": 0
+      },
+      "blockedHint": null,
+      "textLength": 0,
+      "pageHeight": 900
+    }
+  }
+}

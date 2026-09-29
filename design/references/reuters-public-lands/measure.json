@@ -1,0 +1,144 @@
+{
+  "slug": "reuters-public-lands",
+  "url": "https://www.reuters.com/graphics/USA-TRUMP/PUBLIC-LANDS/zdpxkxdwnvx/",
+  "sizes": {
+    "390": {
+      "status": 200,
+      "frames": 26,
+      "title": "Eroding protections for public lands",
+      "bodyBg": "rgb(244, 243, 228)",
+      "h1": {
+        "text": "Eroding protectionsforpublic lands",
+        "family": "Baskerville",
+        "size": 39.626,
+        "weight": "400",
+        "lineHeight": "39.626px",
+        "color": "rgb(64, 64, 64)",
+        "numerals": "normal",
+        "width": 360
+      },
+      "body": {
+        "sample": "Now, President Donald Trump’s administration and some Republican lawmakers in Congress are pushing policies and legislat",
+        "family": "FreightText, serif",
+        "size": 18.169,
+        "weight": "400",
+        "lineHeight": "27.2535px",
+        "color": "rgb(64, 64, 64)",
+        "numerals": "normal",
+        "width": 360,
+        "charsPerLine": null
+      },
+      "chartLabels": null,
+      "svgColors": [
+        [
+          "rgb(214, 64, 0)",
+          28
+        ],
+        [
+          "rgb(64, 64, 64)",
+          18
+        ],
+        [
+          "rgb(0, 0, 0)",
+          10
+        ],
+        [
+          "rgb(152, 47, 0)",
+          2
+        ],
+        [
+          "rgb(0, 118, 126)",
+          2
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "canvas",
+          "width": 390
+        },
+        {
+          "tag": "svg",
+          "width": 390
+        }
+      ],
+      "counts": {
+        "svg": 17,
+        "canvas": 11,
+        "video": 0,
+        "img": 11
+      },
+      "blockedHint": null,
+      "textLength": 17914,
+      "pageHeight": 18405
+    },
+    "1440": {
+      "status": 200,
+      "frames": 22,
+      "title": "Eroding protections for public lands",
+      "bodyBg": "rgb(244, 243, 228)",
+      "h1": {
+        "text": "Eroding protectionsforpublic lands",
+        "family": "Baskerville",
+        "size": 80.16,
+        "weight": "400",
+        "lineHeight": "80.16px",
+        "color": "rgb(64, 64, 64)",
+        "numerals": "normal",
+        "width": 660
+      },
+      "body": {
+        "sample": "Now, President Donald Trump’s administration and some Republican lawmakers in Congress are pushing policies and legislat",
+        "family": "FreightText, serif",
+        "size": 20.96,
+        "weight": "400",
+        "lineHeight": "31.44px",
+        "color": "rgb(64, 64, 64)",
+        "numerals": "normal",
+        "width": 660,
+        "charsPerLine": null
+      },
+      "chartLabels": null,
+      "svgColors": [
+        [
+          "rgb(214, 64, 0)",
+          28
+        ],
+        [
+          "rgb(64, 64, 64)",
+          25
+        ],
+        [
+          "rgb(0, 0, 0)",
+          10
+        ],
+        [
+          "rgb(152, 47, 0)",
+          2
+        ],
+        [
+          "rgb(0, 118, 126)",
+          2
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "canvas",
+          "width": 1440
+        },
+        {
+          "tag": "svg",
+          "width": 1440
+        }
+      ],
+      "counts": {
+        "svg": 19,
+        "canvas": 11,
+        "video": 0,
+        "img": 11
+      },
+      "blockedHint": null,
+      "textLength": 18434,
+      "pageHeight": 16813
+    }
+  }
+}

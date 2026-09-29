@@ -1,0 +1,14 @@
+{
+  "slug": "wapo-donors-2026",
+  "url": "https://www.washingtonpost.com/elections/interactive/2026/06/25/these-are-biggest-individual-donors-2026-election-cycle/",
+  "sizes": {
+    "390": {
+      "status": null,
+      "error": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.washingtonpost.com/elections/interactive/2026/06/25/these-are-biggest-individual-donors-2026-election-cycle/"
+    },
+    "1440": {
+      "status": null,
+      "error": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.washingtonpost.com/elections/interactive/2026/06/25/these-are-biggest-individual-donors-2026-election-cycle/"
+    }
+  }
+}

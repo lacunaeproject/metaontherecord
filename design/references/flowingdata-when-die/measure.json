@@ -1,0 +1,352 @@
+{
+  "slug": "flowingdata-when-die",
+  "url": "https://flowingdata.com/projects/2025/when-die/",
+  "sizes": {
+    "390": {
+      "status": 200,
+      "frames": 15,
+      "title": "When You Will Die",
+      "bodyBg": "rgb(255, 255, 255)",
+      "h1": {
+        "text": "When You Will Die",
+        "family": "\"Mercury SSm A\", \"Mercury SSm B\", Georgia, serif",
+        "size": 40,
+        "weight": "700",
+        "lineHeight": "52px",
+        "color": "rgb(0, 0, 0)",
+        "numerals": "normal",
+        "width": 367
+      },
+      "body": {
+        "sample": "With absolute certainty, you will die. When will it happen? That is a trickier question. But we can use what we do know ",
+        "family": "\"Mercury SSm A\", \"Mercury SSm B\", Georgia, serif",
+        "size": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "color": "rgb(17, 17, 17)",
+        "numerals": "normal",
+        "width": 367,
+        "charsPerLine": 39
+      },
+      "chartLabels": {
+        "count": 184,
+        "samples": [
+          {
+            "text": "0",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 7
+          },
+          {
+            "text": "10",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 14
+          },
+          {
+            "text": "20",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 14
+          },
+          {
+            "text": "30",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 14
+          },
+          {
+            "text": "40",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 14
+          },
+          {
+            "text": "50",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 14
+          }
+        ]
+      },
+      "svgColors": [
+        [
+          "rgb(0, 0, 0)",
+          99
+        ],
+        [
+          "rgb(101, 192, 186)",
+          11
+        ],
+        [
+          "rgb(255, 255, 255)",
+          4
+        ],
+        [
+          "rgb(232, 232, 232)",
+          2
+        ],
+        [
+          "rgb(224, 224, 224)",
+          1
+        ],
+        [
+          "rgb(213, 221, 221)",
+          1
+        ],
+        [
+          "rgb(202, 218, 217)",
+          1
+        ],
+        [
+          "rgb(190, 215, 214)",
+          1
+        ],
+        [
+          "rgb(179, 212, 210)",
+          1
+        ],
+        [
+          "rgb(168, 209, 207)",
+          1
+        ],
+        [
+          "rgb(157, 207, 203)",
+          1
+        ],
+        [
+          "rgb(146, 204, 200)",
+          1
+        ],
+        [
+          "rgb(135, 201, 196)",
+          1
+        ],
+        [
+          "rgb(123, 198, 193)",
+          1
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "svg",
+          "width": 367
+        },
+        {
+          "tag": "svg",
+          "width": 367
+        },
+        {
+          "tag": "svg",
+          "width": 367
+        }
+      ],
+      "counts": {
+        "svg": 9,
+        "canvas": 0,
+        "video": 0,
+        "img": 1
+      },
+      "blockedHint": null,
+      "textLength": 7489,
+      "pageHeight": 10833
+    },
+    "1440": {
+      "status": 200,
+      "frames": 10,
+      "title": "When You Will Die",
+      "bodyBg": "rgb(255, 255, 255)",
+      "h1": {
+        "text": "When You Will Die",
+        "family": "\"Mercury SSm A\", \"Mercury SSm B\", Georgia, serif",
+        "size": 40,
+        "weight": "700",
+        "lineHeight": "52px",
+        "color": "rgb(0, 0, 0)",
+        "numerals": "normal",
+        "width": 1090
+      },
+      "body": {
+        "sample": "With absolute certainty, you will die. When will it happen? That is a trickier question. But we can use what we do know ",
+        "family": "\"Mercury SSm A\", \"Mercury SSm B\", Georgia, serif",
+        "size": 18,
+        "weight": "400",
+        "lineHeight": "28.8px",
+        "color": "rgb(17, 17, 17)",
+        "numerals": "normal",
+        "width": 670,
+        "charsPerLine": 79
+      },
+      "chartLabels": {
+        "count": 183,
+        "samples": [
+          {
+            "text": "0",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 7
+          },
+          {
+            "text": "10",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 14
+          },
+          {
+            "text": "20",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 14
+          },
+          {
+            "text": "30",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 14
+          },
+          {
+            "text": "40",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 14
+          },
+          {
+            "text": "50",
+            "family": "Inconsolata, \"Courier New\", Courier",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "26px",
+            "color": "rgb(17, 17, 17)",
+            "numerals": "normal",
+            "width": 14
+          }
+        ]
+      },
+      "svgColors": [
+        [
+          "rgb(0, 0, 0)",
+          99
+        ],
+        [
+          "rgb(101, 192, 186)",
+          7
+        ],
+        [
+          "rgb(255, 255, 255)",
+          4
+        ],
+        [
+          "rgb(232, 232, 232)",
+          2
+        ],
+        [
+          "rgb(224, 224, 224)",
+          1
+        ],
+        [
+          "rgb(213, 221, 221)",
+          1
+        ],
+        [
+          "rgb(202, 218, 217)",
+          1
+        ],
+        [
+          "rgb(190, 215, 214)",
+          1
+        ],
+        [
+          "rgb(179, 212, 210)",
+          1
+        ],
+        [
+          "rgb(168, 209, 207)",
+          1
+        ],
+        [
+          "rgb(157, 207, 203)",
+          1
+        ],
+        [
+          "rgb(146, 204, 200)",
+          1
+        ],
+        [
+          "rgb(135, 201, 196)",
+          1
+        ],
+        [
+          "rgb(123, 198, 193)",
+          1
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "svg",
+          "width": 1090
+        },
+        {
+          "tag": "svg",
+          "width": 530
+        },
+        {
+          "tag": "svg",
+          "width": 530
+        }
+      ],
+      "counts": {
+        "svg": 9,
+        "canvas": 0,
+        "video": 0,
+        "img": 1
+      },
+      "blockedHint": null,
+      "textLength": 7553,
+      "pageHeight": 8376
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "slug": "bloomberg-ai-deals",
+  "url": "https://www.bloomberg.com/news/features/2025-10-07/openai-s-nvidia-amd-deals-boost-1-trillion-ai-boom-with-circular-deals",
+  "sizes": {
+    "390": {
+      "status": 403,
+      "frames": 2,
+      "title": "Bloomberg - Are you a robot?",
+      "bodyBg": "rgb(242, 242, 242)",
+      "h1": {
+        "text": "Bloomberg",
+        "family": "BWHaasGroteskWeb, Helvetica, Arial, sans-serif",
+        "size": 0,
+        "weight": "400",
+        "lineHeight": "0px",
+        "color": "rgb(255, 255, 255)",
+        "numerals": "normal",
+        "width": 140
+      },
+      "body": {
+        "sample": "Please make sure your browser supports JavaScript and cookies and that you are not\n                    blocking them fro",
+        "family": "BWHaasGroteskWeb, Helvetica, Arial, sans-serif",
+        "size": 16,
+        "weight": "400",
+        "lineHeight": "19.2px",
+        "color": "rgb(0, 0, 0)",
+        "numerals": "normal",
+        "width": 310,
+        "charsPerLine": 39
+      },
+      "chartLabels": null,
+      "svgColors": [],
+      "graphics": [],
+      "counts": {
+        "svg": 0,
+        "canvas": 0,
+        "video": 0,
+        "img": 0
+      },
+      "blockedHint": null,
+      "textLength": 665,
+      "pageHeight": 1017
+    },
+    "1440": {
+      "status": 403,
+      "frames": 1,
+      "title": "Bloomberg - Are you a robot?",
+      "bodyBg": "rgb(242, 242, 242)",
+      "h1": {
+        "text": "Bloomberg",
+        "family": "BWHaasGroteskWeb, Helvetica, Arial, sans-serif",
+        "size": 0,
+        "weight": "400",
+        "lineHeight": "0px",
+        "color": "rgb(255, 255, 255)",
+        "numerals": "normal",
+        "width": 140
+      },
+      "body": {
+        "sample": "Please make sure your browser supports JavaScript and cookies and that you are not\n                    blocking them fro",
+        "family": "BWHaasGroteskWeb, Helvetica, Arial, sans-serif",
+        "size": 16,
+        "weight": "400",
+        "lineHeight": "19.2px",
+        "color": "rgb(0, 0, 0)",
+        "numerals": "normal",
+        "width": 620,
+        "charsPerLine": 79
+      },
+      "chartLabels": null,
+      "svgColors": [],
+      "graphics": [],
+      "counts": {
+        "svg": 0,
+        "canvas": 0,
+        "video": 0,
+        "img": 0
+      },
+      "blockedHint": null,
+      "textLength": 665,
+      "pageHeight": 900
+    }
+  }
+}

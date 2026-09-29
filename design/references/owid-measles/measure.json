@@ -1,0 +1,400 @@
+{
+  "slug": "owid-measles",
+  "url": "https://ourworldindata.org/measles-vaccines-save-lives",
+  "sizes": {
+    "390": {
+      "status": 200,
+      "frames": 22,
+      "title": "Measles vaccines save millions of lives each year | Our World in Data",
+      "bodyBg": "rgb(255, 255, 255)",
+      "h1": {
+        "text": "Measles vaccines save millions of lives each year",
+        "family": "\"Playfair Display\", Georgia, \"Times New Roman\", \"Liberation Serif\", serif",
+        "size": 20,
+        "weight": "700",
+        "lineHeight": "26.6666px",
+        "color": "rgb(29, 61, 99)",
+        "numerals": "normal",
+        "width": 326
+      },
+      "body": {
+        "sample": "Measles used to be an extremely common disease. Just sixty years ago, over 90% of children would have been infected by i",
+        "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+        "size": 16,
+        "weight": "400",
+        "lineHeight": "24px",
+        "color": "rgb(29, 61, 99)",
+        "numerals": "normal",
+        "width": 358,
+        "charsPerLine": null
+      },
+      "chartLabels": {
+        "count": 81,
+        "samples": [
+          {
+            "text": "Measles",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 10.5,
+            "weight": "400",
+            "lineHeight": "14px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 38
+          },
+          {
+            "text": "93.7 million",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 10.5,
+            "weight": "400",
+            "lineHeight": "14px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 54
+          },
+          {
+            "text": "Tetanus",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 10.5,
+            "weight": "400",
+            "lineHeight": "14px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 36
+          },
+          {
+            "text": "27.9 million",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 10.5,
+            "weight": "400",
+            "lineHeight": "14px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 54
+          },
+          {
+            "text": "Whooping cough(Pertussis)",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 10.5,
+            "weight": "400",
+            "lineHeight": "14px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 80
+          },
+          {
+            "text": "13.2 million",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 10.5,
+            "weight": "400",
+            "lineHeight": "14px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 54
+          }
+        ]
+      },
+      "svgColors": [
+        [
+          "rgb(221, 221, 221)",
+          284
+        ],
+        [
+          "rgb(0, 0, 0)",
+          179
+        ],
+        [
+          "rgb(91, 91, 91)",
+          80
+        ],
+        [
+          "rgb(151, 0, 70)",
+          50
+        ],
+        [
+          "rgb(255, 255, 255)",
+          39
+        ],
+        [
+          "rgb(118, 118, 118)",
+          32
+        ],
+        [
+          "rgb(153, 153, 153)",
+          16
+        ],
+        [
+          "rgb(168, 168, 168)",
+          16
+        ],
+        [
+          "rgb(76, 106, 156)",
+          14
+        ],
+        [
+          "rgba(0, 0, 0, 0)",
+          10
+        ],
+        [
+          "rgb(87, 114, 145)",
+          8
+        ],
+        [
+          "rgb(219, 229, 240)",
+          8
+        ],
+        [
+          "rgb(29, 61, 99)",
+          6
+        ],
+        [
+          "rgb(66, 101, 145)",
+          5
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "figure",
+          "width": 374
+        },
+        {
+          "tag": "svg",
+          "width": 370
+        },
+        {
+          "tag": "figure",
+          "width": 358
+        },
+        {
+          "tag": "figure",
+          "width": 390
+        },
+        {
+          "tag": "svg",
+          "width": 386
+        },
+        {
+          "tag": "figure",
+          "width": 374
+        },
+        {
+          "tag": "svg",
+          "width": 370
+        },
+        {
+          "tag": "figure",
+          "width": 390
+        },
+        {
+          "tag": "svg",
+          "width": 386
+        }
+      ],
+      "counts": {
+        "svg": 74,
+        "canvas": 0,
+        "video": 0,
+        "img": 12
+      },
+      "blockedHint": null,
+      "textLength": 18847,
+      "pageHeight": 15298
+    },
+    "1440": {
+      "status": 200,
+      "frames": 16,
+      "title": "Measles vaccines save millions of lives each year | Our World in Data",
+      "bodyBg": "rgb(255, 255, 255)",
+      "h1": {
+        "text": "Measles vaccines save millions of lives each year",
+        "family": "\"Playfair Display\", Georgia, \"Times New Roman\", \"Liberation Serif\", serif",
+        "size": 40,
+        "weight": "600",
+        "lineHeight": "48px",
+        "color": "rgb(29, 61, 99)",
+        "numerals": "normal",
+        "width": 628
+      },
+      "body": {
+        "sample": "Measles used to be an extremely common disease. Just sixty years ago, over 90% of children would have been infected by i",
+        "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+        "size": 18,
+        "weight": "400",
+        "lineHeight": "27.9px",
+        "color": "rgb(29, 61, 99)",
+        "numerals": "normal",
+        "width": 628,
+        "charsPerLine": null
+      },
+      "chartLabels": {
+        "count": 86,
+        "samples": [
+          {
+            "text": "Measles",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 12,
+            "weight": "400",
+            "lineHeight": "16px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 44
+          },
+          {
+            "text": "93.7 million",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 12,
+            "weight": "400",
+            "lineHeight": "16px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 62
+          },
+          {
+            "text": "Tetanus",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 12,
+            "weight": "400",
+            "lineHeight": "16px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 41
+          },
+          {
+            "text": "27.9 million",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 12,
+            "weight": "400",
+            "lineHeight": "16px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 62
+          },
+          {
+            "text": "Whooping cough (Pertussis)",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 12,
+            "weight": "400",
+            "lineHeight": "16px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 149
+          },
+          {
+            "text": "13.2 million",
+            "family": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+            "size": 12,
+            "weight": "400",
+            "lineHeight": "16px",
+            "color": "rgb(91, 91, 91)",
+            "numerals": "normal",
+            "width": 62
+          }
+        ]
+      },
+      "svgColors": [
+        [
+          "rgb(221, 221, 221)",
+          284
+        ],
+        [
+          "rgb(0, 0, 0)",
+          179
+        ],
+        [
+          "rgb(91, 91, 91)",
+          80
+        ],
+        [
+          "rgb(151, 0, 70)",
+          49
+        ],
+        [
+          "rgb(255, 255, 255)",
+          38
+        ],
+        [
+          "rgb(118, 118, 118)",
+          32
+        ],
+        [
+          "rgb(76, 106, 156)",
+          15
+        ],
+        [
+          "rgb(153, 153, 153)",
+          14
+        ],
+        [
+          "rgb(219, 229, 240)",
+          11
+        ],
+        [
+          "rgba(0, 0, 0, 0)",
+          10
+        ],
+        [
+          "rgb(87, 114, 145)",
+          9
+        ],
+        [
+          "rgb(168, 168, 168)",
+          9
+        ],
+        [
+          "rgb(29, 61, 99)",
+          6
+        ],
+        [
+          "rgb(66, 101, 145)",
+          5
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "figure",
+          "width": 845
+        },
+        {
+          "tag": "svg",
+          "width": 841
+        },
+        {
+          "tag": "figure",
+          "width": 845
+        },
+        {
+          "tag": "figure",
+          "width": 845
+        },
+        {
+          "tag": "svg",
+          "width": 841
+        },
+        {
+          "tag": "figure",
+          "width": 845
+        },
+        {
+          "tag": "svg",
+          "width": 841
+        },
+        {
+          "tag": "figure",
+          "width": 845
+        },
+        {
+          "tag": "svg",
+          "width": 841
+        }
+      ],
+      "counts": {
+        "svg": 76,
+        "canvas": 0,
+        "video": 0,
+        "img": 12
+      },
+      "blockedHint": null,
+      "textLength": 19141,
+      "pageHeight": 11828
+    }
+  }
+}

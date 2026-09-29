@@ -1,0 +1,196 @@
+{
+  "slug": "istories-duma-anomalies",
+  "url": "https://istories.media/en/stories/2026/09/22/duma-elections-anomalies/",
+  "sizes": {
+    "390": {
+      "status": 200,
+      "frames": 27,
+      "title": "About 60% of Paper Votes for United Russia Might be Fabricated",
+      "bodyBg": "rgb(37, 39, 41)",
+      "h1": {
+        "text": "About 60% of Paper Votes for United Russia Might be Fabricated",
+        "family": "\"Proto Grotesk\"",
+        "size": 28,
+        "weight": "700",
+        "lineHeight": "30px",
+        "color": "rgb(37, 39, 41)",
+        "numerals": "normal",
+        "width": 354
+      },
+      "body": {
+        "sample": "Anomalies and statistics show that 18 of 30 millions of “paper votes” for United Russia in last week’s elections might a",
+        "family": "\"IBM Plex Serif\"",
+        "size": 22.5,
+        "weight": "400",
+        "lineHeight": "24px",
+        "color": "rgb(37, 39, 41)",
+        "numerals": "normal",
+        "width": 354,
+        "charsPerLine": null
+      },
+      "chartLabels": null,
+      "svgColors": [
+        [
+          "rgb(153, 65, 70)",
+          403
+        ],
+        [
+          "rgb(255, 255, 255)",
+          50
+        ],
+        [
+          "rgb(28, 39, 76)",
+          8
+        ],
+        [
+          "rgb(217, 217, 217)",
+          3
+        ],
+        [
+          "rgb(234, 67, 53)",
+          3
+        ],
+        [
+          "rgb(66, 133, 244)",
+          3
+        ],
+        [
+          "rgb(251, 188, 5)",
+          3
+        ],
+        [
+          "rgb(52, 168, 83)",
+          3
+        ],
+        [
+          "rgb(37, 39, 41)",
+          3
+        ],
+        [
+          "rgb(191, 191, 191)",
+          2
+        ],
+        [
+          "rgb(104, 104, 104)",
+          2
+        ],
+        [
+          "rgb(141, 134, 134)",
+          2
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "figure",
+          "width": 354
+        }
+      ],
+      "counts": {
+        "svg": 30,
+        "canvas": 0,
+        "video": 0,
+        "img": 4
+      },
+      "blockedHint": null,
+      "textLength": 18598,
+      "pageHeight": 18878
+    },
+    "1440": {
+      "status": 200,
+      "frames": 20,
+      "title": "About 60% of Paper Votes for United Russia Might be Fabricated",
+      "bodyBg": "rgb(37, 39, 41)",
+      "h1": {
+        "text": "About 60% of Paper Votes for United Russia Might be Fabricated",
+        "family": "\"Proto Grotesk\"",
+        "size": 52,
+        "weight": "700",
+        "lineHeight": "54px",
+        "color": "rgb(37, 39, 41)",
+        "numerals": "normal",
+        "width": 1140
+      },
+      "body": {
+        "sample": "Anomalies and statistics show that 18 of 30 millions of “paper votes” for United Russia in last week’s elections might a",
+        "family": "\"IBM Plex Serif\"",
+        "size": 28,
+        "weight": "400",
+        "lineHeight": "30px",
+        "color": "rgb(37, 39, 41)",
+        "numerals": "normal",
+        "width": 1140,
+        "charsPerLine": null
+      },
+      "chartLabels": null,
+      "svgColors": [
+        [
+          "rgb(153, 65, 70)",
+          402
+        ],
+        [
+          "rgb(255, 255, 255)",
+          40
+        ],
+        [
+          "rgb(28, 39, 76)",
+          8
+        ],
+        [
+          "rgb(217, 217, 217)",
+          3
+        ],
+        [
+          "rgb(234, 67, 53)",
+          3
+        ],
+        [
+          "rgb(66, 133, 244)",
+          3
+        ],
+        [
+          "rgb(251, 188, 5)",
+          3
+        ],
+        [
+          "rgb(52, 168, 83)",
+          3
+        ],
+        [
+          "rgb(37, 39, 41)",
+          3
+        ],
+        [
+          "rgb(191, 191, 191)",
+          2
+        ],
+        [
+          "rgb(104, 104, 104)",
+          2
+        ],
+        [
+          "rgb(141, 134, 134)",
+          2
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "svg",
+          "width": 202
+        },
+        {
+          "tag": "figure",
+          "width": 1296
+        }
+      ],
+      "counts": {
+        "svg": 30,
+        "canvas": 0,
+        "video": 0,
+        "img": 4
+      },
+      "blockedHint": null,
+      "textLength": 18713,
+      "pageHeight": 14733
+    }
+  }
+}

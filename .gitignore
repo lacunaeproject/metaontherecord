@@ -1,0 +1,8 @@
+node_modules/
+design/shots/
+.DS_Store
+design/references/*/*.png
+docs/v1/
+docs/v2/
+docs/v3/
+docs/proto-assets/

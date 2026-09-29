@@ -1,0 +1,13 @@
+{
+  "name": "metaontherecord",
+  "private": true,
+  "description": "Build and design tooling for Meta on the Record. The site itself is built by build.py.",
+  "type": "module",
+  "scripts": {
+    "serve": "python3 -m http.server 8765 --directory docs",
+    "shoot": "node scripts/shoot.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

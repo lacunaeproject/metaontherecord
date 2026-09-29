@@ -1,0 +1,400 @@
+{
+  "slug": "straitstimes-indonesia-food",
+  "url": "https://www.straitstimes.com/multimedia/graphics/2026/09/indonesia-food-security/index.html",
+  "sizes": {
+    "390": {
+      "status": 200,
+      "frames": 90,
+      "title": "Indonesia needs to grow more rice, corn and sugar. Can its forests survive? | The Straits Times",
+      "bodyBg": "rgb(30, 32, 46)",
+      "h1": {
+        "text": "Indonesia needs to grow more rice, corn and sugar. Can its forests survive?",
+        "family": "\"Selane Forty\", \"Selane Text\", ui-serif, georgia, cambria, \"Times New Roman\", ti",
+        "size": 32,
+        "weight": "400",
+        "lineHeight": "35px",
+        "color": "rgb(255, 255, 255)",
+        "numerals": "normal",
+        "width": 358
+      },
+      "body": {
+        "sample": "Jakarta wants to boost crop production, risking the clearance of millions of hectares of forest. Yet, there are solution",
+        "family": "\"Selane Text\", ui-serif, georgia, cambria, \"Times New Roman\", times, serif",
+        "size": 20,
+        "weight": "400",
+        "lineHeight": "28px",
+        "color": "rgb(255, 255, 255)",
+        "numerals": "normal",
+        "width": 358,
+        "charsPerLine": null
+      },
+      "chartLabels": {
+        "count": 20,
+        "samples": [
+          {
+            "text": "INDONESIA",
+            "family": "CuratorBold",
+            "size": 16,
+            "weight": "400",
+            "lineHeight": "21.6px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 73
+          },
+          {
+            "text": "Makassar",
+            "family": "CuratorRegular",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "18.9px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 53
+          },
+          {
+            "text": "Palembang",
+            "family": "CuratorRegular",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "18.9px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 63
+          },
+          {
+            "text": "Padang",
+            "family": "CuratorRegular",
+            "size": 13,
+            "weight": "400",
+            "lineHeight": "17.55px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 39
+          },
+          {
+            "text": "Jayapura",
+            "family": "CuratorRegular",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "18.9px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 52
+          },
+          {
+            "text": "INDONESIA",
+            "family": "CuratorBold",
+            "size": 16,
+            "weight": "400",
+            "lineHeight": "21.6px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 73
+          }
+        ]
+      },
+      "svgColors": [
+        [
+          "rgb(255, 255, 255)",
+          30
+        ],
+        [
+          "rgb(0, 0, 0)",
+          24
+        ],
+        [
+          "rgb(48, 63, 84)",
+          18
+        ],
+        [
+          "rgba(255, 255, 255, 0.9)",
+          6
+        ],
+        [
+          "rgb(242, 113, 90)",
+          4
+        ],
+        [
+          "rgba(42, 45, 66, 0.4)",
+          3
+        ],
+        [
+          "rgba(247, 240, 233, 0.95)",
+          3
+        ],
+        [
+          "rgba(242, 113, 90, 0.2)",
+          2
+        ],
+        [
+          "rgba(242, 113, 90, 0.95)",
+          2
+        ],
+        [
+          "rgb(42, 45, 66)",
+          2
+        ],
+        [
+          "rgb(247, 240, 233)",
+          2
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "svg",
+          "width": 234
+        },
+        {
+          "tag": "figure",
+          "width": 390
+        },
+        {
+          "tag": "video",
+          "width": 390
+        },
+        {
+          "tag": "canvas",
+          "width": 390
+        },
+        {
+          "tag": "figure",
+          "width": 390
+        },
+        {
+          "tag": "video",
+          "width": 390
+        },
+        {
+          "tag": "figure",
+          "width": 390
+        },
+        {
+          "tag": "figure",
+          "width": 390
+        },
+        {
+          "tag": "canvas",
+          "width": 390
+        },
+        {
+          "tag": "figure",
+          "width": 390
+        },
+        {
+          "tag": "svg",
+          "width": 390
+        },
+        {
+          "tag": "figure",
+          "width": 390
+        }
+      ],
+      "counts": {
+        "svg": 13,
+        "canvas": 3,
+        "video": 8,
+        "img": 23
+      },
+      "blockedHint": null,
+      "textLength": 34643,
+      "pageHeight": 53063
+    },
+    "1440": {
+      "status": 200,
+      "frames": 90,
+      "title": "Indonesia needs to grow more rice, corn and sugar. Can its forests survive? | The Straits Times",
+      "bodyBg": "rgb(30, 32, 46)",
+      "h1": {
+        "text": "Indonesia needs to grow more rice, corn and sugar. Can its forests survive?",
+        "family": "\"Selane Twenty\", \"Selane Text\", ui-serif, georgia, cambria, \"Times New Roman\", t",
+        "size": 50,
+        "weight": "400",
+        "lineHeight": "52px",
+        "color": "rgb(255, 255, 255)",
+        "numerals": "normal",
+        "width": 700
+      },
+      "body": {
+        "sample": "Jakarta wants to boost crop production, risking the clearance of millions of hectares of forest. Yet, there are solution",
+        "family": "\"Selane Text\", ui-serif, georgia, cambria, \"Times New Roman\", times, serif",
+        "size": 23,
+        "weight": "400",
+        "lineHeight": "30px",
+        "color": "rgb(255, 255, 255)",
+        "numerals": "normal",
+        "width": 700,
+        "charsPerLine": null
+      },
+      "chartLabels": {
+        "count": 42,
+        "samples": [
+          {
+            "text": "300 km",
+            "family": "CuratorRegular",
+            "size": 14,
+            "weight": "400",
+            "lineHeight": "18.9px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 47
+          },
+          {
+            "text": "INDONESIA",
+            "family": "CuratorBold",
+            "size": 18,
+            "weight": "400",
+            "lineHeight": "24.3px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 89
+          },
+          {
+            "text": "Nusantra",
+            "family": "CuratorRegular",
+            "size": 16,
+            "weight": "400",
+            "lineHeight": "21.6px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 63
+          },
+          {
+            "text": "Palembang",
+            "family": "CuratorRegular",
+            "size": 16,
+            "weight": "400",
+            "lineHeight": "21.6px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 77
+          },
+          {
+            "text": "Mura Siberut",
+            "family": "CuratorRegular",
+            "size": 16,
+            "weight": "400",
+            "lineHeight": "21.6px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 89
+          },
+          {
+            "text": "Medan",
+            "family": "CuratorRegular",
+            "size": 16,
+            "weight": "400",
+            "lineHeight": "21.6px",
+            "color": "rgba(255, 255, 255, 0.9)",
+            "numerals": "normal",
+            "width": 47
+          }
+        ]
+      },
+      "svgColors": [
+        [
+          "rgb(255, 255, 255)",
+          53
+        ],
+        [
+          "rgb(48, 63, 84)",
+          41
+        ],
+        [
+          "rgb(0, 0, 0)",
+          11
+        ],
+        [
+          "rgb(242, 113, 90)",
+          6
+        ],
+        [
+          "rgba(255, 255, 255, 0.9)",
+          6
+        ],
+        [
+          "rgba(42, 45, 66, 0.4)",
+          3
+        ],
+        [
+          "rgba(247, 240, 233, 0.95)",
+          3
+        ],
+        [
+          "rgb(42, 45, 66)",
+          3
+        ],
+        [
+          "rgb(247, 240, 233)",
+          3
+        ],
+        [
+          "rgba(242, 113, 90, 0.2)",
+          2
+        ],
+        [
+          "rgba(242, 113, 90, 0.95)",
+          2
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "svg",
+          "width": 240
+        },
+        {
+          "tag": "figure",
+          "width": 1440
+        },
+        {
+          "tag": "video",
+          "width": 1440
+        },
+        {
+          "tag": "canvas",
+          "width": 1302
+        },
+        {
+          "tag": "figure",
+          "width": 1440
+        },
+        {
+          "tag": "video",
+          "width": 1440
+        },
+        {
+          "tag": "figure",
+          "width": 700
+        },
+        {
+          "tag": "figure",
+          "width": 1440
+        },
+        {
+          "tag": "canvas",
+          "width": 1302
+        },
+        {
+          "tag": "figure",
+          "width": 1440
+        },
+        {
+          "tag": "svg",
+          "width": 1440
+        },
+        {
+          "tag": "figure",
+          "width": 1440
+        }
+      ],
+      "counts": {
+        "svg": 13,
+        "canvas": 3,
+        "video": 8,
+        "img": 23
+      },
+      "blockedHint": null,
+      "textLength": 34903,
+      "pageHeight": 47277
+    }
+  }
+}

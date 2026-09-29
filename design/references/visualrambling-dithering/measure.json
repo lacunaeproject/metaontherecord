@@ -1,0 +1,74 @@
+{
+  "slug": "visualrambling-dithering",
+  "url": "https://visualrambling.space/dithering-part-1/",
+  "sizes": {
+    "390": {
+      "status": 200,
+      "frames": 90,
+      "title": "Dithering - Part 1",
+      "bodyBg": "rgb(34, 34, 34)",
+      "h1": {
+        "text": "Dithering - Part 1",
+        "family": "Times",
+        "size": 32,
+        "weight": "700",
+        "lineHeight": "normal",
+        "color": "rgb(0, 0, 0)",
+        "numerals": "normal",
+        "width": 1010
+      },
+      "body": null,
+      "chartLabels": null,
+      "svgColors": [],
+      "graphics": [
+        {
+          "tag": "canvas",
+          "width": 390
+        }
+      ],
+      "counts": {
+        "svg": 0,
+        "canvas": 1,
+        "video": 0,
+        "img": 4
+      },
+      "blockedHint": null,
+      "textLength": 5427,
+      "pageHeight": 844
+    },
+    "1440": {
+      "status": 200,
+      "frames": 90,
+      "title": "Dithering - Part 1",
+      "bodyBg": "rgb(34, 34, 34)",
+      "h1": {
+        "text": "Dithering - Part 1",
+        "family": "Times",
+        "size": 32,
+        "weight": "700",
+        "lineHeight": "normal",
+        "color": "rgb(0, 0, 0)",
+        "numerals": "normal",
+        "width": 1010
+      },
+      "body": null,
+      "chartLabels": null,
+      "svgColors": [],
+      "graphics": [
+        {
+          "tag": "canvas",
+          "width": 1440
+        }
+      ],
+      "counts": {
+        "svg": 0,
+        "canvas": 1,
+        "video": 0,
+        "img": 4
+      },
+      "blockedHint": null,
+      "textLength": 5427,
+      "pageHeight": 900
+    }
+  }
+}

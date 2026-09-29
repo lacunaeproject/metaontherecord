@@ -124,6 +124,87 @@ def ledger_entry(e, credit=False):
     </div>
   </li>'''
 
+# ---------- G1: the record by year, one evidence glyph per entry (design/DESIGN.md §1) ----------
+G1_YEARS = list(range(2007, UPDATED.year + 1))
+STRENGTH = ["ruled", "appeal", "settled", "admitted", "reported", "alleged", "dismissed"]
+RULING = {"ruled", "appeal"}
+
+def _glyph_inner(tier):
+    g = glyph(tier)
+    return g[g.index(">") + 1:g.rindex("</svg>")]
+
+def g1_chart(W, narrow=False):
+    """Drawn at W px for its breakpoint, never scaled. Strongest evidence sits at the bottom of each year."""
+    cols = {y: sorted([e for e in ENTRIES if year(e["date"]) == y], key=lambda e: (STRENGTH.index(e["tier"]), e["date"])) for y in G1_YEARS}
+    n = len(G1_YEARS); colw = W / n
+    cell = min(16 if narrow else 30, colw * 0.74); gap = max(2.0, cell * 0.14)
+    stack = max(len(v) for v in cols.values())
+    band = 34 if narrow else 58
+    y0 = band + 22 + stack * (cell + gap)
+    H = y0 + 40
+    cx = lambda i: colw * i + colw / 2
+    split = colw * G1_YEARS.index(2021)
+    o = [f'<svg class="uc" width="{W}" height="{H:.0f}" viewBox="0 0 {W} {H:.0f}" aria-hidden="true">',
+         f'<line class="axis" x1="0" x2="{W}" y1="{y0 + .5:.1f}" y2="{y0 + .5:.1f}"/>']
+    o += [f'<line class="tick" x1="{cx(i):.1f}" x2="{cx(i):.1f}" y1="{y0:.1f}" y2="{y0 + 4:.1f}"/>' for i in range(n)]
+    for yr in ([2007, 2014, 2021, G1_YEARS[-1]] if narrow else [2007, 2010, 2015, 2021, G1_YEARS[-1]]):
+        i = G1_YEARS.index(yr); x = 0 if i == 0 else W if i == n - 1 else cx(i)
+        anchor = "start" if i == 0 else "end" if i == n - 1 else "middle"
+        o.append(f'<text class="yr{" em" if yr == 2021 else ""}" x="{x:.1f}" y="{y0 + 17:.1f}" text-anchor="{anchor}">{yr}</text>')
+    o.append(f'<text class="yr" x="{W:.1f}" y="{y0 + 31:.1f}" text-anchor="end">so far</text>')
+    o.append(f'<line class="divider" x1="{split:.1f}" x2="{split:.1f}" y1="{band - 10:.1f}" y2="{y0:.1f}"/>')
+    for i, yr in enumerate(G1_YEARS):
+        for k, e in enumerate(cols[yr]):
+            t = e["tier"]; label = f'{e["title"]}, {month_year(e["date"])}. {TIERS[t]["label"]}.'
+            o.append(f'<a class="sq{" rul" if t in RULING else ""}" data-id="{esc(e["id"])}" href="#e-{esc(e["id"])}" aria-label="{esc(label)}"><title>{esc(label)}</title>'
+                     f'<svg x="{cx(i) - cell / 2:.1f}" y="{y0 - (k + 1) * (cell + gap) + gap:.1f}" width="{cell:.1f}" height="{cell:.1f}" viewBox="0 0 16 16">{_glyph_inner(t)}</svg></a>')
+    top = lambda yr: y0 - len(cols[yr]) * (cell + gap) - 6
+    peak = max(G1_YEARS, key=lambda y: len(cols[y]))
+    o.append(f'<text class="dl" x="{cx(G1_YEARS.index(peak)):.1f}" y="{top(peak):.1f}" text-anchor="middle">{len(cols[peak])}</text>')
+    if peak != G1_YEARS[-1] and not narrow:
+        o.append(f'<text class="dl" x="{cx(n - 1):.1f}" y="{top(G1_YEARS[-1]):.1f}" text-anchor="middle">{len(cols[G1_YEARS[-1]])}</text>')
+    by = band - 10
+    for key, x1, x2, group in (("pre", 0, split, [e for e in ENTRIES if year(e["date"]) < 2021]),
+                               ("post", split, W, [e for e in ENTRIES if year(e["date"]) >= 2021])):
+        r = sum(1 for e in group if e["tier"] in RULING)
+        o.append(f'<g class="br"><path d="M{x1 + 3:.1f} {by + 6:.1f}V{by:.1f}H{x2 - 3:.1f}V{by + 6:.1f}"/>')
+        if narrow:
+            short = "2007–20" if key == "pre" else "2021–"
+            tail = f" · {r} of {len(group)} on a ruling" if key == "pre" else f" · {r} of {len(group)}"
+            o.append(f'<text class="bl" x="{x1 + 3:.1f}" y="{by - 8:.1f}"><tspan class="bh">{short}</tspan>{tail}</text>')
+        else:
+            head = "2007 to 2020" if key == "pre" else "Since 2021"
+            o.append(f'<text class="bh" x="{x1 + 3:.1f}" y="{by - 26:.1f}">{head}</text>'
+                     f'<text class="bl" x="{x1 + 3:.1f}" y="{by - 9:.1f}">{len(group)} entries · {r} on a ruling</text>')
+        o.append('</g>')
+    # the one pre-2021 ruling is the exception that makes the headline true: label it where it sits
+    early = [(i, k) for i, yr in enumerate(G1_YEARS) if yr < 2021 for k, e in enumerate(cols[yr]) if e["tier"] in RULING]
+    if len(early) == 1 and not narrow:
+        i, k = early[0]; e = cols[G1_YEARS[i]][k]
+        sy = y0 - (k + 1) * (cell + gap) + gap + cell / 2; lx = colw * i; ny = y0 - (stack - 2) * (cell + gap)
+        o.append(f'<g class="note"><text x="{lx - 8:.1f}" y="{ny:.1f}" text-anchor="end">The one earlier ruling:</text>'
+                 f'<text x="{lx - 8:.1f}" y="{ny + 17:.1f}" text-anchor="end">{esc(e["title"].split(" exposes")[0])}, {year(e["date"])}</text>'
+                 f'<path d="M{lx - 4:.1f} {ny + 12:.1f}H{lx:.1f}V{sy:.1f}H{cx(i) - cell / 2 - 3:.1f}"/>'
+                 f'<circle cx="{cx(i) - cell / 2 - 3:.1f}" cy="{sy:.1f}" r="2"/></g>')
+    o.append('</svg>')
+    return "".join(o)
+
+def g1_html():
+    rulings = [e for e in ENTRIES if e["tier"] in RULING]
+    recent = [e for e in rulings if year(e["date"]) >= 2021]
+    key = ", ".join(f'<span class="k{" rul" if t in RULING else ""}">{glyph(t)}{esc(TIERS[t]["label"].lower())}</span>' for t in STRENGTH)
+    rows = "".join(f'<tr><th scope="row">{y}</th><td>{sum(1 for e in ENTRIES if year(e["date"]) == y)}</td>'
+                   f'<td>{sum(1 for e in rulings if year(e["date"]) == y)}</td></tr>' for y in G1_YEARS)
+    return (f'<figure class="g1" id="g1" data-shot="g1"><figcaption>'
+            f'<p class="g-head">Of the <span class="kchip">{len(rulings)}</span> entries resting on a ruling against Meta, {len(recent)} are events from 2021 or later.</p>'
+            f'<p class="g-method">Each square is one entry, stacked in the year the event happened and drawn as its evidence label: {key}. '
+            f'It counts entries in this record, not incidents, and coverage before 2017 is thinner.</p></figcaption>'
+            f'<div class="uc-w">{g1_chart(832)}</div><div class="uc-m">{g1_chart(700)}</div><div class="uc-n">{g1_chart(350, narrow=True)}</div>'
+            f'<p class="g-source">Source: Meta on the Record entries, dated by the year of the event; {UPDATED.year} runs through {MONTHS[UPDATED.month - 1]}. '
+            f'<a href="/data/record.csv">Download the data</a></p>'
+            f'<details class="g-table"><summary>Show the numbers as a table</summary><table><thead><tr><th scope="col">Year</th>'
+            f'<th scope="col">Entries</th><th scope="col">On a ruling</th></tr></thead><tbody>{rows}</tbody></table></details></figure>')
+
 def ledger_html():
     groups = {}
     for e in ORDER: groups.setdefault(year(e["date"]), []).append(e)
@@ -235,11 +316,13 @@ def main():
 
     # ---- index ----
     body = open(os.path.join(SRC, "home.html"), encoding="utf-8").read()
+    body = body.replace('<div class="g1-slot"></div>', g1_html())
+    body = re.sub(r'<span class="node" data-tier="(\w+)"></span>', lambda m: f'<span class="node" aria-hidden="true">{glyph(m.group(1))}</span>', body)
     body = body.replace('<div class="ledger" id="ledger"></div>', f'<div class="ledger" id="ledger">{ledger_html()}</div>')
     body = body.replace('<ol class="credit-list" id="creditlist"></ol>', f'<ol class="credit-list" id="creditlist">{credits_html()}</ol>')
     tierdefs = "".join(f'<div><dt>{glyph(k)}{esc(t["label"])}</dt><dd>{esc(t["def"])}</dd></div>' for k, t in TIERS.items())
     tierdefs += f'<div><dt>{glyph("credit")}Credit</dt><dd>Something Meta did well, listed with the context it needs.</dd></div>'
-    body = body.replace('<dl class="tiers" id="tierdefs"></dl>', f'<dl class="tiers" id="tierdefs">{tierdefs}</dl>')
+    body = body.replace('<dl class="tiers" id="tierdefs" data-shot="labels"></dl>', f'<dl class="tiers" id="tierdefs" data-shot="labels">{tierdefs}</dl>')
     notes = "".join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in NOTES)
     body = body.replace('<div class="notes" id="notes"></div>', f'<div class="notes" id="notes">{notes}</div>')
     body = re.sub(r'<span class="tierline" data-tier="(\w+)"></span>',
@@ -350,7 +433,7 @@ def main():
 
     # ---- 404 ----
     write("/404.html", head(f"Page not found | {SITE}", "This page does not exist.", "/404.html", "/og/index.png", []) .replace('content="index, follow, max-image-preview:large"', 'content="noindex"') + f'''
-<body class="page">{masthead()}<main id="main" class="article wrap notfound"><p class="a-date">Page not found</p><h1 class="a-title">This page doesn’t exist.</h1><p class="a-lede">The link may be old or mistyped. The full record has every entry, with search and filters, and the topics below group them by subject.</p><p class="nf-actions"><a class="btn btn-ink" href="/#record">Go to the full record</a></p></main>{footer()}</body></html>''')
+<body class="page">{masthead()}<main id="main" class="article wrap notfound"><h1 class="a-title">This page doesn’t exist.</h1><p class="a-lede">The link may be old or mistyped. The full record has every entry, with search and filters, and the topics below group them by subject.</p><p class="nf-actions"><a class="btn btn-ink" href="/#record">Go to the full record</a></p></main>{footer()}</body></html>''')
 
     # ---- data downloads ----
     os.makedirs(os.path.join(DIST, "data"), exist_ok=True)

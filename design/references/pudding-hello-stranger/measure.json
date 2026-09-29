@@ -1,0 +1,128 @@
+{
+  "slug": "pudding-hello-stranger",
+  "url": "https://pudding.cool/2025/06/hello-stranger/",
+  "sizes": {
+    "390": {
+      "status": 200,
+      "frames": 90,
+      "title": "30 minutes with a stranger",
+      "bodyBg": "rgb(32, 17, 38)",
+      "h1": {
+        "text": "30 minutes with a stranger",
+        "family": "\"Tiempos Text\", \"Iowan Old Style\", \"Times New Roman\", Times, serif",
+        "size": 18,
+        "weight": "500",
+        "lineHeight": "25.2px",
+        "color": "rgb(255, 255, 255)",
+        "numerals": "normal",
+        "width": 390
+      },
+      "body": {
+        "sample": "They are a subset of nearly 1,700 conversations between about 1,500 people as part of a research project called the CAND",
+        "family": "\"Tiempos Text\", \"Iowan Old Style\", \"Times New Roman\", Times, serif",
+        "size": 17,
+        "weight": "400",
+        "lineHeight": "25px",
+        "color": "rgb(206, 188, 212)",
+        "numerals": "normal",
+        "width": 329,
+        "charsPerLine": 34
+      },
+      "chartLabels": null,
+      "svgColors": [
+        [
+          "rgb(255, 255, 255)",
+          21
+        ],
+        [
+          "rgb(0, 0, 0)",
+          12
+        ],
+        [
+          "rgb(38, 38, 38)",
+          4
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "svg",
+          "width": 225
+        },
+        {
+          "tag": "svg",
+          "width": 362
+        }
+      ],
+      "counts": {
+        "svg": 4,
+        "canvas": 0,
+        "video": 0,
+        "img": 14
+      },
+      "blockedHint": null,
+      "textLength": 81507,
+      "pageHeight": 70596
+    },
+    "1440": {
+      "status": 200,
+      "frames": 90,
+      "title": "30 minutes with a stranger",
+      "bodyBg": "rgb(32, 17, 38)",
+      "h1": {
+        "text": "30 minutes with a stranger",
+        "family": "\"Tiempos Text\", \"Iowan Old Style\", \"Times New Roman\", Times, serif",
+        "size": 18,
+        "weight": "500",
+        "lineHeight": "25.2px",
+        "color": "rgb(255, 255, 255)",
+        "numerals": "normal",
+        "width": 1440
+      },
+      "body": {
+        "sample": "They are a subset of nearly 1,700 conversations between about 1,500 people as part of a research project called the CAND",
+        "family": "\"Tiempos Text\", \"Iowan Old Style\", \"Times New Roman\", Times, serif",
+        "size": 17,
+        "weight": "400",
+        "lineHeight": "25px",
+        "color": "rgb(206, 188, 212)",
+        "numerals": "normal",
+        "width": 358,
+        "charsPerLine": 34
+      },
+      "chartLabels": null,
+      "svgColors": [
+        [
+          "rgb(255, 255, 255)",
+          21
+        ],
+        [
+          "rgb(0, 0, 0)",
+          12
+        ],
+        [
+          "rgb(38, 38, 38)",
+          4
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "svg",
+          "width": 225
+        },
+        {
+          "tag": "svg",
+          "width": 364
+        }
+      ],
+      "counts": {
+        "svg": 4,
+        "canvas": 0,
+        "video": 0,
+        "img": 14
+      },
+      "blockedHint": null,
+      "textLength": 91767,
+      "pageHeight": 69151
+    }
+  }
+}

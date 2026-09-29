@@ -27,6 +27,18 @@ python3 og.py
 
 Run `og.py` after every build, since the build clears `docs/`. Then commit and push both `src/` and `docs/`. Update `UPDATED` in `build.py` when content changes.
 
+## Design review screenshots
+
+`scripts/shoot.mjs` captures the built site for design review. It needs Node.js; the site itself doesn't.
+
+```
+npm install && npx playwright install chromium   # first time only
+npm run serve                                     # serves docs/ on localhost:8765
+npm run shoot -- <label>                          # in a second terminal
+```
+
+It writes full-page images, readable slices, every element marked `data-shot` and every timeline step (`data-step`) at 1440, 834 and 390 pixels wide, in normal, reduced-motion and dark modes, to `design/shots/<label>/`. Screenshots are not committed. Add `--paths=/,/topics/kids/` to capture other pages.
+
 ## Publish on GitHub Pages
 
 1. Create a repository and push this folder to it.

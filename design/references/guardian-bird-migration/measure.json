@@ -1,0 +1,280 @@
+{
+  "slug": "guardian-bird-migration",
+  "url": "https://www.theguardian.com/environment/ng-interactive/2025/oct/16/bird-migration-is-changing-what-does-this-reveal-about-our-planet-visualised-aoe",
+  "sizes": {
+    "390": {
+      "status": 200,
+      "frames": 34,
+      "title": "Bird migration is changing. What does this reveal about our planet? – visualised | Birds | The Guardian",
+      "bodyBg": "rgb(248, 243, 240)",
+      "h1": {
+        "text": "Bird migration is changing. What does this reveal about our planet? – visualised",
+        "family": "\"GH Guardian Headline\", \"Guardian Egyptian Web\", Georgia, serif",
+        "size": 30,
+        "weight": "500",
+        "lineHeight": "42px",
+        "color": "rgb(255, 255, 255)",
+        "numerals": "normal",
+        "width": 360
+      },
+      "body": {
+        "sample": "They are guided by the shift in seasons, as insects and plants disappear in one region and flourish in another — you can",
+        "family": "\"Guardian Text Egyptian Web\", Georgia, serif",
+        "size": 17,
+        "weight": "400",
+        "lineHeight": "24px",
+        "color": "rgb(18, 18, 18)",
+        "numerals": "normal",
+        "width": 350,
+        "charsPerLine": 44
+      },
+      "chartLabels": null,
+      "svgColors": [
+        [
+          "rgb(95, 94, 91)",
+          119
+        ],
+        [
+          "rgb(255, 255, 255)",
+          16
+        ],
+        [
+          "rgb(18, 18, 18)",
+          15
+        ],
+        [
+          "rgb(0, 119, 182)",
+          5
+        ],
+        [
+          "rgb(0, 0, 0)",
+          3
+        ],
+        [
+          "rgb(112, 112, 112)",
+          3
+        ],
+        [
+          "rgb(5, 41, 98)",
+          2
+        ],
+        [
+          "rgb(199, 70, 0)",
+          2
+        ],
+        [
+          "rgb(88, 25, 64)",
+          1
+        ],
+        [
+          "rgb(248, 243, 240)",
+          1
+        ],
+        [
+          "rgb(92, 12, 74)",
+          1
+        ],
+        [
+          "rgb(199, 0, 0)",
+          1
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "figure",
+          "width": 390
+        },
+        {
+          "tag": "svg",
+          "width": 392
+        },
+        {
+          "tag": "canvas",
+          "width": 392
+        },
+        {
+          "tag": "figure",
+          "width": 370
+        },
+        {
+          "tag": "figure",
+          "width": 370
+        },
+        {
+          "tag": "figure",
+          "width": 370
+        },
+        {
+          "tag": "figure",
+          "width": 370
+        },
+        {
+          "tag": "figure",
+          "width": 370
+        },
+        {
+          "tag": "figure",
+          "width": 370
+        },
+        {
+          "tag": "figure",
+          "width": 370
+        },
+        {
+          "tag": "figure",
+          "width": 370
+        },
+        {
+          "tag": "figure",
+          "width": 370
+        }
+      ],
+      "counts": {
+        "svg": 65,
+        "canvas": 1,
+        "video": 0,
+        "img": 35
+      },
+      "blockedHint": null,
+      "textLength": 21255,
+      "pageHeight": 26374
+    },
+    "1440": {
+      "status": 200,
+      "frames": 28,
+      "title": "Bird migration is changing. What does this reveal about our planet? – visualised | Birds | The Guardian",
+      "bodyBg": "rgb(248, 243, 240)",
+      "h1": {
+        "text": "Bird migration is changing. What does this reveal about our planet? – visualised",
+        "family": "\"GH Guardian Headline\", \"Guardian Egyptian Web\", Georgia, serif",
+        "size": 50,
+        "weight": "500",
+        "lineHeight": "70px",
+        "color": "rgb(255, 255, 255)",
+        "numerals": "normal",
+        "width": 627
+      },
+      "body": {
+        "sample": "They are guided by the shift in seasons, as insects and plants disappear in one region and flourish in another — you can",
+        "family": "\"Guardian Text Egyptian Web\", Georgia, serif",
+        "size": 17,
+        "weight": "400",
+        "lineHeight": "24px",
+        "color": "rgb(18, 18, 18)",
+        "numerals": "normal",
+        "width": 458,
+        "charsPerLine": 56
+      },
+      "chartLabels": null,
+      "svgColors": [
+        [
+          "rgb(95, 94, 91)",
+          119
+        ],
+        [
+          "rgb(255, 255, 255)",
+          18
+        ],
+        [
+          "rgb(18, 18, 18)",
+          13
+        ],
+        [
+          "rgb(0, 119, 182)",
+          5
+        ],
+        [
+          "rgb(5, 41, 98)",
+          3
+        ],
+        [
+          "rgb(0, 0, 0)",
+          3
+        ],
+        [
+          "rgb(112, 112, 112)",
+          3
+        ],
+        [
+          "rgb(199, 70, 0)",
+          2
+        ],
+        [
+          "rgb(88, 25, 64)",
+          1
+        ],
+        [
+          "rgb(248, 243, 240)",
+          1
+        ],
+        [
+          "rgb(92, 12, 74)",
+          1
+        ],
+        [
+          "rgb(199, 0, 0)",
+          1
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "figure",
+          "width": 1440
+        },
+        {
+          "tag": "svg",
+          "width": 1442
+        },
+        {
+          "tag": "canvas",
+          "width": 1442
+        },
+        {
+          "tag": "figure",
+          "width": 1260
+        },
+        {
+          "tag": "figure",
+          "width": 620
+        },
+        {
+          "tag": "figure",
+          "width": 380
+        },
+        {
+          "tag": "figure",
+          "width": 620
+        },
+        {
+          "tag": "figure",
+          "width": 620
+        },
+        {
+          "tag": "figure",
+          "width": 1260
+        },
+        {
+          "tag": "figure",
+          "width": 620
+        },
+        {
+          "tag": "figure",
+          "width": 380
+        },
+        {
+          "tag": "figure",
+          "width": 1260
+        }
+      ],
+      "counts": {
+        "svg": 64,
+        "canvas": 1,
+        "video": 0,
+        "img": 35
+      },
+      "blockedHint": null,
+      "textLength": 21079,
+      "pageHeight": 21526
+    }
+  }
+}

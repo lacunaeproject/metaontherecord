@@ -1,0 +1,111 @@
+## About 60% of Paper Votes for United Russia Might be Fabricated (iStories / Important Stories, 2026)
+
+- **Claim.** Roughly 18.4 million of the ~30 million paper ballots counted for United Russia may be fabricated, which would put the party's real share near 35% rather than the declared 58%. It is first stated in the h1 and standfirst on frame 1440-01 ("18 of 30 millions", "around 35% instead of the declared 58%"). The body restates it as a section head on 1440-03 ("United Russia got no more than 35% of the real vote share") and as a chart title on 1440-06 ("More than 18 million paper ballot votes ... may have been fabricated").
+
+- **Grid.**
+  - Structure: one text column. A white page card spans x=24–1416 (1392px) and sits on a dark page background, `rgb(37,39,41)` #252729.
+  - Measure: the text column runs x=288–1152, so it is 864px wide. Body type is about 17px (estimated from frames; line pitch 24px, measured on 1440-03 at y=83/107/131). At 864 / (17 × 0.5) that gives ~100 characters per line, and a counted line on 1440-03 has 104. That is a long measure.
+  - Chart widths:
+    - The seven inline charts are the same width as the text: each pink card is 864px (x=288–1152) with ~20px inner padding, so plot areas are ~825px. None breaks out.
+    - The small-multiples card (1440-09) uses two columns of about 390px each inside that 864px.
+    - The only breakout is the hero. `measure.json` records the figure as 1296px wide; in the frame it fills the 1392px page card edge to edge. Relative to the 864px text column, that is 1.5–1.6×.
+  - Chrome: a sticky cream section bar, 36px tall, stays pinned at the top of every scrolled frame.
+
+- **Type.**
+  - Families:
+    - Sans (Proto Grotesk): headline, section heads, chart titles. Chart axes and legends use a lighter grotesk.
+    - Serif (IBM Plex Serif): standfirst, body, and related-story titles.
+  - Measured sizes:
+    - h1: Proto Grotesk 52px/54px, weight 700, #252729. At 390: 28px/30px.
+    - Standfirst: IBM Plex Serif 28px/30px, weight 400. At 390: 22.5px/24px. `measure.json` "body" sampled this element.
+  - Estimated from frames:
+    - Body: ~17px/24px serif.
+    - Section h2: ~32px sans, weight ~500.
+    - Chart title: ~28px sans, weight 800–900 in most cards. Two cards (1440-05 and 1440-11) use a narrower ~26px bold semi-condensed face, so the chart title style is not consistent.
+    - Chart subtitle: ~22px regular.
+    - Axis ticks and legend: ~16–18px. Axis titles: ~16px, rotated 90° on the y axis.
+    - Bar value labels: ~18px heavy.
+  - Ratio (headline : body : chart label): 52 : 17 : 16, or about 3.1 : 1 : 0.95. Chart labels are nearly body size.
+  - Weights: 400 (body), ~500 (section heads), 700 (h1), ~800–900 (chart titles and bar values).
+  - Numerals: `measure.json` reports `font-variant-numeric` "normal" (default lining and proportional). Axes use decimal commas ("0,5", "1,5"), carried over from the Russian edition. Turnout ticks are irregular ("0 3 6 9 13 17 21 25 30..." on 1440-06/07 and "0.0 11.1 22.1 35.1..." on 1440-09).
+
+- **Color.**
+  - Brand accent: `rgb(153,65,70)` #994146, the most frequent SVG fill (403 uses in `measure.json`). It is used on the logo, links, the donate band and the per-chart logo stamp, never on data.
+  - Data hues:
+    - Scatter (1440-05) and Dagestan dots (1440-11/12): one hue, blue ~#1F66B3 (estimated).
+    - Stacked area (1440-06): two hues. Blue means "real votes" and red ~#C9454A (estimated) means "anomalous votes".
+    - Tongs (1440-13/14): the same pair. Blue is United Russia and red is "any other party".
+    - Multi-line (1440-07): five categorical hues (red, olive, teal, grey, lavender), one per election.
+    - Small multiples (1440-09): one hue per day (red, purple, blue).
+    - Bars (1440-15/16): one teal ~#169A9A (estimated).
+  - Context colors:
+    - Chart cards have a pale pink ground, ~#FDF3F3 (estimated).
+    - Shaded "zones" are warm grey, ~#E9E4E4 (estimated): the "Votes transferred" band on 1440-13/14 and the commission bands on 1440-11/12.
+    - Gridlines are very light grey.
+    - Source text and axis titles are mid grey, ~#6E6E6E (estimated). `measure.json` lists `rgb(104,104,104)` and `rgb(141,134,134)` as low-count SVG greys.
+  - Meaning: blue versus red is the argument. Red in the area chart is the fabricated excess. A navy `rgb(28,39,76)` appears 8 times in SVGs. The four Google-logo colors in `measure.json` (#EA4335, #4285F4, #FBBC05, #34A853) belong to an "Add on Google" button, not to the data.
+
+- **Annotation.**
+  - Every chart card carries the same furniture: a declarative title that states the finding, a one- or two-line method subtitle, a source line with a year, and a logo stamp at top right, 108×30px (estimated).
+  - Per chart:
+    - Scatter: 0 annotations on marks. The subtitle does the reading ("One dot equals one polling station...").
+    - Stacked area: a 2-swatch legend above the plot, 0 direct labels.
+    - Multi-line: a 5-swatch legend above the plot plus a "Votes for" select field, 0 direct labels.
+    - Small multiples: 8 dashed vertical reference lines per panel, labeled directly with rotated percentages (30%, 40%, 50%, 60%, 65%, 70%, 85%, 95%), so 24 labels in total. The panel titles are colored to match each series, so they act as the legend.
+    - Dagestan strip: 12 grey bands, each labeled directly with a rotated commission name (Bezhta, Gunib, Derbent...).
+    - Tongs: 1 shaded zone labeled directly "Votes transferred" (rotated), plus a 2-swatch legend.
+    - Bars: 11 direct value labels at bar ends, plus category labels on the left. No legend.
+  - None of the charts uses leader lines or callout boxes.
+  - Some charts put series identity in a legend (area, multi-line, tongs). Others label directly (bars, small multiples, bands). Reference thresholds are always labeled directly.
+
+- **Density.**
+  - Marks per graphic (estimated):
+    - Scatter: ~40,000–60,000 dots, one per polling station, heavily overplotted.
+    - Stacked area: 2 series × ~100 turnout bins.
+    - Multi-line: 5 lines × ~100 points.
+    - Small multiples: 3 panels × ~1,000 bins, plus 24 reference lines.
+    - Dagestan strip: ~1,500 dots plus 12 bands.
+    - Tongs: 2 lines × ~80 points plus 1 band.
+    - Bars: 11.
+  - Whitespace: ~50–60px between a text block and a chart card, above and below (1440-05: text ends y≈823, card starts y≈883; 1440-06: text ends y≈57, card starts y≈118). Inner card padding is ~20px on the left and right and ~30–40px on top. Section h2s have ~90px above and ~40px below.
+
+- **Motion and interaction.**
+  - Scroll-driven line draw on the tongs chart:
+    - 1440-13: the blue line stops at turnout ≈83% partway through the plot.
+    - 1440-14: both lines are complete to 100%.
+    - 390-18: both lines stop near turnout ≈72% while the chart is fully in view.
+    - Trigger: scroll position. Duration: not observable in stills.
+  - The multi-line chart has a "Votes for" select or search field (1440-07, 390-09). Its behavior is not observable in stills.
+  - An info icon (ⓘ) sits inline after "New Moscow" (1440-10 and 390-13). It is probably a footnote popover; behavior is not observable in stills.
+  - The hero composites the tongs chart (axes, blue and red lines, "Votes transferred" label) over a photo of the election commission chair (1440-02, 390-02). It is static.
+  - The story survives without interaction. Every chart is readable in its end state, and titles state the conclusion.
+
+- **Mobile.**
+  - Text and type at 390: the column is 354px (18px gutters). h1 is 28px/30px, standfirst 22.5px/24px, body ~17px. That gives ~41 characters per line (354 / 8.5), down from ~100 on desktop.
+  - Charts:
+    - Cards shrink to 354px, the column width, and do not scroll horizontally.
+    - Turnout ticks thin from 26 to 13 (390-09: "0 6 13 21 30 38 47 56 65 74 83 91 99").
+    - Legends wrap to 2–3 lines. The stacked-area legend stacks swatches vertically (390-07).
+    - Small multiples go from 2 columns to 1, and turnout ticks become "0.0 9.1 18.1 29.1..." (390-11).
+  - Defects:
+    - Dagestan band labels collide: "Kayakent" and "Kizilyurt" overprint (390-15).
+    - Bar value labels clip at the card's right edge: "61%" is cut off (390-21).
+  - Other changes:
+    - The metadata row (date, authors, editor) stacks vertically (390-02).
+    - The hero chart-photo stays at 390 × ~236px.
+    - "Read also" becomes a horizontal card carousel with arrows (390-25).
+  - Nothing is rotated. No chart is cut.
+
+- **The steal.** Treat each chart as a self-contained evidence card. The title is a declarative finding with the number in it ("More than 18 million paper ballot votes ... may have been fabricated"). Under it goes a one-line method subtitle, and at the foot a source line with its year, all inside one tinted card with a small wordmark, so a screenshot of the card alone keeps the claim, method and source together.
+  - Where: the **"Penalties and revenue"** square grid and tally.
+  - Title: replace any neutral label with the finding, e.g. "Every fine to date equals N days of Meta revenue".
+  - Subtitle: one line on the method ("1 square = $X; revenue from 10-K filings").
+  - Footer: source and year, in the site's grey.
+  - Card: a 1px ink rule or a very light cobalt tint rather than iStories' pink.
+  - Wordmark: "metaontherecord.org" set in Archivo at ~11px, top right.
+
+- **Frames cited.**
+  - 1440 claim and hero: 1440-01, 1440-02, 1440-03
+  - 1440 charts: 1440-05, 1440-06, 1440-07, 1440-09, 1440-11, 1440-12, 1440-13, 1440-14, 1440-15, 1440-16
+  - 1440 other: 1440-10 (inline info icon), 1440-17/18 (donation band and end of article)
+  - 390: 390-01, 390-02, 390-07, 390-09, 390-11, 390-13, 390-15, 390-18, 390-21, 390-25

@@ -1,0 +1,384 @@
+{
+  "slug": "pudding-onions",
+  "url": "https://pudding.cool/2025/08/onions/",
+  "sizes": {
+    "390": {
+      "status": 200,
+      "frames": 16,
+      "title": "Dicing an Onion, the Mathematically Optimal Way",
+      "bodyBg": "rgb(255, 248, 239)",
+      "h1": {
+        "text": "Dicing an  the Mathematically Optimal Way",
+        "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+        "size": 38,
+        "weight": "700",
+        "lineHeight": "42.75px",
+        "color": "rgb(75, 12, 47)",
+        "numerals": "normal",
+        "width": 326
+      },
+      "body": {
+        "sample": "A note on the standard deviationIn this article when we say standard deviation it refers to relative standard deviation.",
+        "family": "\"Tiempos Text\", \"Iowan Old Style\", \"Times New Roman\", Times, serif",
+        "size": 18,
+        "weight": "400",
+        "lineHeight": "25.2px",
+        "color": "rgb(75, 12, 47)",
+        "numerals": "normal",
+        "width": 326,
+        "charsPerLine": null
+      },
+      "chartLabels": {
+        "count": 8,
+        "samples": [
+          {
+            "text": "96%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          },
+          {
+            "text": "76%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          },
+          {
+            "text": "69%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          },
+          {
+            "text": "87%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          },
+          {
+            "text": "53%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          },
+          {
+            "text": "96%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          }
+        ]
+      },
+      "svgColors": [
+        [
+          "rgba(0, 0, 0, 0)",
+          1062
+        ],
+        [
+          "rgb(75, 12, 47)",
+          139
+        ],
+        [
+          "rgb(0, 0, 0)",
+          82
+        ],
+        [
+          "rgb(43, 118, 121)",
+          31
+        ],
+        [
+          "rgb(137, 21, 85)",
+          19
+        ],
+        [
+          "rgb(255, 248, 239)",
+          11
+        ],
+        [
+          "rgb(255, 255, 255)",
+          11
+        ],
+        [
+          "rgb(253, 233, 168)",
+          10
+        ],
+        [
+          "rgb(38, 38, 38)",
+          4
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "svg",
+          "width": 227
+        },
+        {
+          "tag": "figure",
+          "width": 326
+        },
+        {
+          "tag": "svg",
+          "width": 326
+        },
+        {
+          "tag": "figure",
+          "width": 326
+        },
+        {
+          "tag": "svg",
+          "width": 326
+        },
+        {
+          "tag": "figure",
+          "width": 326
+        },
+        {
+          "tag": "svg",
+          "width": 326
+        },
+        {
+          "tag": "figure",
+          "width": 326
+        },
+        {
+          "tag": "svg",
+          "width": 326
+        },
+        {
+          "tag": "figure",
+          "width": 326
+        },
+        {
+          "tag": "svg",
+          "width": 326
+        },
+        {
+          "tag": "figure",
+          "width": 326
+        }
+      ],
+      "counts": {
+        "svg": 22,
+        "canvas": 0,
+        "video": 0,
+        "img": 48
+      },
+      "blockedHint": null,
+      "textLength": 6696,
+      "pageHeight": 11246
+    },
+    "1440": {
+      "status": 200,
+      "frames": 16,
+      "title": "Dicing an Onion, the Mathematically Optimal Way",
+      "bodyBg": "rgb(255, 248, 239)",
+      "h1": {
+        "text": "Dicing an  the Mathematically Optimal Way",
+        "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+        "size": 54,
+        "weight": "700",
+        "lineHeight": "60.75px",
+        "color": "rgb(75, 12, 47)",
+        "numerals": "normal",
+        "width": 576
+      },
+      "body": {
+        "sample": "A note on the standard deviationIn this article when we say standard deviation it refers to relative standard deviation.",
+        "family": "\"Tiempos Text\", \"Iowan Old Style\", \"Times New Roman\", Times, serif",
+        "size": 22,
+        "weight": "400",
+        "lineHeight": "30.8px",
+        "color": "rgb(75, 12, 47)",
+        "numerals": "normal",
+        "width": 576,
+        "charsPerLine": null
+      },
+      "chartLabels": {
+        "count": 8,
+        "samples": [
+          {
+            "text": "96%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          },
+          {
+            "text": "76%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          },
+          {
+            "text": "69%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          },
+          {
+            "text": "87%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          },
+          {
+            "text": "53%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          },
+          {
+            "text": "96%",
+            "family": "\"Atlas Grotesk\", -apple-system, \"system-ui\", Helvetica, Arial, sans-serif",
+            "size": 10,
+            "weight": "400",
+            "lineHeight": "12px",
+            "color": "rgb(75, 12, 47)",
+            "numerals": "normal",
+            "width": 21
+          }
+        ]
+      },
+      "svgColors": [
+        [
+          "rgba(0, 0, 0, 0)",
+          1062
+        ],
+        [
+          "rgb(75, 12, 47)",
+          139
+        ],
+        [
+          "rgb(0, 0, 0)",
+          82
+        ],
+        [
+          "rgb(43, 118, 121)",
+          31
+        ],
+        [
+          "rgb(137, 21, 85)",
+          19
+        ],
+        [
+          "rgb(255, 248, 239)",
+          11
+        ],
+        [
+          "rgb(255, 255, 255)",
+          11
+        ],
+        [
+          "rgb(253, 233, 168)",
+          10
+        ],
+        [
+          "rgb(38, 38, 38)",
+          4
+        ]
+      ],
+      "graphics": [
+        {
+          "tag": "svg",
+          "width": 227
+        },
+        {
+          "tag": "figure",
+          "width": 576
+        },
+        {
+          "tag": "svg",
+          "width": 576
+        },
+        {
+          "tag": "figure",
+          "width": 576
+        },
+        {
+          "tag": "svg",
+          "width": 576
+        },
+        {
+          "tag": "figure",
+          "width": 576
+        },
+        {
+          "tag": "svg",
+          "width": 576
+        },
+        {
+          "tag": "figure",
+          "width": 576
+        },
+        {
+          "tag": "svg",
+          "width": 576
+        },
+        {
+          "tag": "figure",
+          "width": 576
+        },
+        {
+          "tag": "svg",
+          "width": 576
+        },
+        {
+          "tag": "figure",
+          "width": 576
+        }
+      ],
+      "counts": {
+        "svg": 22,
+        "canvas": 0,
+        "video": 0,
+        "img": 48
+      },
+      "blockedHint": null,
+      "textLength": 6696,
+      "pageHeight": 11930
+    }
+  }
+}

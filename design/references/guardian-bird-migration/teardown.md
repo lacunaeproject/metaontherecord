@@ -1,0 +1,148 @@
+## Bird migration is changing. What does this reveal about our planet? – visualised (The Guardian, 2025)
+
+- **Claim.** GPS tracking shows migration routes and wintering grounds shifting as the climate warms. The evidence is three tracked birds; the plainest proof is Bewick's swans wintering further north each year as temperatures rise (2016 3.02C to 2019 5.53C, frame 1440-21).
+  - First stated in the h1 on frame 1440-01 ("Bird migration is changing."), which is fully visible in this capture.
+  - The page is dated "Thu 16 Oct 2025 04.00 EDT" (1440-01).
+  - Sharpened in the standfirst on 1440-08 ("new threats that are reshaping them").
+
+- **Grid.**
+  - Structure: a 3-column editorial grid framed by thin vertical rules at x=70, 320 and 1370.
+    - Left rail: x=70–320 (250px), for captions, the species fact blocks and small illustrations.
+    - Main text column: x=331–951 (620px).
+    - Right: x=951–1370 (~420px), empty.
+  - Measure: body 17px/24px (measured). 620 / 8.5 gives ~73 characters per line, and a counted line on 1440-11 has 73. `measure.json` reports 56 characters per line for a 458px element, the scrollytelling narration box (x=480–960).
+  - Graphic widths, from `measure.json` and the frames:
+    - Hero and scrollytelling world map: 1440–1442px (canvas plus SVG), full bleed (1440-01 to 1440-08). That is 2.3× the text column.
+    - Species illustrations: 1260px (x≈90–1350), 2.0× the text column (1440-08/09, 1440-14, 1440-18).
+    - Route maps ("Marlo's journey", "A nightingale's journey", "Mary's journey", the swan wintering map, the wind map): 620px, exactly the text column.
+    - Inline photos in the left rail: 380px (x=91–471). They overhang the text column by 150px, and the text wraps around them (1440-11, 1440-16, 1440-20).
+    - West Africa habitat map (1440-16/17): ~964px (x≈171–1135), a partial breakout of 1.55× the text column. It is introduced by a 1px rule spanning x=91–1350.
+
+- **Type.**
+  - Families: all serif Egyptian for text; the charts use a sans.
+    - Headline: GH Guardian Headline.
+    - Body: Guardian Text Egyptian.
+    - Chart labels and captions: Guardian Text Sans (estimated from letterforms).
+  - Measured sizes:
+    - h1: 50px/70px, weight 500, white. It is set 4 lines deep on per-line black highlight boxes (line pitch 70px at y≈340/410/480/550, left edge x=241, 1440-01). At 390: 30px/42px, also 4 lines (390-01).
+    - Body: 17px/24px, weight 400, `rgb(18,18,18)`.
+  - Estimated from frames:
+    - Hero furniture above and below the h1 (1440-01):
+      - Kicker: a plum box with "The age of extinction" in bold serif ~20px over "Birds" ~16px.
+      - Age badge: yellow, "This article is more than 11 months old", ~16px sans.
+      - Byline: bold plum serif ~24px over 2 lines (4 authors).
+      - Dateline: ~12px sans.
+      - Share: a pill button with a plum outline.
+    - Species headers: Latin name in italic serif ~42px over the common name in bold serif ~42px (1440-08, 1440-14, 1440-18).
+    - Fact rows (DIET / LENGTH / MIGRATION): ~16px sans, with labels in caps.
+    - Chart titles ("Marlo's journey"): ~20px bold serif, above a 1px rule.
+    - Chart annotations: bold date ~13px plus regular description ~13px sans.
+    - Place names: italic grey ~13px.
+    - Graphic credits ("Guardian graphic."): ~11px grey.
+    - Scrollytelling: narration boxes ~18px serif; month label ~24px sans caps (e.g. "JANUARY").
+  - Ratio (headline : body : chart label): 50 : 17 : 13, or about 3.8 : 1 : 0.76.
+  - Weights: 400, 500 (h1) and 700 (byline, dates in labels, chart titles).
+  - Numerals: `measure.json` reports "normal". Dates are written out ("Nov 2019", "Winter 2016-17"). Temperatures carry both units ("4.32C (39.8F)").
+
+- **Color.**
+  - Page ground: `rgb(248,243,240)` #F8F3F0.
+  - Context grey: `rgb(95,94,91)` #5F5E5B, the dominant SVG color (119 uses). It is used for coastlines, borders, place labels and arrows. The base map land in the route maps is a paler fill of about #F3EEEA (estimated).
+  - Single accent: plum or magenta, `rgb(88,25,64)` #581940 and `rgb(92,12,74)` #5C0C4A. It always means "a tracked bird": flight tracks, GPS dots, start and end glyphs, the play-progress ring, and the bold keyword "British nightingales" in 1440-17. The same plum colors the kicker box and byline (1440-01), so the section brand and the data accent are one color.
+  - Ramps: the swan map varies the accent from light pink to dark plum to encode year (2016 to 2019, 4 steps, 1440-21).
+  - Other meaning-carrying ramps appear only in the scrollytelling base layer and the habitat map:
+    - Vegetation: white to green, "Sparser–Denser" (1440-04).
+    - Temperature: blue to red, "Cooler–Warmer" (1440-05).
+    - Habitat suitability: yellow to green, "Less suitable–More suitable" (1440-17).
+    - Wind speed: pale to dark slate blue, 0–90 km/h (1440-12).
+  - Count: 1 categorical accent plus 4 continuous ramps.
+  - Other colors: the navy #052962 and the yellow badge are Guardian page chrome. `rgb(0,119,182)` #0077B6 appears 5 times; its role is not observable in stills.
+
+- **Annotation.**
+  - "Marlo's journey" (1440-10): 6 text callouts, each a bold date plus 1–3 lines ("Nov 2019 / Leaves the colony in Bugio Island..."). One of them is a pure reading note ("Marlo also makes long foraging trips, shown here as squiggly lines"). Also 5 curved direction arrows, 1 italic place label ("Atlantic Ocean"), a flag glyph at the start and a checkered flag at the end. Callouts attach by adjacency or a short straight leader to a dot.
+  - "A nightingale's journey" (1440-15):
+    - 4 date callouts (Jul, Apr, Oct, Mar), each with a horizontal leader line ~20–50px long to the route.
+    - 2 italic grey method labels, "GPS signal" (the dots) and "Approximate route" (the dashed line), also on leaders. These replace a legend for solid versus dashed line.
+    - 3 arrows.
+  - "Mary's journey" (1440-19):
+    - 5 date callouts (May 2017, Sep 2017, Feb 2017, Winter 2017-18, Winter 2016-17), each attached by a vertical leader ~30–50px long.
+    - 2 arrows, plus an inset locator globe ~120px across with a plum box.
+    - One callout carries the claim in miniature: "In Germany, 3 degrees north of her 2016 wintering site".
+  - Wind map (1440-12/13):
+    - A dated header ("Monday 2 September"), a labeled gradient scale (0/30/60/90 km/h), and a locator globe.
+    - 1 place label, the petrel track as a plum line with a dot head, and a play button.
+    - The caption sits below with a camera icon.
+  - West Africa map (1440-16/17):
+    - A legend strip at top: a dot for "British birds" and a gradient bar for "Less suitable / More suitable".
+    - 1 curved-leader callout whose keyword is set in the accent color.
+    - ~14 country labels in grey, a scale bar in km and miles, and a 2-line method note under the map.
+  - Swan wintering map (1440-21): 4 year labels, each colored to match its dot cluster, with an italic temperature line beneath. There is no legend; everything is labeled directly.
+  - Scrollytelling map (1440-03 to 1440-07): the ramp legends sit inside the narration box, under the sentence that explains them. A petrel-track glyph is set inline in a sentence as a word-sized legend ("~ Desertas petrel", 1440-06).
+
+- **Density.**
+  - Marks per graphic (estimated):
+    - World map: 45 species' paths drawn as ~150–200 dots and short comet-tail dashes per frame (1440-03, 1440-04).
+    - Marlo's track: 1 polyline of ~500+ vertices in a 620 × ~720px map (y≈80–800, 1440-10).
+    - Nightingale: 2 routes, 5 GPS dots and 3 arrows.
+    - Mary: 2 routes and ~30 clustered dots.
+    - Swan wintering: ~60 dots in 4 clusters.
+    - West Africa: ~35 dots over a raster.
+  - Whitespace, measured on 1440-10:
+    - Rule to chart title: ~20px. Title to map top: ~35px.
+    - Map bottom to "Guardian graphic." credit: ~27px. Credit to next text: ~32px.
+  - Whitespace, measured on 1440-21: last text line to the 1px rule ~25px, then ~20px to the chart title.
+  - Scrollytelling to article: ~100px of empty ground between the controls (y≈308) and the standfirst (y≈465) on 1440-08.
+  - Species illustrations run edge to edge with ~0px padding. The audio button sits ~20px below the art, and text starts ~40px below that.
+
+- **Motion and interaction.**
+  - Hero: the h1, kicker and byline sit on a full-bleed illustrated world map. Small bird illustrations (petrel, nightingale, 2 swans) float over the map. At 1440-02 the map is still in its illustrated state as the page scrolls.
+  - Scrollytelling: a sticky full-bleed world map with narration boxes 480px wide (x=480–960) scrolling over it. Each box swaps the base layer, and all states are triggered by scroll:
+    - 1440-03: shaded relief, "45 species".
+    - 1440-04: vegetation.
+    - 1440-05: temperature.
+    - 1440-06: relief, with all tracks except the petrel removed.
+    - 1440-07: "three birds".
+  - Time animation: the tracks animate through the months. A control row at x≈205–440, y≈767 has prev, pause with a circular plum progress ring, next, and the month label. The month advances between frames (JANUARY 1440-03, FEBRUARY 1440-04, MARCH 1440-05/06, APRIL 1440-07/08), so it autoplays while scrolling. Loop duration: not observable in stills.
+  - Audio: three "Listen to a …" play buttons, one per species (1440-09, 1440-14, 1440-18).
+  - Wind-field map: animated wind streaks with a play button (1440-13). The storm-chase animation duration is not observable in stills.
+  - Without interaction: the story survives. The three route maps, the habitat map and the swan wintering map are static and fully annotated, and they carry the claim. The motion is atmosphere, not evidence.
+
+- **Mobile.**
+  - Hero (390-01): the h1 wraps to 4 boxed lines at 30px/42px. The byline wraps to 3 lines of plum bold. The kicker drops "Birds". The dateline, Share pill and guardian.org logo stack at left over the map.
+  - Text: body stays 17px/24px, in a 350px column at 44 characters per line (measured).
+  - Scrollytelling map: it is cropped and panned, not scaled down.
+    - 390-03 shows Africa and Europe, 390-05 the Americas, and 390-07 the North Atlantic, so the full-globe view is cut.
+    - Narration boxes go full width, ~370px with 10px margins, and the ramp legends stay inside them (390-05).
+    - The month control sits at y≈765 and is partly hidden behind the ad bar (390-03 to 390-07).
+  - Route maps: they go to the full 370–390px width. Annotations are kept and repositioned, with callouts still on leaders (390-11, 390-17, 390-23).
+  - Habitat map (390-20):
+    - The map is cropped to its western third, so Mali, Ghana, Nigeria and most country labels are cut; only "Senegal" and "The Gambia" remain.
+    - The legend stacks into 2 rows ("British birds", then the gradient).
+    - The scale bar moves to top right and becomes 300 km.
+    - The callout moves below the dots on a vertical leader ~70px long.
+  - Swan wintering map (390-25): temperature labels break onto 2 lines ("4.32C / (39.8F)").
+  - Left-rail photos and captions drop inline at full width, ~370px (390-11, 390-17).
+  - Illustrations are cropped to the viewport height (390-09, 390-15, 390-21).
+  - Species headers stack as Latin name, common name, then fact rows (390-15, 390-21).
+  - Nothing is rotated.
+
+- **The steal.** Use Marlo's, the nightingale's and Mary's annotated route pattern: each waypoint is a bold short date over one plain-language line, attached to its mark by a short straight leader. The start gets a small flag glyph, the end a checkered flag, and method labels (e.g. "Approximate route") sit in italic grey on the line itself instead of in a legend.
+  - Where: the **"One thread through the record"** 5-step teen-safety timeline.
+  - Dates: each step becomes a bold Archivo date ("Mar 2019") over a one-line Newsreader description, joined to its node by a 24–40px ink leader.
+  - Ends: step 1 gets a flag glyph and step 5 an end marker.
+  - Evidence: carry the grade on the connecting segment in italic grey ("court finding", "reported"), matching the "How we know" labels, so no separate legend is needed.
+  - Accent: cobalt stays the single accent for the "thread".
+
+- **Capture notes.**
+  - This recapture has no privacy banner.
+  - At 390, frames 390-03 onward carry a sticky ad bar ~75px tall (y≈770–844, "Advertisement" plus a banner), which hides the bottom ~9% of each of those frames. 390-01 has no ad.
+  - The folder holds 390-01..34, not 37 as briefed.
+  - 1440-24 to 1440-28 and 390-29 to 390-34 are the support ask, related-story carousels, "Most viewed" and the footer, not the article.
+
+- **Frames cited.**
+  - 1440 hero and scrollytelling map: 1440-01, 1440-02, 1440-03, 1440-04, 1440-05, 1440-06, 1440-07, 1440-08
+  - 1440 petrel: 1440-09 (audio), 1440-10 (Marlo's route), 1440-11 (left-rail photo), 1440-12, 1440-13 (wind map)
+  - 1440 nightingale: 1440-14 (species header), 1440-15 (route), 1440-16, 1440-17 (habitat map)
+  - 1440 swan: 1440-18 (species header), 1440-19 (Mary's route), 1440-20, 1440-21 (wintering map)
+  - 1440 end matter: 1440-22 (methodology), 1440-23 (citations), 1440-24 to 1440-28 (support ask and page chrome)
+  - 390 (odd frames): 390-01, 390-03, 390-05, 390-07, 390-09, 390-11, 390-13, 390-15, 390-17, 390-19, 390-21, 390-23, 390-25, 390-27, 390-29, 390-31, 390-33
+  - 390 (extra): 390-20

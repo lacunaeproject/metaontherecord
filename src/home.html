@@ -17,14 +17,13 @@
       <a href="#method">How we know</a>
     </div>
   </div>
-  <span class="progress" id="progress" aria-hidden="true"></span>
 </nav>
 
 <div class="fbar" id="fbar" aria-hidden="true">
   <div class="wrap"><span class="fbar-sum" id="fbarsum"></span><button class="chip" id="fbarbtn" tabindex="-1">Change filters</button></div>
 </div>
 
-<header class="hero" id="top">
+<header class="hero" id="top" data-shot="hero">
   <div class="wrap hero-bar">
     <a class="wordmark" href="#top"><svg aria-hidden="true"><use href="#mark"/></svg>Meta on the Record</a>
     <nav aria-label="Jump to">
@@ -64,22 +63,22 @@
   <div class="wrap">
     <h2 class="h-section" id="pattern-h">One thread through the record</h2>
     <p class="intro">This is one way to read the record: five events from Meta’s record on teenagers, in the order they happened. Each links to its entry so you can check it and draw your own conclusion.</p>
-    <div class="cycle">
+    <div class="cycle" data-shot="timeline">
       <ol class="cycle-steps">
         <li class="step" data-step="1">
-          <span class="step-when">2019 to 2021</span>
+          <span class="node" data-tier="reported"></span><span class="step-when">2019 to 2021</span>
           <h3>Internal research</h3>
           <p>Meta’s researchers studied Instagram’s effect on teenagers for at least three years. A 2019 internal presentation said the app made body-image issues worse for one in three teen girls who already had them.</p>
           <div class="step-foot"><span class="tierline" data-tier="reported"></span> <a class="linkbtn step-link" href="#e-teens">Read the entry</a></div>
         </li>
         <li class="step" data-step="2">
-          <span class="step-when">2021</span>
+          <span class="node" data-tier="admitted"></span><span class="step-when">2021</span>
           <h3>Instagram Kids</h3>
           <p>At the same time, Meta was developing Instagram Kids, a version of the app for children under 13. It paused the project in September 2021, after its research became public.</p>
           <div class="step-foot"><span class="tierline" data-tier="admitted"></span> <a class="linkbtn step-link" href="https://www.pbs.org/newshour/economy/instagram-puts-pause-on-development-of-instagram-kids-amid-content-and-access-concerns" rel="noopener">Source: PBS NewsHour</a></div>
         </li>
         <li class="step" data-step="3">
-          <span class="step-when">September 2021</span>
+          <span class="node" data-tier="reported"></span><span class="step-when">September 2021</span>
           <h3>The research becomes public</h3>
           <p>The Wall Street Journal published the research. Frances Haugen, the former employee who took the documents, testified to the Senate weeks later. Meta said the reporting mischaracterized its work.</p>
           <figure class="photo step-photo">
@@ -89,13 +88,13 @@
           <div class="step-foot"><span class="tierline" data-tier="reported"></span> <a class="linkbtn step-link" href="#e-teens">Read the entry</a></div>
         </li>
         <li class="step" data-step="4">
-          <span class="step-when">August 2025</span>
+          <span class="node" data-tier="admitted"></span><span class="step-when">August 2025</span>
           <h3>AI chatbot rules</h3>
           <p>Reuters obtained Meta’s internal rules for its AI chatbots. They allowed the bots to engage children in romantic or sensual conversations. Meta confirmed the document and removed those passages after Reuters asked about them.</p>
           <div class="step-foot"><span class="tierline" data-tier="admitted"></span> <a class="linkbtn step-link" href="#e-airules">Read the entry</a></div>
         </li>
         <li class="step" data-step="5">
-          <span class="step-when">August 2026</span>
+          <span class="node" data-tier="settled"></span><span class="step-when">August 2026</span>
           <h3>The state settlement</h3>
           <p>Meta settled with state attorneys general for at least $12.1 billion over ten years, with design changes and an independent auditor. Meta did not admit wrongdoing. That same month, a New Mexico judge declared its platforms a public nuisance.</p>
           <div class="step-foot"><span class="tierline" data-tier="settled"></span> <a class="linkbtn step-link" href="#e-multistate">Read the entry</a></div>
@@ -116,14 +115,9 @@
       <p class="intro" style="margin:0">Each entry carries one of seven evidence labels and, where available, links to its sources. Open any entry for figures, Meta’s response, and the current status of the case. Entries were researched and drafted with AI; check the linked sources for anything that matters to you.</p>
     </div>
 
-    <div class="density" aria-labelledby="density-cap">
-      <p class="sr-only" id="density-cap">Entries per year. Select a year to jump to it.</p>
-      <div class="density-bars" id="dbars"></div>
-      <div class="density-axis" id="daxis" aria-hidden="true"></div>
-      <p class="density-note" id="dnote"></p>
-    </div>
+    <div class="g1-slot"></div>
 
-    <div class="filters" id="filters">
+    <div class="filters" id="filters" data-shot="filters">
       <div class="ftools">
         <div class="dd" id="topic-dd">
           <button class="dd-btn" id="topic-btn" aria-expanded="false" aria-controls="topic-menu"><span class="dd-label">Topic</span><span class="dd-val" id="topic-val">All</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></button>
@@ -202,7 +196,7 @@
   <div class="wrap">
     <h2 class="h-section" id="money-h">Penalties and revenue</h2>
     <p class="intro">Meta’s fines and settlements since 2009 add up to more than $25 billion. Meta’s revenue in 2025 was $201 billion.</p>
-    <div class="money-grid">
+    <div class="money-grid" data-shot="money">
       <figure style="margin:0">
         <div class="cells" id="cells" role="img" aria-label="201 squares represent Meta’s 2025 revenue of 201 billion dollars. 25 highlighted squares represent more than 25 billion dollars in penalties and settlements since 2009."></div>
         <p class="cells-hint" id="cellshint" aria-hidden="true">Point to a line in the tally to see its share.</p>
@@ -261,7 +255,7 @@
         <p>A filled mark means a court or regulator ruled against Meta; outlined and dashed marks mean weaker evidence.</p>
       </div>
     </div>
-    <dl class="tiers" id="tierdefs"></dl>
+    <dl class="tiers" id="tierdefs" data-shot="labels"></dl>
     <div class="method-cols">
       <div>
         <h3>Numbers people get wrong</h3>
