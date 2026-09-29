@@ -282,7 +282,17 @@
      "Bloomberg Law on the $725M settlement",
      "https://news.bloomberglaw.com/esg/meta-agrees-to-pay-725-million-over-cambridge-analytica-scandal"
     ]
-   ]
+   ],
+   "photo": {
+    "src": "/img/wylie-parliament-2018.jpg",
+    "w": 1600,
+    "h": 900,
+    "alt": "Christopher Wylie, with pink hair, speaks into a megaphone at a dusk protest in Parliament Square, London. People hold signs reading “Fair Vote” behind him.",
+    "caption": "Christopher Wylie, a former Cambridge Analytica employee turned whistleblower, at a protest in Parliament Square, London, on March 29, 2018.",
+    "credit": "Photo: Jwslubbock, Wikimedia Commons, CC BY-SA 4.0",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Cambridge_Analytica_protest_Parliament_Square2.jpg"
+   }
   },
   {
    "id": "viewas",
@@ -456,7 +466,16 @@
      "The Facebook Papers archive (Gizmodo)",
      "https://gizmodo.com/facebook-papers-how-to-read-1848702919"
     ]
-   ]
+   ],
+   "photo": {
+    "src": "/img/haugen-testimony-2021.jpg",
+    "w": 956,
+    "h": 885,
+    "alt": "Frances Haugen at the witness table in a Senate hearing room, looking down at her notes, a microphone in front of her.",
+    "caption": "Frances Haugen testifies to a Senate Commerce subcommittee on October 5, 2021.",
+    "credit": "Image: U.S. Senate Committee on Commerce, Science, and Transportation, public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Frances_Haugen_testimony.png"
+   }
   },
   {
    "id": "amare",

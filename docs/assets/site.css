@@ -838,3 +838,10 @@ button.tag:hover{background:var(--brand-tint);color:var(--brand)}
   .topic-list .entry-tier{grid-column:1;justify-self:start}
   .topic-list .entry-fig{display:block;grid-column:2;grid-row:3;align-self:center}
 }
+
+/* ---------- a photo on an entry page ---------- */
+.a-photo{margin:1.75rem 0 .5rem;max-width:40rem}
+.a-photo img{border-radius:var(--r-lg);background:var(--surface)}
+.a-photo figcaption{font-family:var(--display);font-size:.88rem;line-height:1.5;color:var(--ink-2);margin-top:.7rem}
+.a-photo .credit{display:block;font-size:.8rem;margin-top:.15rem}
+.a-photo .credit a{color:inherit}

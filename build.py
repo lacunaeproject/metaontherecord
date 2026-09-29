@@ -96,6 +96,13 @@ def response_html(e, credit=False):
     who = f' <span>({esc(e["who"])})</span>' if e.get("who") else ""
     return f'<blockquote class="response"><b>{label}</b>{esc(e["response"])}{who}</blockquote>'
 
+def photo_html(e):
+    ph = e.get("photo")
+    if not ph: return ""
+    lic = f' <a href="{esc(ph["license"])}" rel="license noopener">Licence</a>' if ph.get("license") else ""
+    return (f'<figure class="photo a-photo"><img src="{esc(ph["src"])}" width="{ph["w"]}" height="{ph["h"]}" loading="lazy" decoding="async" alt="{esc(ph["alt"])}">'
+            f'<figcaption>{esc(ph["caption"])} <span class="credit"><a href="{esc(ph["source"])}" rel="noopener">{esc(ph["credit"])}</a>.{lic}</span></figcaption></figure>')
+
 def ledger_entry(e, credit=False):
     t = "credit" if credit else e["tier"]
     themes = "".join(f'<span class="tag">{esc(THEMES[k])}</span>' for k in e.get("themes", []))
@@ -305,6 +312,7 @@ def main():
     <div class="a-main">
       {f'<p class="status">{esc(e["status"])}</p>' if e.get("status") else ""}
       <p class="a-lede">{esc(e['summary'])}</p>
+      {photo_html(e)}
       {response_html(e)}
       <p class="ai-note">This entry was researched and written with AI (Anthropic’s Claude) from the sources below. <a href="/#made">How this was made</a></p>
       {sources_html(e, heading=True)}
