@@ -268,7 +268,7 @@ p{margin:0 0 1em}
 .people .intro{color:var(--deep-muted)}
 .stories{margin-top:clamp(3rem,8vh,5rem);display:grid;gap:clamp(3.5rem,9vh,6rem)}
 .story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:1rem clamp(2rem,6vw,6rem);align-items:start}
-.story:nth-child(even) .story-name{order:2}
+.story:nth-of-type(even) .story-name{order:2}
 .story-name{font-size:clamp(2.2rem,5.2vw,4.4rem);font-variation-settings:"wdth" 118;font-weight:850;line-height:.95}
 .story-where{display:block;font-family:var(--display);font-size:1rem;font-weight:550;color:var(--deep-muted);margin-top:.9rem;letter-spacing:0}
 .story p{color:var(--deep-fg);max-width:34rem}
@@ -387,7 +387,7 @@ p{margin:0 0 1em}
   .entry-content{grid-template-columns:1fr}
   .entry-content .main,.entry-content .side{grid-column:1}
   .story{grid-template-columns:1fr}
-  .story:nth-child(even) .story-name{order:0}
+  .story:nth-of-type(even) .story-name{order:0}
   .money-grid{grid-template-columns:1fr}
   .credit-row{grid-template-columns:1fr;gap:.5rem}
   .method-cols{grid-template-columns:1fr}
@@ -468,6 +468,14 @@ p{margin:0 0 1em}
   .pg.next{justify-self:start;text-align:left}
 }
 .crumbs + .a-title{margin-top:2rem}
+.a-title + .a-lede{margin-top:1.5rem}
+.article .status{max-width:38rem}
+.notfound{min-height:48vh}
+.notfound .a-date{margin-top:0}
+.nf-actions{margin:2rem 0 0}
+.btn-ink{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn-ink:hover{background:transparent;color:var(--fg)}
+.page .foot-big{font-size:clamp(2.2rem,5.4vw,4.6rem);margin-bottom:2rem}
 
 .step-link{font-size:.9rem}
 /* timeline fills as you scroll (class added by app.js) */
@@ -479,7 +487,7 @@ p{margin:0 0 1em}
 
 .hero-ai{font-family:var(--display);font-size:.95rem;line-height:1.45;margin:1.25rem 0 0;padding:.6rem 0 .6rem .9rem;border-left:3px solid var(--field-fg);max-width:30rem}
 .hero-ai a{color:var(--field-fg);font-weight:650}
-.made{margin-top:clamp(2rem,5vh,3rem);border-top-width:1px}
+.made,.stance.sub{margin-top:clamp(2rem,5vh,3rem);border-top-width:1px}
 .ai-note{font-family:var(--display);font-size:.92rem;color:var(--muted);margin:1.75rem 0 0;padding-left:.8rem;border-left:3px solid var(--mark)}
 .ai-note a{color:var(--mark)}
 
@@ -494,3 +502,7 @@ p{margin:0 0 1em}
 @media (max-width:980px){
 }
 @media (hover:none){.kbd{display:none}}
+@media (pointer:coarse){
+  .tool{min-height:2.75rem}
+  .tier-go{padding:.5rem 0;margin-top:.35rem}
+}

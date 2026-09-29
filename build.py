@@ -327,7 +327,8 @@ def main():
         rows = "".join(f'''<li><a class="row" href="{e['url']}"><span class="entry-date">{short_date(e['date'])}</span><span class="entry-title">{esc(e['title'])}</span><span class="entry-fig">{esc(e.get('fig',''))}</span><span class="entry-tier">{glyph(e['tier'])}{esc(TIERS[e['tier']]['label'])}</span></a></li>''' for e in items)
         tallies = {}
         for e in items: tallies[e["tier"]] = tallies.get(e["tier"], 0) + 1
-        tally = ", ".join(f"{n} {TIERS[t]['label'].lower()}" for t, n in tallies.items())
+        short = {"appeal": "under appeal"}
+        tally = ", ".join(f"{tallies[t]} {short.get(t, TIERS[t]['label'].lower())}" for t in TIERS if t in tallies)
         ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": seo_title, "description": intro, "url": BASE + f"/topics/{k}/",
               "isPartOf": {"@type": "WebSite", "name": SITE, "url": BASE + "/"}, "about": META_ORG,
               "hasPart": [{"@type": "Article", "headline": e["title"], "url": BASE + e["url"]} for e in items]}
@@ -349,7 +350,7 @@ def main():
 
     # ---- 404 ----
     write("/404.html", head(f"Page not found | {SITE}", "This page does not exist.", "/404.html", "/og/index.png", []) .replace('content="index, follow, max-image-preview:large"', 'content="noindex"') + f'''
-<body class="page">{masthead()}<main id="main" class="article wrap"><h1 class="a-title">This page doesn’t exist.</h1><p class="a-lede">The link may be old or mistyped. <a href="/#record">Go to the full record</a> or search it from there.</p></main>{footer()}</body></html>''')
+<body class="page">{masthead()}<main id="main" class="article wrap notfound"><p class="a-date">Page not found</p><h1 class="a-title">This page doesn’t exist.</h1><p class="a-lede">The link may be old or mistyped. The full record has every entry, with search and filters, and the topics below group them by subject.</p><p class="nf-actions"><a class="btn btn-ink" href="/#record">Go to the full record</a></p></main>{footer()}</body></html>''')
 
     # ---- data downloads ----
     os.makedirs(os.path.join(DIST, "data"), exist_ok=True)

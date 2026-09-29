@@ -365,7 +365,7 @@ if (!reduceMotion && "IntersectionObserver" in window) {
     let wi = 0;
     h.innerHTML = h.textContent.trim().split(/\s+/).map(w => `<span class="w"><span style="--wi:${wi++}">${esc(w)}</span></span>`).join(" ");
   });
-  const groups = [".h-section", "main .intro", ".coda", ".story", ".tally", ".money-grid figure", ".credit-row", ".stance", ".tiers > div", ".method-cols > div", ".density"];
+  const groups = [".h-section", "main .intro", ".coda", ".story-photo", ".story", ".tally", ".money-grid figure", ".credit-row", ".stance", ".tiers > div", ".method-cols > div", ".density"];
   const rvObs = new IntersectionObserver(ens => ens.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); rvObs.unobserve(en.target); } }), { rootMargin: "0px 0px -8% 0px" });
   groups.forEach(sel => $$(sel).forEach((el, i) => {
     el.classList.add("rv");
