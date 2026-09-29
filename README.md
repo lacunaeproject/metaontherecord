@@ -12,6 +12,7 @@ You edit `src/`. The build writes the finished site to `docs/`. GitHub Pages pub
 | `src/home.html` | The home page’s visible content. The build adds the page head, the rendered record, the footer and scripts. |
 | `src/styles.css` | All styles. |
 | `src/app.js` | Filters, search, navigation and the hero animation. |
+| `src/img/` | Photos used on the home page. Use only public-domain or openly licensed images, and credit each one in its caption. |
 | `build.py` | Builds `docs/` from `src/`. The domain is set at the top (`BASE`). |
 | `og.py` | Renders the share image for every page into `docs/og/`. |
 | `docs/` | The finished site. Don’t edit it by hand; the build replaces it. |

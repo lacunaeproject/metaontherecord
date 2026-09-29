@@ -226,6 +226,7 @@ def main():
     # assets
     os.makedirs(os.path.join(DIST, "assets"))
     shutil.copy(os.path.join(SRC, "styles.css"), os.path.join(DIST, "assets", "site.css"))
+    shutil.copytree(os.path.join(SRC, "img"), os.path.join(DIST, "img"))
     data_js = "const TIERS=%s;\nconst THEMES=%s;\nconst ENTRIES=%s;\nconst CREDITS=%s;\nconst NOTES=%s;\n" % tuple(
         json.dumps(x, ensure_ascii=False) for x in (TIERS, THEMES, ENTRIES, CREDITS, NOTES))
     write("/assets/data.js", data_js)

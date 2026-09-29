@@ -253,6 +253,16 @@ p{margin:0 0 1em}
 .entry.credit .entry-fig,.entry.credit .glyph{color:var(--fg)}
 .entry.credit{background:linear-gradient(90deg,color-mix(in srgb,var(--mark) 7%,transparent),transparent 70%)}
 
+/* ---------- photos ---------- */
+.photo{margin:0}
+.photo img{display:block;width:100%;height:auto;background:var(--rule)}
+.photo figcaption{font-family:var(--display);font-size:.88rem;line-height:1.45;color:var(--muted);margin-top:.7rem;max-width:40rem}
+.photo .credit{display:block;margin-top:.2rem;font-size:.8rem;opacity:.85}
+.step-photo{grid-column:3;grid-row:4;margin-top:1.75rem;max-width:36rem}
+.story-photo figcaption{color:var(--deep-muted)}
+.story-photo img{aspect-ratio:16 / 7;object-fit:cover;object-position:50% 60%}
+.story-photo + .story{margin-top:calc(2.5rem - clamp(3.5rem,9vh,6rem))}
+
 /* ---------- people ---------- */
 .people{background:var(--deep);color:var(--deep-fg);padding:clamp(5rem,12vh,9rem) 0}
 .people .intro{color:var(--deep-muted)}
@@ -363,6 +373,8 @@ p{margin:0 0 1em}
   .step h3{grid-column:2;grid-row:2}
   .step p{grid-column:2;grid-row:3}
   .step-foot{grid-column:2;grid-row:4}
+  .step-photo{grid-column:2;grid-row:5}
+  .story-photo img{aspect-ratio:3 / 2}
   .coda{grid-template-columns:1fr;gap:1rem}
   .year{grid-template-columns:1fr}
   .year-num{position:static;font-size:2.8rem;margin-bottom:.25rem}
