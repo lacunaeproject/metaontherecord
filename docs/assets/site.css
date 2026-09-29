@@ -101,9 +101,9 @@ p{margin:0 0 1em}
 .shard{will-change:transform}
 .shard-bot{position:absolute;inset:0}
 .shard-top{clip-path:polygon(0 0,100% 0,100% 64%,88% 71%,74% 61%,61% 78%,47% 67%,34% 82%,20% 70%,8% 79%,0 73%)}
-.shard-bot{clip-path:polygon(0 73%,8% 79%,20% 70%,34% 82%,47% 67%,61% 78%,74% 61%,88% 71%,100% 64%,100% 100%,0 100%);transform:translate(1.4vw,.8vw) rotate(1.1deg);transform-origin:12% 70%}
-.motto{margin:0;font-family:var(--display);font-weight:850;line-height:.84;letter-spacing:-.035em}
-.motto .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.shard-bot{clip-path:polygon(0 73%,8% 79%,20% 70%,34% 82%,47% 67%,61% 78%,74% 61%,88% 71%,100% 64%,100% 140%,0 140%);transform:translate(1.4vw,.8vw) rotate(1.1deg);transform-origin:12% 70%}
+.motto{display:flow-root;margin:0;font-family:var(--display);font-weight:850;line-height:.84;letter-spacing:-.035em}
+.motto .ln{display:block;overflow:hidden;padding-bottom:.24em;margin-bottom:-.2em}
 .motto .ln > span{display:inline-block}
 .m1{font-size:clamp(3rem,11.6vw,10.5rem);font-variation-settings:"wdth" 125;white-space:nowrap}
 .m2{font-size:clamp(3rem,12.8vw,11.5rem);font-variation-settings:"wdth" 62;font-weight:900;letter-spacing:-.02em;white-space:nowrap}

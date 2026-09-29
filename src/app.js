@@ -387,7 +387,7 @@ async function hero() {
   const g = window.gsap;
   if (window.ScrollTrigger) g.registerPlugin(ScrollTrigger);
   const top = $(".shard-top"), bot = $(".shard-bot"), quake = $("#quake"), foot = $("#herofoot");
-  g.set([".m1 > span", ".m2 > span"], { yPercent: 112 });
+  g.set([".m1 > span", ".m2 > span"], { yPercent: 145 });
   g.set(foot, { autoAlpha: 0 });
   g.set(bot, { x: 0, y: 0, rotation: 0 });
   release();
