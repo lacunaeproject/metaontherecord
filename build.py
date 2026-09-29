@@ -9,7 +9,7 @@ import csv, html, json, os, re, shutil, unicodedata
 from datetime import date
 
 BASE = "https://metaontherecord.org"          # change if you launch on another domain
-UPDATED = date(2026, 9, 27)
+UPDATED = date(2026, 9, 28)
 SITE = "Meta on the Record"
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "src")
@@ -245,7 +245,7 @@ def main():
     body = re.sub(r'<span class="tierline" data-tier="(\w+)"></span>',
                   lambda m: f'<span class="tierline" data-tier="{m.group(1)}">{glyph(m.group(1))}{esc(tier_label(m.group(1)))}</span>', body)
     body = body.replace(f'<p class="hero-meta" id="herometa">Updated September 27, 2026</p>',
-                        f'<p class="hero-meta" id="herometa">{len(ENTRIES)} entries from {year(ORDER[0]["date"])} to {year(ORDER[-1]["date"])}. Updated September 27, 2026.</p>')
+                        f'<p class="hero-meta" id="herometa">{len(ENTRIES)} entries from {year(ORDER[0]["date"])} to {year(ORDER[-1]["date"])}. Updated {MONTHS[UPDATED.month-1]} {UPDATED.day}, {UPDATED.year}.</p>')
     # swap the page footer for the shared one with topic links and data downloads
     body = re.sub(r'<footer class="foot">.*?</footer>', footer(), body, flags=re.S)
     body = body.replace('<a class="btn btn-ghost" href="#method">How evidence is labeled</a>',

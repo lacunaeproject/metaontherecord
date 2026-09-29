@@ -34,7 +34,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 <script>if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("motion");</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Meta on the Record", "url": "https://metaontherecord.org/", "description": "Court rulings, regulatory findings and reported events involving Meta, Facebook, Instagram and WhatsApp, from Cambridge Analytica to the 2026 verdicts. Each entry is labeled by evidence strength and linked to its sources.", "publisher": {"@type": "Organization", "name": "Meta on the Record", "url": "https://metaontherecord.org/"}, "about": {"@type": "Organization", "name": "Meta Platforms", "sameAs": ["https://en.wikipedia.org/wiki/Meta_Platforms", "https://www.wikidata.org/wiki/Q380"]}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Meta on the Record: rulings, findings and reported events involving Meta Platforms", "description": "Each record lists a date, a description, an evidence label (ruled, under appeal, settled, admitted, reported, alleged or dismissed), key figures, Meta’s response and source links. Covers 2007 to 2026.", "url": "https://metaontherecord.org/", "creator": {"@type": "Organization", "name": "Meta on the Record", "url": "https://metaontherecord.org/"}, "measurementTechnique": "Researched, written and organized with AI (Anthropic’s Claude) and checked against linked public sources.", "dateModified": "2026-09-27", "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": true, "about": {"@type": "Organization", "name": "Meta Platforms", "sameAs": ["https://en.wikipedia.org/wiki/Meta_Platforms", "https://www.wikidata.org/wiki/Q380"]}, "temporalCoverage": "2007-11/2026-09", "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://metaontherecord.org/data/record.csv"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://metaontherecord.org/data/record.json"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Meta on the Record", "url": "https://metaontherecord.org/", "description": "Court rulings, regulatory findings and reported events involving Meta, Facebook, Instagram and WhatsApp, from Cambridge Analytica to the 2026 verdicts. Each entry is labeled by evidence strength and linked to its sources.", "publisher": {"@type": "Organization", "name": "Meta on the Record", "url": "https://metaontherecord.org/"}, "about": {"@type": "Organization", "name": "Meta Platforms", "sameAs": ["https://en.wikipedia.org/wiki/Meta_Platforms", "https://www.wikidata.org/wiki/Q380"]}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Meta on the Record: rulings, findings and reported events involving Meta Platforms", "description": "Each record lists a date, a description, an evidence label (ruled, under appeal, settled, admitted, reported, alleged or dismissed), key figures, Meta’s response and source links. Covers 2007 to 2026.", "url": "https://metaontherecord.org/", "creator": {"@type": "Organization", "name": "Meta on the Record", "url": "https://metaontherecord.org/"}, "measurementTechnique": "Researched, written and organized with AI (Anthropic’s Claude) and checked against linked public sources.", "dateModified": "2026-09-28", "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": true, "about": {"@type": "Organization", "name": "Meta Platforms", "sameAs": ["https://en.wikipedia.org/wiki/Meta_Platforms", "https://www.wikidata.org/wiki/Q380"]}, "temporalCoverage": "2007-11/2026-09", "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://metaontherecord.org/data/record.csv"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://metaontherecord.org/data/record.json"}]}</script>
 </head>
 <body>
 <a class="skip" href="#record">Skip to the record</a>
@@ -59,7 +59,7 @@
 </nav>
 
 <div class="fbar" id="fbar" aria-hidden="true">
-  <div class="wrap"><span class="fbar-sum" id="fbarsum"></span><button class="chip" id="fbarbtn" tabindex="-1">Change filters</button></div>
+  <div class="wrap"><span class="fbar-year" id="fbaryear" aria-hidden="true"></span><span class="fbar-sum" id="fbarsum"></span><button class="chip" id="fbarbtn" tabindex="-1">Change filters</button></div>
 </div>
 
 <header class="hero" id="top">
@@ -90,7 +90,7 @@
           <a class="btn btn-ghost" href="#method">How evidence is labeled</a>
         </div>
         <p class="hero-ai">Researched, written and organized with AI (Anthropic’s Claude). Every entry links to its sources. <a href="#made">How this was made</a></p>
-        <p class="hero-meta" id="herometa">51 entries from 2007 to 2026. Updated September 27, 2026.</p>
+        <p class="hero-meta" id="herometa">51 entries from 2007 to 2026. Updated September 28, 2026.</p>
       </div>
     </div>
   </div>
@@ -163,11 +163,11 @@
 
     <div class="filters" id="filters">
       <div class="ftools">
-        <div class="dd" id="topic-dd">
+        <div class="dd" id="topic-dd" data-label="Topic">
           <button class="dd-btn" id="topic-btn" aria-expanded="false" aria-controls="topic-menu"><span class="dd-label">Topic</span><span class="dd-val" id="topic-val">All</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></button>
           <div class="dd-menu" id="topic-menu" hidden><div class="dd-opts" id="topicchips" role="group" aria-label="Topic"></div></div>
         </div>
-        <div class="dd" id="tier-dd">
+        <div class="dd" id="tier-dd" data-label="Evidence">
           <button class="dd-btn" id="tier-btn" aria-expanded="false" aria-controls="tier-menu"><span class="dd-label">Evidence</span><span class="dd-val" id="tier-val">All</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></button>
           <div class="dd-menu" id="tier-menu" hidden><div class="dd-opts" id="tierchips" role="group" aria-label="Evidence"></div></div>
         </div>
@@ -176,6 +176,7 @@
           <input type="search" id="q" placeholder="Search names, places, laws" autocomplete="off" aria-keyshortcuts="/">
           <kbd class="kbd" aria-hidden="true">/</kbd>
         </label>
+        <button class="filterbtn" id="filterbtn" aria-haspopup="dialog" aria-controls="fsheet"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4h12M4.5 8h7M7 12h2"/></svg>Filters<span class="filterbtn-n" id="filtercount" hidden></span></button>
       </div>
       <div class="fmeta">
         <p class="fstatus"><span class="count" id="count" aria-live="polite"></span><button class="linkbtn" id="clear" hidden>Clear filters</button></p>
@@ -1208,6 +1209,13 @@
       </div></div>
     </div>
   </li></ol></section></div>
+
+    <div class="fsheet-backdrop" id="fsheet-backdrop" hidden></div>
+    <div class="fsheet" id="fsheet" role="dialog" aria-modal="true" aria-labelledby="fsheet-h" hidden>
+      <div class="fsheet-head"><h3 id="fsheet-h">Filters</h3><button class="fsheet-x" id="fsheet-x" aria-label="Close filters"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8"/></svg></button></div>
+      <div class="fsheet-body" id="fsheet-body"></div>
+      <div class="fsheet-foot"><button class="linkbtn" id="fsheet-clear">Clear all</button><button class="btn fsheet-done" id="fsheet-done">Show entries</button></div>
+    </div>
   </div>
 </section>
 
@@ -1218,38 +1226,38 @@
     <div class="stories">
       <article class="story">
         <h3 class="story-name">Bobbi Duncan<span class="story-where">Austin, Texas, 2012</span></h3>
+        <span class="tierline" data-tier="reported"><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"/></svg>Reported</span>
         <div>
           <p>She had set her privacy controls so her father would not learn she was gay. When the president of the university’s Queer Chorus added her to its Facebook group, Facebook announced it to everyone she knew, including him. Anyone could be added to a group without approving it.</p>
           <p>She later spoke publicly about the depression that followed. Facebook said her experience reminded it to keep educating users about its privacy controls.</p>
-          <span class="tierline" data-tier="reported"><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"/></svg>Reported</span>
         </div>
       </article>
-      <figure class="photo story-photo">
-        <img src="/img/kutupalong-2017.jpg" width="1800" height="1010" loading="lazy" decoding="async" alt="Rows of bamboo and tarpaulin shelters stretch across bare hills at Kutupalong refugee camp. A small child sits on a dirt path in the foreground.">
-        <figcaption>Kutupalong refugee camp, Bangladesh, in March 2017. Rohingya who fled earlier waves of violence already lived here; after August 2017, more than 700,000 more crossed from Myanmar. <span class="credit">Photo: John Owens, Voice of America, public domain</span></figcaption>
-      </figure>
       <article class="story">
         <h3 class="story-name">The Rohingya<span class="story-where">Myanmar, 2017</span></h3>
+        <span class="tierline" data-tier="admitted"><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"/><rect x="2.5" y="2.5" width="5.5" height="11" fill="currentColor"/></svg>Admitted</span>
         <div>
           <p>More than 700,000 people fled a military campaign of killing, rape and burned villages. For years before it, Facebook was flooded with posts portraying them as invaders. UN investigators said Facebook played a determining role. Facebook’s own commissioned report found it had not done enough.</p>
           <p>A US lawsuit seeking $150 billion for survivors was dismissed, and in April 2026 the appeals court agreed, citing the law that shields platforms from liability for users’ posts.</p>
-          <span class="tierline" data-tier="admitted"><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"/><rect x="2.5" y="2.5" width="5.5" height="11" fill="currentColor"/></svg>Admitted</span>
         </div>
+        <figure class="photo story-photo">
+        <img src="/img/kutupalong-2017.jpg" width="1800" height="1010" loading="lazy" decoding="async" alt="Rows of bamboo and tarpaulin shelters stretch across bare hills at Kutupalong refugee camp. A small child sits on a dirt path in the foreground.">
+        <figcaption>Kutupalong refugee camp, Bangladesh, in March 2017. Rohingya who fled earlier waves of violence already lived here; after August 2017, more than 700,000 more crossed from Myanmar. <span class="credit">Photo: John Owens, Voice of America, public domain</span></figcaption>
+      </figure>
       </article>
       <article class="story">
         <h3 class="story-name">Meareg Amare Abrha<span class="story-where">Bahir Dar, Ethiopia, 2021</span></h3>
+        <span class="tierline" data-tier="alleged"><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.4 2"/></svg>Alleged</span>
         <div>
           <p>A university professor, he was shot outside his home during Ethiopia’s civil war. His son alleges that Facebook posts identified him as Tigrayan, posted where he lived, and called for violence, and that Meta did not respond to reports until after he was killed.</p>
           <p>In April 2025, Kenya’s High Court ruled that it can hear the family’s case against Meta. The claims have not yet been tried.</p>
-          <span class="tierline" data-tier="alleged"><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.4 2"/></svg>Alleged</span>
         </div>
       </article>
       <article class="story">
         <h3 class="story-name">The moderators<span class="story-where">Nairobi, Kenya, 2019 to 2023</span></h3>
+        <span class="tierline" data-tier="alleged"><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.4 2"/></svg>Alleged</span>
         <div>
           <p>Hired through a contractor, they reviewed videos of killings, abuse and suicide for removal from Meta’s platforms. After mass layoffs in 2023, 184 of them sued, alleging trauma, unlawful dismissal and retaliation for organizing.</p>
           <p>A Kenyan court held that Meta was their principal employer, and an appeals court confirmed Meta can be sued in Kenya. The case is still unresolved.</p>
-          <span class="tierline" data-tier="alleged"><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.4 2"/></svg>Alleged</span>
         </div>
       </article>
     </div>
@@ -1264,6 +1272,7 @@
       <figure style="margin:0">
         <div class="cells" id="cells" role="img" aria-label="201 squares represent Meta’s 2025 revenue of 201 billion dollars. 25 highlighted squares represent more than 25 billion dollars in penalties and settlements since 2009."></div>
         <p class="cells-hint" id="cellshint" aria-hidden="true">Point to a line in the tally to see its share.</p>
+        <p class="cells-note">Blue squares are penalties and settlements from 2009 to 2026. Grey squares are one year of revenue, 2025. The $12.1 billion state settlement is paid over ten years.</p>
         <figcaption class="cells-key"><span><i class="f"></i>$1 billion in penalties and settlements, 2009 to 2026</span><span><i></i>$1 billion of revenue in 2025</span></figcaption>
       </figure>
       <div>
@@ -1346,7 +1355,7 @@
     <nav class="foot-topics" aria-label="Browse by topic"><h2>Browse by topic</h2><ul><li><a href="/topics/privacy/">Privacy and data</a></li><li><a href="/topics/lgbtq/">LGBTQ+ people</a></li><li><a href="/topics/abroad/">Violence abroad</a></li><li><a href="/topics/kids/">Kids and teens</a></li><li><a href="/topics/democracy/">Elections and misinformation</a></li><li><a href="/topics/rights/">Discrimination</a></li><li><a href="/topics/labor/">Workers</a></li><li><a href="/topics/scams/">Scams</a></li><li><a href="/topics/market/">Competition</a></li></ul></nav>
     <div class="foot-cols">
       <p>An independent record. Not affiliated with Meta Platforms, Facebook, Instagram or WhatsApp. Researched, written and organized with AI (Anthropic’s Claude). <a href="/#made">How this was made</a></p>
-      <p>Last updated September 27, 2026. The data is free to reuse with credit: <a href="/data/record.csv">CSV</a>, <a href="/data/record.json">JSON</a>.</p>
+      <p>Last updated September 28, 2026. The data is free to reuse with credit: <a href="/data/record.csv">CSV</a>, <a href="/data/record.json">JSON</a>.</p>
       <p>Found an error? Send a correction with a source. Corrections are dated and published. <span id="contact">Contact address coming soon.</span></p>
     </div>
   </div>

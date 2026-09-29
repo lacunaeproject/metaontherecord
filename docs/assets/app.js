@@ -150,7 +150,7 @@ const ledger = $("#ledger");
 function entryHTML(e) {
   const credit = e.kind === "credit";
   const t = credit ? "credit" : e.tier;
-  const themes = (e.themes || []).map(k => `<span class="tag">${esc(THEMES[k])}</span>`).join("");
+  const themes = (e.themes || []).map(k => `<button class="tag" data-tag-theme="${k}" title="Show all ${esc(THEMES[k])} entries">${esc(THEMES[k])}</button>`).join("");
   const resp = e.response ? `<blockquote class="response"><b>${credit ? "Context" : (e.who ? "In their words" : "Meta’s response")}</b>${esc(e.response)}${e.who ? ` <span>(${esc(e.who)})</span>` : ""}</blockquote>` : "";
   const ctx = credit ? `<blockquote class="response"><b>Context</b>${esc(e.ctx)}</blockquote>` : "";
   return `<li class="entry${credit ? " credit" : ""}" id="e-${esc(e.id)}">
@@ -182,7 +182,7 @@ function renderLedger() {
   const harmShown = shown.filter(e => e.kind !== "credit").length;
   $("#count").textContent = `Showing ${harmShown} of ${ENTRIES.length} entries` + (state.credits ? ` and ${shown.length - harmShown} credits` : "");
   if (!shown.length) {
-    ledger.innerHTML = `<p class="empty">No entries match these filters. <button class="linkbtn" id="empty-clear">Clear filters</button> to see the full record.</p>`;
+    ledger.innerHTML = `<div class="empty"><p class="empty-h">Nothing matches${state.q ? ` “${esc(state.q)}”` : " these filters"}.</p><p>Try fewer filters or a shorter search.</p><button class="btn empty-btn" id="empty-clear">Show all ${ENTRIES.length} entries</button></div>`;
     $("#empty-clear").onclick = () => { clearFilters(); update(); };
     return;
   }
@@ -193,6 +193,12 @@ function renderLedger() {
 }
 
 ledger.addEventListener("click", e => {
+  const tag = e.target.closest("[data-tag-theme]");
+  if (tag) {
+    clearFilters(); state.themes.add(tag.dataset.tagTheme); update();
+    $("#filters").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    return;
+  }
   const copy = e.target.closest("[data-copy]");
   if (copy) {
     const target = copy.dataset.copy;
@@ -247,7 +253,13 @@ function measureFilters() {
   $("#fbarsum").innerHTML = `<b>${shown} of ${ENTRIES.length} entries</b>${parts.length ? ": " + esc(parts.join(", ")) : ", all topics and evidence"}`;
 }
 
-function update() { syncChips(); renderLedger(); renderDensity(); measureFilters(); }
+function syncSheet() {
+  const n = state.themes.size + state.tiers.size + (state.credits ? 1 : 0);
+  const badge = $("#filtercount"); badge.hidden = !n; badge.textContent = n;
+  const shown = ENTRIES.filter(matches).length;
+  $("#fsheet-done").textContent = `Show ${shown} ${shown === 1 ? "entry" : "entries"}`;
+}
+function update() { syncChips(); renderLedger(); renderDensity(); measureFilters(); syncSheet(); }
 update();
 
 /* deep links */
@@ -277,6 +289,58 @@ const secObs = new IntersectionObserver(ens => {
 }, { rootMargin: "-45% 0px -50% 0px" });
 ["pattern","record","people","money","credits","method"].forEach(id => secObs.observe(document.getElementById(id)));
 
+/* ---------- filter sheet on phones: the dropdowns and options move into a bottom sheet ---------- */
+const sheet = $("#fsheet"), sheetBody = $("#fsheet-body"), backdrop = $("#fsheet-backdrop"), filterBtn = $("#filterbtn");
+const sheetParts = [$("#topic-dd"), $("#tier-dd"), $(".fopts")];
+const homes = sheetParts.map(el => [el.parentNode, el.nextSibling]);
+const phone = matchMedia("(max-width: 760px)");
+let sheetReturn = null;
+function placeFilters() {
+  if (phone.matches) sheetParts.forEach(el => sheetBody.appendChild(el));
+  else { sheetParts.forEach((el, i) => homes[i][0].insertBefore(el, homes[i][1])); closeSheet(); }
+}
+function openSheet(from) {
+  sheetReturn = from || document.activeElement;
+  sheet.hidden = backdrop.hidden = false;
+  requestAnimationFrame(() => { sheet.classList.add("open"); backdrop.classList.add("open"); });
+  document.documentElement.classList.add("sheet-lock");
+  $("#fsheet-x").focus();
+}
+function closeSheet() {
+  if (sheet.hidden) return;
+  sheet.classList.remove("open"); backdrop.classList.remove("open");
+  document.documentElement.classList.remove("sheet-lock");
+  setTimeout(() => { sheet.hidden = backdrop.hidden = true; }, reduceMotion ? 0 : 260);
+  if (sheetReturn && sheetReturn.focus) sheetReturn.focus({ preventScroll: true });
+}
+phone.addEventListener("change", placeFilters);
+placeFilters();
+filterBtn.addEventListener("click", () => openSheet(filterBtn));
+$("#fsheet-x").addEventListener("click", closeSheet);
+$("#fsheet-done").addEventListener("click", () => { closeSheet(); $("#ledger").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); });
+$("#fsheet-clear").addEventListener("click", () => { clearFilters(); state.credits = false; $("#showcredits").checked = false; update(); });
+backdrop.addEventListener("click", closeSheet);
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !sheet.hidden) closeSheet(); });
+sheet.addEventListener("keydown", e => {
+  if (e.key !== "Tab") return;
+  const f = $$("button, input, [tabindex]:not([tabindex='-1'])", sheet).filter(el => el.offsetParent);
+  if (!f.length) return;
+  if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f.at(-1).focus(); }
+  else if (!e.shiftKey && document.activeElement === f.at(-1)) { e.preventDefault(); f[0].focus(); }
+});
+
+/* ---------- the compact bar names the year you're reading ---------- */
+const fbarYear = $("#fbaryear");
+function syncYear() {
+  const line = (document.getElementById("topnav").offsetHeight || 56) + 56;
+  let cur = null;
+  for (const sec of $$(".year", ledger)) { if (sec.getBoundingClientRect().top <= line) cur = sec; else break; }
+  fbarYear.textContent = cur ? $(".year-num", cur).textContent : "";
+  fbarYear.hidden = !cur;
+}
+let yearQueued = false;
+addEventListener("scroll", () => { if (!yearQueued) { yearQueued = true; requestAnimationFrame(() => { yearQueued = false; syncYear(); }); } }, { passive: true });
+
 /* ---------- compact filter bar ---------- */
 const fbar = $("#fbar"), fbarBtn = $("#fbarbtn");
 let filtersAbove = false, inRecord = false;
@@ -291,6 +355,7 @@ new IntersectionObserver(([en]) => { filtersAbove = !en.isIntersecting && en.bou
 new IntersectionObserver(([en]) => { inRecord = en.isIntersecting; syncFbar(); },
   { rootMargin: "-120px 0px -40% 0px" }).observe($("#ledger"));
 fbarBtn.addEventListener("click", () => {
+  if (phone.matches) { openSheet(fbarBtn); return; }
   $("#filters").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   setTimeout(() => $("#q").focus({ preventScroll: true }), reduceMotion ? 0 : 450);
 });
@@ -373,6 +438,22 @@ if (!reduceMotion && "IntersectionObserver" in window) {
     rvObs.observe(el);
   }));
 }
+
+/* ---------- hero crack: aim it through "break" wherever the motto wraps ---------- */
+function placeCrack() {
+  const quake = $("#quake"), line = $(".shard-top .m2 > span"), text = line && line.firstChild;
+  if (!quake || !text || text.nodeType !== 3) return;
+  const i = text.data.indexOf("break"); if (i < 0) return;
+  const range = document.createRange(); range.setStart(text, i); range.setEnd(text, i + 5);
+  const r = range.getBoundingClientRect(), q = quake.getBoundingClientRect();
+  if (!q.height || !r.height) return;
+  // the desktop crack sat at 71% of the box with 1% steps; keep that shape, scaled to the size of the type
+  quake.style.setProperty("--cy", `${r.top - q.top + r.height * .56}px`);
+  quake.style.setProperty("--ca", `${r.height / 52}px`);
+}
+placeCrack();
+document.fonts && document.fonts.ready.then(placeCrack);
+addEventListener("resize", () => { clearTimeout(window.__crack); window.__crack = setTimeout(placeCrack, 120); });
 
 /* ---------- hero: the one kinetic moment ---------- */
 const root = document.documentElement;
