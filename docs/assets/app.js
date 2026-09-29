@@ -275,38 +275,24 @@ fbarBtn.addEventListener("click", () => {
   setTimeout(() => $("#q").focus({ preventScroll: true }), reduceMotion ? 0 : 450);
 });
 
-/* ---------- money grid ---------- */
-const cells = $("#cells");
-const REVENUE = 201, PENALTIES = 25;
-cells.innerHTML = Array.from({ length: REVENUE }, (_, i) => `<span class="cell${i < PENALTIES ? " fill" : ""}"></span>`).join("");
-
-/* each tally line lights up its share of the squares (euros counted one to one, as in the total) */
-const SHARES = [12.1, 5, 4.0, 1.4, 1, 0.725, 0.65, 0.6];
-const rows = $$(".tally li:not(.sum)"), cellEls = $$(".cell.fill", cells), hint = $("#cellshint");
-const defaultHint = matchMedia("(hover: hover)").matches ? "Point to a line in the tally to see its share." : "Tap a line in the tally to see its share.";
-hint.textContent = defaultHint;
-let cum = 0;
-const ranges = SHARES.map(v => { const a = Math.round(cum); cum += v; return [a, Math.min(PENALTIES, Math.round(cum))]; });
-function lightRow(i) {
-  rows.forEach((r, j) => r.classList.toggle("hl", j === i));
-  cells.classList.toggle("focus", i >= 0);
-  cellEls.forEach((c, j) => c.classList.toggle("hl", i >= 0 && j >= ranges[i][0] && j < ranges[i][1]));
-  if (i < 0) { hint.textContent = defaultHint; return; }
-  const [label] = rows[i].querySelector("span").childNodes;
-  const n = ranges[i][1] - ranges[i][0];
-  hint.innerHTML = `<b>${esc(rows[i].querySelector("b").textContent)}</b> · ${esc(label.textContent.trim())}: ${n ? `about ${n} ${n === 1 ? "square" : "squares"}` : "less than one square"}`;
+/* ---------- money calendar: a tally line and its days light together (the breakdown is also printed) ---------- */
+const tallyRows = $$(".tally li[data-seg]"), dayCells = $$(".g2 .pen");
+function lightSeg(i) {
+  const on = i != null;
+  $(".g2").classList.toggle("focus", on);
+  tallyRows.forEach(r => r.classList.toggle("hl", r.dataset.seg === i));
+  dayCells.forEach(c => c.classList.toggle("hl", c.dataset.seg === i));
 }
-rows.forEach((r, i) => {
+tallyRows.forEach(r => {
   r.tabIndex = 0;
-  r.addEventListener("mouseenter", () => lightRow(i));
-  r.addEventListener("focus", () => lightRow(i));
-  r.addEventListener("mouseleave", () => lightRow(-1));
-  r.addEventListener("blur", () => lightRow(-1));
+  r.addEventListener("mouseenter", () => lightSeg(r.dataset.seg));
+  r.addEventListener("focus", () => lightSeg(r.dataset.seg));
+  r.addEventListener("mouseleave", () => lightSeg(null));
+  r.addEventListener("blur", () => lightSeg(null));
 });
-cellEls.forEach((c, j) => {
-  const i = ranges.findIndex(([a, b]) => j >= a && j < b);
-  c.addEventListener("mouseenter", () => lightRow(i));
-  c.addEventListener("mouseleave", () => lightRow(-1));
+dayCells.forEach(c => {
+  c.addEventListener("mouseenter", () => lightSeg(c.dataset.seg));
+  c.addEventListener("mouseleave", () => lightSeg(null));
 });
 
 /* ---------- tier definitions filter the record ---------- */

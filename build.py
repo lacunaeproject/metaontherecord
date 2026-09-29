@@ -205,6 +205,107 @@ def g1_html():
             f'<details class="g-table"><summary>Show the numbers as a table</summary><table><thead><tr><th scope="col">Year</th>'
             f'<th scope="col">Entries</th><th scope="col">On a ruling</th></tr></thead><tbody>{rows}</tbody></table></details></figure>')
 
+# ---------- G2: penalties as days of 2025 revenue (design/DESIGN.md §1) ----------
+REVENUE_2025 = 201  # $ billions, as reported by PBS NewsHour
+# (label, detail, shown amount, value in $ billions; euros counted one to one, as in the total, short name for the chart)
+TALLY = [
+    ("State attorneys general, child safety", "2026, paid over ten years", "$12.1B", 12.1, "State attorneys general"),
+    ("Federal Trade Commission, privacy", "2019", "$5B", 5, "FTC"),
+    ("European regulators", "2017 to 2025, some under appeal", "€4.0B", 4.0, "European regulators"),
+    ("Texas, facial recognition", "2024", "$1.4B", 1.4, "Texas"),
+    ("Texas, child safety", "2026", "$1B", 1, "Texas"),
+    ("Cambridge Analytica class action", "final in 2025", "$725M", 0.725, "Cambridge Analytica"),
+    ("Illinois, facial recognition", "2021", "$650M", 0.65, "Illinois"),
+    ("Other US and international cases", "SEC, moderators, Nigeria, India and more", "~$0.6B", 0.6, "Other cases"),
+]
+MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+def g2_segments():
+    """Days each payer fills, rounded cumulatively so the segments always add up to the total."""
+    per_day = REVENUE_2025 / 365
+    out, cum, prev = [], 0.0, 0
+    for row in TALLY:
+        cum += row[3]
+        end = round(cum / per_day)
+        out.append((prev, end))
+        prev = end
+    return out
+
+def g2_calendar(W, narrow=False, uid="w"):
+    segs = g2_segments(); total = segs[-1][1]
+    lab = 30 if narrow else 40
+    gap = 2 if narrow else 3
+    cell = (W - lab - 30 * gap) / 31
+    rowh = cell + gap
+    top = 30 if narrow else 34          # room for the January brackets
+    feb_extra = 30                       # room under February for its brackets
+    H = top + rowh * 12 + feb_extra
+    y_of = lambda m: top + m * rowh + (feb_extra if m >= 2 else 0)
+    x_of = lambda d: lab + d * (cell + gap)
+    seg_of = {}
+    for i, (a, b) in enumerate(segs):
+        for d in range(a, b): seg_of[d] = i
+    o = [f'<svg class="cal" width="{W}" height="{H:.0f}" viewBox="0 0 {W} {H:.0f}" aria-hidden="true">',
+         f'<defs><pattern id="owed-{uid}" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
+         '<rect width="4" height="4" class="owed-bg"/><rect width="1.4" height="4" class="owed-line"/></pattern></defs>']
+    day = 0
+    for m, n in enumerate(MONTH_DAYS):
+        y = y_of(m)
+        if not narrow or m in (0, 6, 11):
+            o.append(f'<text class="mo" x="0" y="{y + cell * .8:.1f}">{MONTHS[m][:3]}</text>')
+        for d in range(n):
+            s = seg_of.get(day)
+            if s is None:
+                o.append(f'<rect class="rev" x="{x_of(d):.1f}" y="{y:.1f}" width="{cell:.1f}" height="{cell:.1f}"/>')
+            else:
+                owed = f' owed" style="fill:url(#owed-{uid})' if s == 0 else ''
+                o.append(f'<rect class="pen{owed}" data-seg="{s}" x="{x_of(d):.1f}" y="{y:.1f}" width="{cell:.1f}" height="{cell:.1f}"/>')
+            day += 1
+    # brackets: January above, February below, one per payer group
+    def bracket(m, d0, d1, text, above):
+        x1, x2 = x_of(d0) + .5, x_of(d1 - 1) + cell - .5
+        if above:
+            y = y_of(m) - 5
+            return (f'<path class="bk" d="M{x1:.1f} {y + 3:.1f}V{y:.1f}H{x2:.1f}V{y + 3:.1f}"/>'
+                    f'<text class="bt" x="{x1:.1f}" y="{y - 5:.1f}">{text}</text>')
+        y = y_of(m) + cell + 5
+        return (f'<path class="bk" d="M{x1:.1f} {y - 3:.1f}V{y:.1f}H{x2:.1f}V{y - 3:.1f}"/>'
+                f'<text class="bt" x="{x1:.1f}" y="{y + 14:.1f}">{text}</text>')
+    jan_ag, jan_ftc = segs[0], segs[1]
+    feb0 = MONTH_DAYS[0]
+    ag_len, ftc_len = jan_ag[1] - jan_ag[0], jan_ftc[1] - jan_ftc[0]
+    eu = segs[2]; rest = (segs[3][0], segs[-1][1])
+    o.append(bracket(0, jan_ag[0], jan_ag[1], f'State attorneys general · {ag_len} days' if not narrow else f'State AGs · {ag_len} days', True))
+    o.append(bracket(0, jan_ftc[0], jan_ftc[1], f'FTC · {ftc_len}', True))
+    o.append(bracket(1, eu[0] - feb0, eu[1] - feb0, f'EU · {eu[1] - eu[0]}', False))
+    o.append(bracket(1, rest[0] - feb0, rest[1] - feb0, f'Others · {rest[1] - rest[0]}', False))
+    o.append('</svg>')
+    return "".join(o), total
+
+def g2_html():
+    segs = g2_segments()
+    total_days = segs[-1][1]
+    import datetime as _dt
+    last = _dt.date(2025, 1, 1) + _dt.timedelta(days=total_days - 1)
+    wide, _ = g2_calendar(640, uid="w"); mid, _ = g2_calendar(560, uid="m"); narrow, _ = g2_calendar(350, narrow=True, uid="n")
+    rows = "".join(f'<li data-seg="{i}"><span>{esc(label)}<small>{esc(detail)}</small></span><b>{esc(shown)}</b></li>'
+                   for i, (label, detail, shown, _v, _s) in enumerate(TALLY))
+    total = sum(r[3] for r in TALLY)
+    return f'''<div class="money-grid" data-shot="money">
+      <figure class="g2">
+        <figcaption>
+          <p class="g-head">Meta took in enough revenue in 2025 to cover every fine and settlement in this record by <span class="kchip">{MONTHS[last.month - 1]} {last.day}</span>.</p>
+          <p class="g-method">Each square is one day of Meta’s 2025 revenue: ${REVENUE_2025} billion ÷ 365, about ${REVENUE_2025 / 365 * 1000:.0f} million a day. Penalties fill days from January 1 at their announced value, with euros counted one to one. The hatched days are the state settlement, which is paid over ten years.</p>
+        </figcaption>
+        <div class="uc-w">{wide}</div><div class="uc-m">{mid}</div><div class="uc-n">{narrow}</div>
+        <p class="g-source">Sources: revenue as reported by PBS NewsHour; penalties as linked in each entry.</p>
+      </figure>
+      <div>
+        <ul class="tally">{rows}<li class="sum"><span>Total</span><b>${total:.0f}B+</b></li></ul>
+        <p class="money-notes">The total is a minimum. It leaves out New Mexico’s $942 million judgment and other verdicts under appeal, damages still to be set in the Flo case, and more than 200,000 pending individual claims.</p>
+      </div>
+    </div>'''
+
 def ledger_html():
     groups = {}
     for e in ORDER: groups.setdefault(year(e["date"]), []).append(e)
@@ -317,6 +418,7 @@ def main():
     # ---- index ----
     body = open(os.path.join(SRC, "home.html"), encoding="utf-8").read()
     body = body.replace('<div class="g1-slot"></div>', g1_html())
+    body = body.replace('<div class="g2-slot"></div>', g2_html())
     body = re.sub(r'<span class="node" data-tier="(\w+)"></span>', lambda m: f'<span class="node" aria-hidden="true">{glyph(m.group(1))}</span>', body)
     body = body.replace('<div class="ledger" id="ledger"></div>', f'<div class="ledger" id="ledger">{ledger_html()}</div>')
     body = body.replace('<ol class="credit-list" id="creditlist"></ol>', f'<ol class="credit-list" id="creditlist">{credits_html()}</ol>')

@@ -268,23 +268,9 @@ p{margin:0 0 1em}
 /* ---------- money ---------- */
 .money{padding:clamp(5rem,12vh,9rem) 0}
 .money-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,6vw,6rem);margin-top:clamp(2.5rem,6vh,4rem);align-items:start}
-.cells{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:4px}
-.cell{aspect-ratio:1;border:1.5px solid var(--context);border-radius:1px}
-.cell.fill{background:var(--accent);border-color:var(--accent)}
-.cell{transition:opacity .25s,transform .25s}
-.cells.focus .cell.fill:not(.hl){opacity:.28}
-.cells.focus .cell.hl{transform:scale(1.12)}
-.cell.fill{cursor:pointer}
-.cells-hint{font-family:var(--display);font-size:.88rem;color:var(--muted);margin:.9rem 0 0;min-height:1.3em}
-.cells-hint b{color:var(--mark)}
-.tally li:not(.sum){cursor:default}
 .tally li b{transition:color .2s}
 .tally li.hl b,.tally li.hl > span{color:var(--mark)}
 .tally li:focus-visible{outline-offset:0}
-.cells-key{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:1rem;font-family:var(--display);font-size:.92rem;color:var(--muted)}
-.cells-key span{display:inline-flex;align-items:center;gap:.5rem}
-.cells-key i{width:.9rem;height:.9rem;display:inline-block;border:1.5px solid var(--context)}
-.cells-key i.f{background:var(--accent);border-color:var(--accent)}
 .tally{list-style:none;margin:0;padding:0;border-top:3px solid var(--fg)}
 .tally li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--rule);font-family:var(--display);font-size:1rem;align-items:baseline}
 .tally li b{font-weight:800;font-variation-settings:"wdth" 80;font-size:1.15rem;font-variant-numeric:tabular-nums}
@@ -394,8 +380,7 @@ p{margin:0 0 1em}
   .fopts .switch{flex-basis:100%}
   }
 @media (max-width:560px){
-  .cells{grid-template-columns:repeat(15,minmax(0,1fr));gap:3px}
-    }
+      }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
   html{scroll-behavior:auto}
@@ -524,3 +509,32 @@ p{margin:0 0 1em}
 }
 @media (min-width:1100px){ .navlinks{-webkit-mask-image:none;mask-image:none} }
 
+
+/* ---------- G2: penalties as days of 2025 revenue ---------- */
+.g2{margin:0}
+.g2 .g-head{max-width:36ch}
+.cal{display:block;overflow:visible;font-family:var(--display);font-variant-numeric:lining-nums tabular-nums}
+.cal .mo{font-size:12px;fill:var(--muted)}
+.cal .rev{fill:none;stroke:var(--context);stroke-width:1}
+.cal .pen{fill:var(--accent);transition:opacity .24s cubic-bezier(.4,0,.2,1)}
+.cal .owed-bg{fill:var(--accent)}
+.cal .owed-line{fill:var(--bg)}
+.cal .bk{fill:none;stroke:var(--fg);stroke-width:1}
+.cal .bt{font-size:12px;font-weight:600;fill:var(--fg)}
+.g2.focus .pen:not(.hl){opacity:.25}
+.tally li[data-seg]{cursor:default}
+.tally li.hl > span,.tally li.hl b{color:var(--accent)}
+.money-grid .uc-w,.money-grid .uc-m,.money-grid .uc-n{display:none}
+.money-grid .uc-w{display:block}
+@media (max-width:1180px){ .money-grid .uc-w{display:none} .money-grid .uc-m{display:block} }
+@media (max-width:980px){ .money-grid .uc-m{display:none} .money-grid .uc-w{display:block} }
+@media (max-width:700px){ .money-grid .uc-w{display:none} .money-grid .uc-n{display:block} }
+
+/* ---------- timeline: show the long gap, photo beside its step ---------- */
+.step .rail-gap{grid-column:3;grid-row:4;margin:2.5rem 0 0;font-family:var(--display);font-size:.9rem;font-style:italic;color:var(--muted)}
+@media (min-width:1100px){
+  .cycle{max-width:none}
+  .step.has-photo{grid-template-columns:var(--when) var(--node) minmax(0,36rem) minmax(0,1fr)}
+  .step.has-photo .step-photo{grid-column:4;grid-row:1 / span 4;margin:0 0 0 clamp(1.5rem,3vw,3rem);max-width:24rem;align-self:start}
+}
+@media (max-width:980px){ .step .rail-gap{grid-column:2;grid-row:6} }
