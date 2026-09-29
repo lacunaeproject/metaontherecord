@@ -33,8 +33,8 @@ const firstYear = Math.min(...years), lastYear = Math.max(...years);
 
 const tierCount = k => ENTRIES.filter(e => e.tier === k).length;
 $("#tierdefs").innerHTML = Object.entries(TIERS).map(([k, t]) =>
-  `<div><dt>${glyph(k)}${esc(t.label)}</dt><dd>${esc(t.def)}<br><a class="linkbtn tier-go" href="#record" data-go-tier="${k}">See the ${tierCount(k)} ${tierCount(k) === 1 ? "entry" : "entries"}</a></dd></div>`).join("") +
-  `<div><dt>${glyph("credit")}Credit</dt><dd>Something Meta did well, listed with the context it needs.<br><a class="linkbtn tier-go" href="#credits">See the ${CREDITS.length} credits</a></dd></div>`;
+  `<div><dt>${glyph(k)}${esc(t.label)}</dt><dd>${esc(t.def)}</dd><a class="tier-go" href="#record" data-go-tier="${k}">${tierCount(k)} ${tierCount(k) === 1 ? "entry" : "entries"}</a></div>`).join("") +
+  `<div><dt>${glyph("credit")}Credit</dt><dd>Something Meta did well, listed with the context it needs.</dd><a class="tier-go" href="#credits">${CREDITS.length} credits</a></div>`;
 
 $("#notes").innerHTML = NOTES.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
 
@@ -131,7 +131,7 @@ $("#q").addEventListener("input", e => { clearTimeout(qTimer); qTimer = setTimeo
 $("#showcredits").addEventListener("change", e => { state.credits = e.target.checked; update(); });
 $("#clear").addEventListener("click", () => { clearFilters(); update(); $("#q").focus(); });
 const sortBtn = $("#sort");
-sortBtn.addEventListener("click", () => { state.newest = !state.newest; sortBtn.setAttribute("aria-pressed", state.newest); update(); });
+sortBtn.addEventListener("click", () => { state.newest = !state.newest; sortBtn.lastChild.textContent = state.newest ? "Newest first" : "Oldest first"; update(); });
 $("#random").addEventListener("click", e => {
   const pick = ENTRIES[Math.floor(Math.random() * ENTRIES.length)];
   const btn = e.currentTarget; btn.classList.remove("spin"); void btn.offsetWidth; btn.classList.add("spin");
@@ -340,33 +340,6 @@ $("#tierdefs").addEventListener("click", e => {
   $("#filters").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
 });
 
-/* ---------- ticker of entries along the bottom of the hero ---------- */
-const tickItems = ENTRIES.filter(e => e.fig).slice().sort((a, b) => b.date.localeCompare(a.date));
-const tickHTML = hidden => tickItems.map(e =>
-  `<a class="tk" href="#e-${esc(e.id)}"${hidden ? ` tabindex="-1"` : ""}>${glyph(e.tier)}<span class="tk-y">${yearOf(e.date)}</span><span>${esc(e.title)}</span><b>${esc(e.fig)}</b></a>`).join("");
-const track = $("#tickertrack");
-track.innerHTML = tickHTML(false) + (reduceMotion ? "" : `<div style="display:contents" aria-hidden="true">${tickHTML(true)}</div>`);
-track.style.setProperty("--dur", `${tickItems.length * 4.5}s`);
-
-/* ---------- hero numbers count up ---------- */
-const counters = $$("[data-count]");
-counters[0].dataset.count = ENTRIES.length;
-counters[0].textContent = ENTRIES.length;
-counters[2].dataset.count = counters[2].textContent = Math.round(PENALTIES / REVENUE * 365);
-function countUp(delay = 0) {
-  if (reduceMotion) return;
-  counters.forEach((el, k) => {
-    const to = +el.dataset.count, t0 = performance.now() + delay + k * 160, dur = 1400;
-    el.textContent = "0";
-    const tick = now => {
-      const p = Math.min(1, Math.max(0, (now - t0) / dur));
-      el.textContent = Math.round(to * (1 - Math.pow(1 - p, 4)));
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  });
-}
-
 /* ---------- scroll: progress bar and the pattern timeline ---------- */
 const progress = $("#progress"), steps = $$(".step");
 document.documentElement.classList.add("tl");
@@ -408,7 +381,7 @@ const release = () => root.classList.remove("motion");
 setTimeout(() => { if (!heroStarted) release(); }, 3000);
 
 async function hero() {
-  if (!root.classList.contains("motion") || !window.gsap) { release(); countUp(); return; }
+  if (!root.classList.contains("motion") || !window.gsap) { release(); return; }
   try { await document.fonts.ready; } catch (_) {}
   heroStarted = true;
   const g = window.gsap;
@@ -425,20 +398,8 @@ async function hero() {
     .set(quake, { x: 0 })
     .to(bot, { x: "1.4vw", y: "0.8vw", rotation: 1.1, duration: .6, ease: "expo.out" })
     .to(top, { x: "-0.3vw", rotation: -.2, duration: .6, ease: "expo.out" }, "<")
-    .to(foot, { autoAlpha: 1, duration: .9, ease: "power2.out", onStart: () => countUp(150) }, "-=0.25")
-    .fromTo("#ticker", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .9, ease: "power3.out" }, "-=0.6");
+    .to(foot, { autoAlpha: 1, duration: .9, ease: "power2.out" }, "-=0.25");
 
-  /* the crack follows the pointer */
-  if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    const heroEl = $("#top");
-    heroEl.addEventListener("pointermove", e => {
-      const r = heroEl.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
-      bot.style.translate = `${px * 18}px ${py * 10 + Math.abs(px) * 6}px`;
-      top.style.translate = `${px * -6}px ${py * -4}px`;
-    });
-    heroEl.addEventListener("pointerleave", () => { bot.style.translate = top.style.translate = ""; });
-  }
 
   function driftOnScroll() {
     if (!window.ScrollTrigger) return;
