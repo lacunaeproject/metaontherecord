@@ -212,12 +212,32 @@ function toggleEntry(li, force) {
   $(".entry-head", li).setAttribute("aria-expanded", open);
 }
 
-/* ---------- G1: entries by year (drawn at build time; filters only change which squares are lit) ---------- */
-const squares = $$(".g1 .sq");
-function renderG1() {
-  const lit = isFiltered() ? new Set(ENTRIES.filter(matches).map(e => e.id)) : null;
-  squares.forEach(sq => sq.classList.toggle("off", !!lit && !lit.has(sq.dataset.id)));
+/* ---------- density strip ---------- */
+const dbars = $("#dbars"), daxis = $("#daxis");
+const span = []; for (let y = firstYear; y <= lastYear; y++) span.push(y);
+document.documentElement.style.setProperty("--years", span.length);
+const totals = Object.fromEntries(span.map(y => [y, ENTRIES.filter(e => yearOf(e.date) === y).length]));
+const maxTotal = Math.max(...Object.values(totals));
+const labelYears = new Set([firstYear, 2010, 2014, 2018, 2022, lastYear]);
+dbars.innerHTML = span.map((y, i) => `<button class="dbar${i < 3 ? " tip-l" : i > span.length - 4 ? " tip-r" : ""}" style="--i:${i}" data-year="${y}" data-tip="${y} · ${totals[y]} ${totals[y] === 1 ? "entry" : "entries"}" ${totals[y] ? "" : "disabled"} aria-label="${y}: ${totals[y]} ${totals[y] === 1 ? "entry" : "entries"}"><span class="tot" style="height:${totals[y] ? Math.max(6, totals[y] / maxTotal * 100) : 2}%"><span class="hit"></span></span></button>`).join("");
+daxis.innerHTML = span.map(y => `<span class="${labelYears.has(y) ? "show" : ""}">${labelYears.has(y) ? y : ""}</span>`).join("");
+const recent = ENTRIES.filter(e => yearOf(e.date) >= 2021).length;
+function renderDensity() {
+  span.forEach(y => {
+    const hits = ENTRIES.filter(e => yearOf(e.date) === y && matches(e)).length;
+    const bar = $(`.dbar[data-year="${y}"] .hit`, dbars);
+    bar.style.height = totals[y] ? `${hits / totals[y] * 100}%` : "0";
+  });
+  $("#dnote").textContent = isFiltered()
+    ? "Entries per year. Blue shows entries matching your filters."
+    : `Entries per year. ${recent} of the ${ENTRIES.length} entries date from 2021 or later.`;
 }
+dbars.addEventListener("click", e => {
+  const b = e.target.closest(".dbar"); if (!b || b.disabled) return;
+  const y = b.dataset.year;
+  if (!$(`#y${y}`)) { clearFilters(); update(); }
+  const target = $(`#y${y}`); if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+});
 
 /* ---------- sticky offsets ---------- */
 function measureFilters() {
@@ -227,7 +247,7 @@ function measureFilters() {
   $("#fbarsum").innerHTML = `<b>${shown} of ${ENTRIES.length} entries</b>${parts.length ? ": " + esc(parts.join(", ")) : ", all topics and evidence"}`;
 }
 
-function update() { syncChips(); renderLedger(); renderG1(); measureFilters(); }
+function update() { syncChips(); renderLedger(); renderDensity(); measureFilters(); }
 update();
 
 /* deep links */
@@ -275,24 +295,41 @@ fbarBtn.addEventListener("click", () => {
   setTimeout(() => $("#q").focus({ preventScroll: true }), reduceMotion ? 0 : 450);
 });
 
-/* ---------- money calendar: a tally line and its days light together (the breakdown is also printed) ---------- */
-const tallyRows = $$(".tally li[data-seg]"), dayCells = $$(".g2 .pen");
-function lightSeg(i) {
-  const on = i != null;
-  $(".g2").classList.toggle("focus", on);
-  tallyRows.forEach(r => r.classList.toggle("hl", r.dataset.seg === i));
-  dayCells.forEach(c => c.classList.toggle("hl", c.dataset.seg === i));
+/* ---------- money grid ---------- */
+const cells = $("#cells");
+const REVENUE = 201, PENALTIES = 25;
+cells.innerHTML = Array.from({ length: REVENUE }, (_, i) =>
+  `<span class="cell${i < PENALTIES ? " fill" : ""}"${i < PENALTIES && !reduceMotion ? ` style="transition-delay:${i * 45}ms"` : ""}></span>`).join("");
+if (reduceMotion) cells.classList.add("on");
+else new IntersectionObserver(([en], o) => { if (en.isIntersecting) { cells.classList.add("on"); o.disconnect(); } }, { threshold: .45 }).observe(cells);
+
+/* each tally line lights up its share of the squares (euros counted one to one, as in the total) */
+const SHARES = [12.1, 5, 4.0, 1.4, 1, 0.725, 0.65, 0.6];
+const rows = $$(".tally li:not(.sum)"), cellEls = $$(".cell.fill", cells), hint = $("#cellshint");
+const defaultHint = matchMedia("(hover: hover)").matches ? "Point to a line in the tally to see its share." : "Tap a line in the tally to see its share.";
+hint.textContent = defaultHint;
+let cum = 0;
+const ranges = SHARES.map(v => { const a = Math.round(cum); cum += v; return [a, Math.min(PENALTIES, Math.round(cum))]; });
+function lightRow(i) {
+  rows.forEach((r, j) => r.classList.toggle("hl", j === i));
+  cells.classList.toggle("focus", i >= 0);
+  cellEls.forEach((c, j) => c.classList.toggle("hl", i >= 0 && j >= ranges[i][0] && j < ranges[i][1]));
+  if (i < 0) { hint.textContent = defaultHint; return; }
+  const [label] = rows[i].querySelector("span").childNodes;
+  const n = ranges[i][1] - ranges[i][0];
+  hint.innerHTML = `<b>${esc(rows[i].querySelector("b").textContent)}</b> · ${esc(label.textContent.trim())}: ${n ? `about ${n} ${n === 1 ? "square" : "squares"}` : "less than one square"}`;
 }
-tallyRows.forEach(r => {
+rows.forEach((r, i) => {
   r.tabIndex = 0;
-  r.addEventListener("mouseenter", () => lightSeg(r.dataset.seg));
-  r.addEventListener("focus", () => lightSeg(r.dataset.seg));
-  r.addEventListener("mouseleave", () => lightSeg(null));
-  r.addEventListener("blur", () => lightSeg(null));
+  r.addEventListener("mouseenter", () => lightRow(i));
+  r.addEventListener("focus", () => lightRow(i));
+  r.addEventListener("mouseleave", () => lightRow(-1));
+  r.addEventListener("blur", () => lightRow(-1));
 });
-dayCells.forEach(c => {
-  c.addEventListener("mouseenter", () => lightSeg(c.dataset.seg));
-  c.addEventListener("mouseleave", () => lightSeg(null));
+cellEls.forEach((c, j) => {
+  const i = ranges.findIndex(([a, b]) => j >= a && j < b);
+  c.addEventListener("mouseenter", () => lightRow(i));
+  c.addEventListener("mouseleave", () => lightRow(-1));
 });
 
 /* ---------- tier definitions filter the record ---------- */
@@ -303,21 +340,39 @@ $("#tierdefs").addEventListener("click", e => {
   $("#filters").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
 });
 
-/* ---------- hero crack: aim it through "break" wherever the motto wraps ---------- */
-function placeCrack() {
-  const quake = $("#quake"), line = $(".shard-top .m2 > span"), text = line && line.firstChild;
-  if (!quake || !text || text.nodeType !== 3) return;
-  const i = text.data.indexOf("break"); if (i < 0) return;
-  const range = document.createRange(); range.setStart(text, i); range.setEnd(text, i + 5);
-  const r = range.getBoundingClientRect(), q = quake.getBoundingClientRect();
-  if (!q.height || !r.height) return;
-  // the desktop crack sat at 71% of the box with 1% steps; keep that shape, scaled to the size of the type
-  quake.style.setProperty("--cy", `${r.top - q.top + r.height * .56}px`);
-  quake.style.setProperty("--ca", `${r.height / 52}px`);
+/* ---------- scroll: progress bar and the pattern timeline ---------- */
+const progress = $("#progress"), steps = $$(".step");
+document.documentElement.classList.add("tl");
+function onScroll() {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  progress.style.setProperty("--p", max > 0 ? scrollY / max : 0);
+  const line = innerHeight * .6;
+  const nodes = steps.map(st => { const r = st.getBoundingClientRect(); return r.top + parseFloat(getComputedStyle(st).paddingTop) + 12; });
+  steps.forEach((st, i) => {
+    st.classList.toggle("lit", nodes[i] < line);
+    if (i < steps.length - 1) st.style.setProperty("--seg", `${Math.max(0, Math.min(1, (line - nodes[i]) / (nodes[i + 1] - nodes[i]))) * 100}%`);
+  });
 }
-placeCrack();
-document.fonts && document.fonts.ready.then(placeCrack);
-addEventListener("resize", () => { clearTimeout(window.__crack); window.__crack = setTimeout(placeCrack, 120); });
+let scrollQueued = false;
+addEventListener("scroll", () => { if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(() => { scrollQueued = false; onScroll(); }); } }, { passive: true });
+addEventListener("resize", onScroll);
+onScroll();
+
+/* ---------- reveals ---------- */
+if (!reduceMotion && "IntersectionObserver" in window) {
+  document.documentElement.classList.add("reveal");
+  $$("main .h-section").forEach(h => {
+    let wi = 0;
+    h.innerHTML = h.textContent.trim().split(/\s+/).map(w => `<span class="w"><span style="--wi:${wi++}">${esc(w)}</span></span>`).join(" ");
+  });
+  const groups = [".h-section", "main .intro", ".coda", ".story-photo", ".story", ".tally", ".money-grid figure", ".credit-row", ".stance", ".tiers > div", ".method-cols > div", ".density"];
+  const rvObs = new IntersectionObserver(ens => ens.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); rvObs.unobserve(en.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  groups.forEach(sel => $$(sel).forEach((el, i) => {
+    el.classList.add("rv");
+    if (/credit-row|tiers/.test(sel)) el.style.setProperty("--d", `${(i % 4) * 90}ms`);
+    rvObs.observe(el);
+  }));
+}
 
 /* ---------- hero: the one kinetic moment ---------- */
 const root = document.documentElement;
