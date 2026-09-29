@@ -243,8 +243,8 @@ def main():
     body = body.replace('<div class="notes" id="notes"></div>', f'<div class="notes" id="notes">{notes}</div>')
     body = re.sub(r'<span class="tierline" data-tier="(\w+)"></span>',
                   lambda m: f'<span class="tierline" data-tier="{m.group(1)}">{glyph(m.group(1))}{esc(tier_label(m.group(1)))}</span>', body)
-    body = body.replace(f'<p class="hero-meta" id="herometa">Updated September 27, 2026</p>',
-                        f'<p class="hero-meta" id="herometa">{len(ENTRIES)} entries from {year(ORDER[0]["date"])} to {year(ORDER[-1]["date"])}. Updated September 27, 2026.</p>')
+    body = body.replace('<span data-count="51">51</span></b><span class="hs-cap">entries from 2007 to 2026,',
+                        f'<span data-count="{len(ENTRIES)}">{len(ENTRIES)}</span></b><span class="hs-cap">entries from {year(ORDER[0]["date"])} to {year(ORDER[-1]["date"])},')
     # swap the page footer for the shared one with topic links and data downloads
     body = re.sub(r'<footer class="foot">.*?</footer>', footer(), body, flags=re.S)
     body = body.replace('<a class="btn btn-ghost" href="#method">How evidence is labeled</a>',

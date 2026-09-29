@@ -55,6 +55,7 @@
       <a href="#method">How we know</a>
     </div>
   </div>
+  <span class="progress" id="progress" aria-hidden="true"></span>
 </nav>
 
 <div class="fbar" id="fbar" aria-hidden="true">
@@ -82,16 +83,30 @@
       </div>
     </div>
     <div class="hero-foot" id="herofoot">
-      <p class="lede">That was Facebook’s motto for its first decade. <strong>Meta on the Record</strong> collects the court rulings, regulatory findings and reported events that followed, each labeled by strength of evidence and linked to its sources. It also records what Meta did well.</p>
-      <div>
-        <div class="hero-actions">
-          <a class="btn btn-solid" href="#record">Read the record</a>
-          <a class="btn btn-ghost" href="#method">How evidence is labeled</a>
+      <div class="hero-copy">
+        <p class="lede">That was Facebook’s motto for its first decade. <strong>Meta on the Record</strong> collects the court rulings, regulatory findings and reported events that followed, each labeled by strength of evidence and linked to its sources. It also records what Meta did well.</p>
+        <div>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#record">Read the record <span class="btn-arrow" aria-hidden="true">↓</span></a>
+            <a class="btn btn-ghost" href="#method">How evidence is labeled</a>
+          </div>
+          <p class="hero-ai">Researched, written and organized with AI (Anthropic’s Claude). Every entry links to its sources. <a href="#made">How this was made</a></p>
+          <p class="hero-meta" id="herometa">Updated September 27, 2026.</p>
         </div>
-        <p class="hero-ai">Researched, written and organized with AI (Anthropic’s Claude). Every entry links to its sources. <a href="#made">How this was made</a></p>
-        <p class="hero-meta" id="herometa">51 entries from 2007 to 2026. Updated September 27, 2026.</p>
       </div>
+      <ul class="hero-stats" aria-label="The record in numbers">
+        <li><a href="#record"><b class="hs-num"><span data-count="51">51</span></b><span class="hs-cap">entries from 2007 to 2026, each linked to its sources</span></a></li>
+        <li><a href="#money"><b class="hs-num">$<span data-count="25">25</span>B+</b><span class="hs-cap">in fines and settlements since 2009</span></a></li>
+        <li><a href="#money"><b class="hs-num">~<span data-count="45">45</span> days</b><span class="hs-cap">of Meta’s 2025 revenue equals $25 billion</span></a></li>
+      </ul>
     </div>
+  </div>
+  <div class="ticker" id="ticker">
+    <div class="wrap ticker-bar">
+      <span class="ticker-label"><span class="ticker-dot" aria-hidden="true"></span>From the record</span>
+      <a class="ticker-cue" href="#pattern">Scroll to begin <span aria-hidden="true">↓</span></a>
+    </div>
+    <nav class="ticker-view" aria-label="Entries in the record"><div class="ticker-track" id="tickertrack"></div></nav>
   </div>
 </header>
 
@@ -168,9 +183,12 @@
         </div>
         <label class="search"><span class="sr-only">Search the record</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
-          <input type="search" id="q" placeholder="Search names, places, laws" autocomplete="off">
+          <input type="search" id="q" placeholder="Search names, places, laws" autocomplete="off" aria-keyshortcuts="/">
+          <kbd class="kbd" aria-hidden="true">/</kbd>
         </label>
         <label class="switch"><input type="checkbox" id="showcredits"> Include what Meta got right</label>
+        <button class="chip" id="sort" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 2.5v11M2 10.5l3 3 3-3M11 13.5v-11M8 5.5l3-3 3 3"/></svg>Newest first</button>
+        <button class="chip" id="random"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.75" y="1.75" width="12.5" height="12.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="5.3" cy="5.3" r="1.2" fill="currentColor"/><circle cx="8" cy="8" r="1.2" fill="currentColor"/><circle cx="10.7" cy="10.7" r="1.2" fill="currentColor"/></svg>Random entry</button>
         <span class="count" id="count" aria-live="polite"></span>
         <button class="linkbtn" id="clear" hidden>Clear filters</button>
       </div>
@@ -1248,6 +1266,7 @@
     <div class="money-grid">
       <figure style="margin:0">
         <div class="cells" id="cells" role="img" aria-label="201 squares represent Meta’s 2025 revenue of 201 billion dollars. 25 highlighted squares represent more than 25 billion dollars in penalties and settlements since 2009."></div>
+        <p class="cells-hint" id="cellshint" aria-hidden="true">Point to a line in the tally to see its share.</p>
         <figcaption class="cells-key"><span><i class="f"></i>$1 billion in penalties and settlements, 2009 to 2026</span><span><i></i>$1 billion of revenue in 2025</span></figcaption>
       </figure>
       <div>

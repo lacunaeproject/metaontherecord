@@ -30,11 +30,11 @@ $$(".tierline[data-tier]").forEach(el => { el.innerHTML = glyph(el.dataset.tier)
 
 const years = ENTRIES.map(e => yearOf(e.date));
 const firstYear = Math.min(...years), lastYear = Math.max(...years);
-$("#herometa").textContent = `${ENTRIES.length} entries from ${firstYear} to ${lastYear}. Updated September 27, 2026.`;
 
+const tierCount = k => ENTRIES.filter(e => e.tier === k).length;
 $("#tierdefs").innerHTML = Object.entries(TIERS).map(([k, t]) =>
-  `<div><dt>${glyph(k)}${esc(t.label)}</dt><dd>${esc(t.def)}</dd></div>`).join("") +
-  `<div><dt>${glyph("credit")}Credit</dt><dd>Something Meta did well, listed with the context it needs.</dd></div>`;
+  `<div><dt>${glyph(k)}${esc(t.label)}</dt><dd>${esc(t.def)}<br><a class="linkbtn tier-go" href="#record" data-go-tier="${k}">See the ${tierCount(k)} ${tierCount(k) === 1 ? "entry" : "entries"}</a></dd></div>`).join("") +
+  `<div><dt>${glyph("credit")}Credit</dt><dd>Something Meta did well, listed with the context it needs.<br><a class="linkbtn tier-go" href="#credits">See the ${CREDITS.length} credits</a></dd></div>`;
 
 $("#notes").innerHTML = NOTES.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
 
@@ -130,6 +130,19 @@ let qTimer;
 $("#q").addEventListener("input", e => { clearTimeout(qTimer); qTimer = setTimeout(() => { state.q = e.target.value.trim().toLowerCase(); update(); }, 140); });
 $("#showcredits").addEventListener("change", e => { state.credits = e.target.checked; update(); });
 $("#clear").addEventListener("click", () => { clearFilters(); update(); $("#q").focus(); });
+const sortBtn = $("#sort");
+sortBtn.addEventListener("click", () => { state.newest = !state.newest; sortBtn.setAttribute("aria-pressed", state.newest); update(); });
+$("#random").addEventListener("click", e => {
+  const pick = ENTRIES[Math.floor(Math.random() * ENTRIES.length)];
+  const btn = e.currentTarget; btn.classList.remove("spin"); void btn.offsetWidth; btn.classList.add("spin");
+  if (location.hash === "#e-" + pick.id) openFromHash(); else location.hash = "e-" + pick.id;
+});
+document.addEventListener("keydown", e => {
+  if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey || e.target.closest("input, textarea, select, [contenteditable]")) return;
+  e.preventDefault();
+  $("#filters").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  $("#q").focus({ preventScroll: true });
+});
 function clearFilters() { state.themes.clear(); state.tiers.clear(); state.q = ""; $("#q").value = ""; }
 
 /* ---------- ledger ---------- */
@@ -206,7 +219,7 @@ document.documentElement.style.setProperty("--years", span.length);
 const totals = Object.fromEntries(span.map(y => [y, ENTRIES.filter(e => yearOf(e.date) === y).length]));
 const maxTotal = Math.max(...Object.values(totals));
 const labelYears = new Set([firstYear, 2010, 2014, 2018, 2022, lastYear]);
-dbars.innerHTML = span.map(y => `<button class="dbar" data-year="${y}" ${totals[y] ? "" : "disabled"} aria-label="${y}: ${totals[y]} ${totals[y] === 1 ? "entry" : "entries"}"><span class="tot" style="height:${totals[y] ? Math.max(6, totals[y] / maxTotal * 100) : 2}%"><span class="hit"></span></span></button>`).join("");
+dbars.innerHTML = span.map((y, i) => `<button class="dbar${i < 3 ? " tip-l" : i > span.length - 4 ? " tip-r" : ""}" style="--i:${i}" data-year="${y}" data-tip="${y} · ${totals[y]} ${totals[y] === 1 ? "entry" : "entries"}" ${totals[y] ? "" : "disabled"} aria-label="${y}: ${totals[y]} ${totals[y] === 1 ? "entry" : "entries"}"><span class="tot" style="height:${totals[y] ? Math.max(6, totals[y] / maxTotal * 100) : 2}%"><span class="hit"></span></span></button>`).join("");
 daxis.innerHTML = span.map(y => `<span class="${labelYears.has(y) ? "show" : ""}">${labelYears.has(y) ? y : ""}</span>`).join("");
 const recent = ENTRIES.filter(e => yearOf(e.date) >= 2021).length;
 function renderDensity() {
@@ -243,7 +256,10 @@ function openFromHash() {
   if (!id.startsWith("e-")) return;
   let li = document.getElementById(id);
   if (!li) { clearFilters(); if (id.startsWith("e-c-")) { state.credits = true; $("#showcredits").checked = true; } update(); li = document.getElementById(id); }
-  if (li) { toggleEntry(li, true); setTimeout(() => li.scrollIntoView({ block: "start" }), 60); }
+  if (li) {
+    toggleEntry(li, true);
+    setTimeout(() => { li.scrollIntoView({ block: "start" }); li.classList.remove("flash"); void li.offsetWidth; li.classList.add("flash"); }, 60);
+  }
 }
 openFromHash();
 window.addEventListener("hashchange", openFromHash);
@@ -287,6 +303,104 @@ cells.innerHTML = Array.from({ length: REVENUE }, (_, i) =>
 if (reduceMotion) cells.classList.add("on");
 else new IntersectionObserver(([en], o) => { if (en.isIntersecting) { cells.classList.add("on"); o.disconnect(); } }, { threshold: .45 }).observe(cells);
 
+/* each tally line lights up its share of the squares (euros counted one to one, as in the total) */
+const SHARES = [12.1, 5, 4.0, 1.4, 1, 0.725, 0.65, 0.6];
+const rows = $$(".tally li:not(.sum)"), cellEls = $$(".cell.fill", cells), hint = $("#cellshint");
+const defaultHint = matchMedia("(hover: hover)").matches ? "Point to a line in the tally to see its share." : "Tap a line in the tally to see its share.";
+hint.textContent = defaultHint;
+let cum = 0;
+const ranges = SHARES.map(v => { const a = Math.round(cum); cum += v; return [a, Math.min(PENALTIES, Math.round(cum))]; });
+function lightRow(i) {
+  rows.forEach((r, j) => r.classList.toggle("hl", j === i));
+  cells.classList.toggle("focus", i >= 0);
+  cellEls.forEach((c, j) => c.classList.toggle("hl", i >= 0 && j >= ranges[i][0] && j < ranges[i][1]));
+  if (i < 0) { hint.textContent = defaultHint; return; }
+  const [label] = rows[i].querySelector("span").childNodes;
+  const n = ranges[i][1] - ranges[i][0];
+  hint.innerHTML = `<b>${esc(rows[i].querySelector("b").textContent)}</b> · ${esc(label.textContent.trim())}: ${n ? `about ${n} ${n === 1 ? "square" : "squares"}` : "less than one square"}`;
+}
+rows.forEach((r, i) => {
+  r.tabIndex = 0;
+  r.addEventListener("mouseenter", () => lightRow(i));
+  r.addEventListener("focus", () => lightRow(i));
+  r.addEventListener("mouseleave", () => lightRow(-1));
+  r.addEventListener("blur", () => lightRow(-1));
+});
+cellEls.forEach((c, j) => {
+  const i = ranges.findIndex(([a, b]) => j >= a && j < b);
+  c.addEventListener("mouseenter", () => lightRow(i));
+  c.addEventListener("mouseleave", () => lightRow(-1));
+});
+
+/* ---------- tier definitions filter the record ---------- */
+$("#tierdefs").addEventListener("click", e => {
+  const a = e.target.closest("[data-go-tier]"); if (!a) return;
+  e.preventDefault();
+  clearFilters(); state.tiers.add(a.dataset.goTier); update();
+  $("#filters").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+});
+
+/* ---------- ticker of entries along the bottom of the hero ---------- */
+const tickItems = ENTRIES.filter(e => e.fig).slice().sort((a, b) => b.date.localeCompare(a.date));
+const tickHTML = hidden => tickItems.map(e =>
+  `<a class="tk" href="#e-${esc(e.id)}"${hidden ? ` tabindex="-1"` : ""}>${glyph(e.tier)}<span class="tk-y">${yearOf(e.date)}</span><span>${esc(e.title)}</span><b>${esc(e.fig)}</b></a>`).join("");
+const track = $("#tickertrack");
+track.innerHTML = tickHTML(false) + (reduceMotion ? "" : `<div style="display:contents" aria-hidden="true">${tickHTML(true)}</div>`);
+track.style.setProperty("--dur", `${tickItems.length * 4.5}s`);
+
+/* ---------- hero numbers count up ---------- */
+const counters = $$("[data-count]");
+counters[0].dataset.count = ENTRIES.length;
+counters[0].textContent = ENTRIES.length;
+counters[2].dataset.count = counters[2].textContent = Math.round(PENALTIES / REVENUE * 365);
+function countUp(delay = 0) {
+  if (reduceMotion) return;
+  counters.forEach((el, k) => {
+    const to = +el.dataset.count, t0 = performance.now() + delay + k * 160, dur = 1400;
+    el.textContent = "0";
+    const tick = now => {
+      const p = Math.min(1, Math.max(0, (now - t0) / dur));
+      el.textContent = Math.round(to * (1 - Math.pow(1 - p, 4)));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}
+
+/* ---------- scroll: progress bar and the pattern timeline ---------- */
+const progress = $("#progress"), steps = $$(".step");
+document.documentElement.classList.add("tl");
+function onScroll() {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  progress.style.setProperty("--p", max > 0 ? scrollY / max : 0);
+  const line = innerHeight * .6;
+  const nodes = steps.map(st => { const r = st.getBoundingClientRect(); return r.top + parseFloat(getComputedStyle(st).paddingTop) + 12; });
+  steps.forEach((st, i) => {
+    st.classList.toggle("lit", nodes[i] < line);
+    if (i < steps.length - 1) st.style.setProperty("--seg", `${Math.max(0, Math.min(1, (line - nodes[i]) / (nodes[i + 1] - nodes[i]))) * 100}%`);
+  });
+}
+let scrollQueued = false;
+addEventListener("scroll", () => { if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(() => { scrollQueued = false; onScroll(); }); } }, { passive: true });
+addEventListener("resize", onScroll);
+onScroll();
+
+/* ---------- reveals ---------- */
+if (!reduceMotion && "IntersectionObserver" in window) {
+  document.documentElement.classList.add("reveal");
+  $$("main .h-section").forEach(h => {
+    let wi = 0;
+    h.innerHTML = h.textContent.trim().split(/\s+/).map(w => `<span class="w"><span style="--wi:${wi++}">${esc(w)}</span></span>`).join(" ");
+  });
+  const groups = [".h-section", "main .intro", ".coda", ".story", ".tally", ".money-grid figure", ".credit-row", ".stance", ".tiers > div", ".method-cols > div", ".density"];
+  const rvObs = new IntersectionObserver(ens => ens.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); rvObs.unobserve(en.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  groups.forEach(sel => $$(sel).forEach((el, i) => {
+    el.classList.add("rv");
+    if (/credit-row|tiers/.test(sel)) el.style.setProperty("--d", `${(i % 4) * 90}ms`);
+    rvObs.observe(el);
+  }));
+}
+
 /* ---------- hero: the one kinetic moment ---------- */
 const root = document.documentElement;
 let heroStarted = false;
@@ -294,7 +408,7 @@ const release = () => root.classList.remove("motion");
 setTimeout(() => { if (!heroStarted) release(); }, 3000);
 
 async function hero() {
-  if (!root.classList.contains("motion") || !window.gsap) { release(); return; }
+  if (!root.classList.contains("motion") || !window.gsap) { release(); countUp(); return; }
   try { await document.fonts.ready; } catch (_) {}
   heroStarted = true;
   const g = window.gsap;
@@ -311,7 +425,20 @@ async function hero() {
     .set(quake, { x: 0 })
     .to(bot, { x: "1.4vw", y: "0.8vw", rotation: 1.1, duration: .6, ease: "expo.out" })
     .to(top, { x: "-0.3vw", rotation: -.2, duration: .6, ease: "expo.out" }, "<")
-    .to(foot, { autoAlpha: 1, duration: .9, ease: "power2.out" }, "-=0.25");
+    .to(foot, { autoAlpha: 1, duration: .9, ease: "power2.out", onStart: () => countUp(150) }, "-=0.25")
+    .fromTo("#ticker", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .9, ease: "power3.out" }, "-=0.6");
+
+  /* the crack follows the pointer */
+  if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    const heroEl = $("#top");
+    heroEl.addEventListener("pointermove", e => {
+      const r = heroEl.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      bot.style.translate = `${px * 18}px ${py * 10 + Math.abs(px) * 6}px`;
+      top.style.translate = `${px * -6}px ${py * -4}px`;
+    });
+    heroEl.addEventListener("pointerleave", () => { bot.style.translate = top.style.translate = ""; });
+  }
 
   function driftOnScroll() {
     if (!window.ScrollTrigger) return;
